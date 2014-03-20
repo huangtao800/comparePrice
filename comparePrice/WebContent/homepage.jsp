@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,8 +30,7 @@
           	</ul>
           
           	<div class="navbar-form navbar-right nav navbar-nav" >
-				<a href="#" class="btn btn-success">Login</a>         
-				<a href="#" class="btn btn-success">Register</a>
+          		<s:action name="userBar" executeResult="true"></s:action>
 			</div> 
         </div>
       </div>

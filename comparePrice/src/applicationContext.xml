@@ -22,7 +22,19 @@
 	default-lazy-init="false">
 	
 	<description>Spring公共配置文件</description>
+	
 	<!-- Basic Part Begin -->
+	<!-- Actions -->
+	<bean id="userBarAction" class="edu.nju.comparePrice.actions.UserBarAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
+	<!-- Services -->
+	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
+	</bean>
+	
 	<!-- 定义受环境影响易变的变量 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

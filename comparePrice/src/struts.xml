@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-      "http://struts.apache.org/dtds/struts-2.0.dtd">
-  <struts>
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
-      <package name="struts2" namespace="/comparePrice"
-          extends="struts-default">
-		<action name="xxx" class="xxxAction">
-
-			<result name="xxx">/xxx.jsp</result>
-
-			<result name="xxx">/xxx.jsp</result>
-			
-
+<struts>
+	<package name="struts2" extends="struts-default">
+		<action name="userBar" class="userBarAction">
+			<result name="logon">/userBar.jsp</result>
+			<result name="notLogon">/notLogonBar.jsp</result>
 		</action>
+		
+		<action name="userLogin" class="userLoginAction">
+			<result name="logon">/userBar.jsp</result>
+			<result name="notLogon">/notLogonBar.jsp</result>
+		</action>
+		
+		<action name="userBar" class="userBarAction">
+			<result name="logon">/userBar.jsp</result>
+			<result name="notLogon">/notLogonBar.jsp</result>
+		</action>
+	</package>
 
-      </package>
-  </struts>
+</struts>
