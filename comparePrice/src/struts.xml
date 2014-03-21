@@ -22,6 +22,15 @@
 		<action name="userRegister" class="userRegisterAction">
 			<result name="success" type="redirect">/homepage.jsp</result>
 		</action>
+		
+		<action name="commoditySortByPrice" class="commoditySortAction" method="sortByPrice">
+			<result name="success" type="redirect">/commodityList.jsp</result>
+		</action>
+		
+		<action name="commoditySortByBrand" class="commoditySortAction" method="sortByBrand">
+			<result name="success" type="redirect">/commodityList.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>

@@ -127,5 +127,10 @@ public class Commodity implements java.io.Serializable {
 	public void setComments(Set comments) {
 		this.comments = comments;
 	}
+	
+	
+	public int getWeight(){
+		return brand.getWeight();
+	}
 
 }
