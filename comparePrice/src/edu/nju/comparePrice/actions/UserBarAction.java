@@ -26,7 +26,7 @@ public class UserBarAction extends BaseAction{
 			return "notLogon";
 		} else {
 			this.id = id;
-			this.user = userService.find(id);
+			this.user = userService.findUser(id);
 			return "logon";
 		}
 		

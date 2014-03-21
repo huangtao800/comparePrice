@@ -6,8 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Login</title>
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,7 @@
       </form>
     </div> <!-- /container -->
 
-    <script src="js/jquery-2.1.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-2.1.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

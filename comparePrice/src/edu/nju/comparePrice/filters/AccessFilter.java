@@ -30,13 +30,14 @@ public class AccessFilter extends HttpServlet implements Filter{
 			FilterChain chain) throws IOException, ServletException {
     	String ip = request.getRemoteAddr();
     	
-    	boolean canAccess = attackDetector.analyzeIP(ip);
-    	if (canAccess) {
+//    	boolean canAccess = attackDetector.analyzeIP(ip);
+//    	if (canAccess) {
+//    		chain.doFilter(request, response); 
+//    	} else {
+//    		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
+//    		httpServletResponse.sendRedirect("http://www.jsga.gov.cn/www/jsga/2010/index.htm");
+//    	}
     		chain.doFilter(request, response); 
-    	} else {
-    		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-    		httpServletResponse.sendRedirect("http://www.jsga.gov.cn/www/jsga/2010/index.htm");
-    	}
 	}
 
 }

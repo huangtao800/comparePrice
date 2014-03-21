@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>compare price</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/homepage.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/homepage.css" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,7 +40,7 @@
           	</div>
         </form>
     </div>
-	<script src="js/jquery-2.1.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="../js/jquery-2.1.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
