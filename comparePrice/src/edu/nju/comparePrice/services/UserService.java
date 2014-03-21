@@ -30,4 +30,11 @@ public class UserService {
 			return VerifyResult.PASS;
 		}
 	}
+	
+	/**
+	 * @return 用户id
+	 */
+	public int register(String username, String password) {
+		return 123;
+	}
 }

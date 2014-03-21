@@ -15,10 +15,10 @@
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<%String failMsg = (String)session.getAttribute("fail");
 		if (failMsg != null) {%>
-		<span class="error">123<%=failMsg%></span>
+		<span class="error"><%=failMsg%></span>
 		<%} %>
-        <input type="text" class="form-control" placeholder="ID" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="text" class="form-control" name="userId" placeholder="ID" required autofocus>
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
     </div> <!-- /container -->

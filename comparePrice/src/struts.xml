@@ -10,14 +10,17 @@
 			<result name="notLogon">/notLogonBar.jsp</result>
 		</action>
 		
-		<action name="userLogin" class="userLoginAction">
-			<result name="logon">/userBar.jsp</result>
-			<result name="notLogon">/notLogonBar.jsp</result>
+		<action name="userLogin" class="userLoginAction" method="login">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/login.jsp</result>
 		</action>
 		
-		<action name="userBar" class="userBarAction">
-			<result name="logon">/userBar.jsp</result>
-			<result name="notLogon">/notLogonBar.jsp</result>
+		<action name="userLogout" class="userLoginAction" method="logout">
+			<result name="success" type="redirect">/homepage.jsp</result>
+		</action>
+		
+		<action name="userRegister" class="userRegisterAction">
+			<result name="success" type="redirect">/homepage.jsp</result>
 		</action>
 	</package>
 

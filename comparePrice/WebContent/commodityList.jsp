@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>compare price</title>
+<title>commodities</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/homepage.css" rel="stylesheet">
+<link href="css/commodityList.css" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,18 +29,30 @@
       </div>
     </div>
     
-    <div class="container text-center">
-        <h1>Welcome to iBiJia</h1>
-        <form action="" class="form-inline" method="post">
-          	<div class="form-group" id="waitlist_email_group">
-            	<input class="form-control input-lg waitlist-email" name="search" placeholder="Enter commodity infomation" size="40">
+    <div class="container">
+    <form action="" class="form-inline" method="post">
+          	<div class="form-group">
+            	<input class="form-control input-lg" name="search" placeholder="Enter commodity infomation" size="40">
           	</div>
           	<div class="form-group">
-            	<button class="btn btn-lg btn-default" type="submit">Get Access</button>
+            	<button class="btn btn-lg btn-default" type="submit">比价一下</button>
           	</div>
-        </form>
-    </div>
-	<script src="js/jquery-2.1.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    </form>
+    
+	<div class="row">
+		<div class="span6">
+			<h3>XXXXXXXX</h3>
+			<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+			<a class="btn btn-success pull-right">查看评论</a>
+		</div>
+		<div class="span6">
+			<h3>XXXXXXXX</h3>
+			<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+			<a class="btn btn-success pull-right">查看评论</a>
+		</div>
+	</div>
+	</div>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

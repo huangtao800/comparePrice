@@ -31,6 +31,18 @@
 		</property>
 	</bean>
 	
+	<bean id="userLoginAction" class="edu.nju.comparePrice.actions.UserLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
+	<bean id="userRegisterAction" class="edu.nju.comparePrice.actions.UserRegisterAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
 	<!-- Services -->
 	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
 	</bean>

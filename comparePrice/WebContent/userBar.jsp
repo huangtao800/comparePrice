@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="#" class="btn btn-success"><s:property value="user.id" /></a>
-	<a href='<s:url action="logout"/>' class="btn btn-success">logout</a>
+	<a class="btn btn-success"><s:property value="user.id" /></a>
+	<a href='<s:url action="userLogout"/>' class="btn btn-success">logout</a>
 </body>
 </html>

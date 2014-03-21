@@ -1,8 +1,5 @@
 package edu.nju.comparePrice.actions;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
-import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.VerifyResult;
 import edu.nju.comparePrice.services.UserService;
 
@@ -21,12 +18,13 @@ private static final long serialVersionUID = 897954802106607865L;
 		if (verifyResult == VerifyResult.PASS) {
 			int id = Integer.parseInt(idString);
 			session.put("userId", id);
+			return SUCCESS;
 		} else if (verifyResult == VerifyResult.ID_INVALID) {
 			session.put("fail", "ID不存在！");
 		} else if (verifyResult == VerifyResult.PASSWORD_INVALD){
 			session.put("fail", "密码错误！");
 		}
-		return verifyResult.toString();
+		return INPUT;
 	}
 
 	public String logout() {
