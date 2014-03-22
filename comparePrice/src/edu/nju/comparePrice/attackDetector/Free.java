@@ -23,7 +23,8 @@ public class Free {
 	public void init()
 	{
 		try{
-			File file = new File("whiteList.txt");
+			String path = this.getClass().getClassLoader().getResource("/").getPath();
+			File file = new File(path + "whiteList.txt");
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
 			BufferedReader read = new BufferedReader(reader);
 			

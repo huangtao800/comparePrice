@@ -19,7 +19,8 @@ public class Block {
 	private void init()
 	{
 		try{
-		File file = new File("����IP.txt");
+		String path = this.getClass().getClassLoader().getResource("/").getPath();
+		File file = new File(path + "ShieldIP.txt");
 		InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
 		BufferedReader read = new BufferedReader(reader);
 		

@@ -56,7 +56,8 @@ public class CommentService {
 
 	public boolean checkWaterNavy(int userID) {
 		int sensitiveCount=0;
-		//获取用户的SensitiveCount
+		//add sensitiveCount
 		return sensitiveCount>=SENSITIVECOUNT;
 	}
 }
+
