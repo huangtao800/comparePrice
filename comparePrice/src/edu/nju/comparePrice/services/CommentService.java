@@ -21,12 +21,15 @@ public class CommentService {
 		return commentService;
 	}
 
-	public void postComment(int userID, String comment) {
+	public boolean postComment(int userID, String comment) {
+		boolean result=false;
 		if(!checkComment(userID, comment)){
 			//addComment
 		}else{
 			//detect water navy
+			result=true;
 		}
+		return result;
 	}
 
 	public boolean checkComment(int userID, String comment) {
