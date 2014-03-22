@@ -20,14 +20,15 @@ public class AttackDetector {
 			writer.write(IP);  //��ÿһ�η��ʵ�IP��¼��log�ļ���
 		if(block.isBlock(IP) || shieldList.contains(IP)) // �жϸ�IP�ǲ��������������棬����ǲ��������
 		{
-			System.out.println("��IP�������������IP���߱����ڣ�");
+			System.out.println("被屏蔽");
 			return false;
 		}
 		else if(ipList.contains(IP))
 		{
 			ipList.add(IP);
-			System.out.println("�����Ƶ�����ʣ�");
+			System.out.println("频繁访问");
 			int number = ipList.getTimes(IP);
+			System.out.println(number);
 			if(number >= NUMBER)//����Ƶ�����ʵĴ������Ԥ���Ĵ����������һ��ʱ���Ժ���ܼ������
 			{
 			   shieldList.add(IP);
@@ -36,24 +37,24 @@ public class AttackDetector {
 		}
 		else
 		{
-			System.out.println(IP + "  ���ʳɹ���");//�������
+			System.out.println(IP + "  访问成功");//�������
 			ipList.add(IP);
 			return true;
 		}
 	    }
 		else
 		{
-			System.out.println(IP + "  ���ʳɹ���");
+			System.out.println(IP + "   访问成功");
 			  return true;   //�������
 		}
 	}
 	
 	private void startThread()
 	{
-		MyThread ipListThread = new MyThread(ipList, 10);
+		MyThread ipListThread = new MyThread(ipList, 1000);
 	     ipListThread.start();
-	     
-	    MyThread shieldListThread = new MyThread(shieldList, 1000000000);
+	    
+	    MyThread shieldListThread = new MyThread(shieldList, 1800000);
 	    shieldListThread.start();
 	}
 }

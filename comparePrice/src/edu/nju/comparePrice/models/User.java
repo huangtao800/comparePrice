@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user", catalog = "comparepricedb")
-public class User implements java.io.Serializable{
+public class User extends BaseUser implements java.io.Serializable{
 
 	private int id;
 	private String password;

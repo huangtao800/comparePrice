@@ -12,11 +12,11 @@ public class AdminLoginAction extends BaseAction{
 		String idString = request.getParameter("adminId");
 		String password = request.getParameter("password");
 
-		VerifyResult verifyResult = userService.userVerify(idString, password);
+		VerifyResult verifyResult = userService.adminVerify(idString, password);
 		
 		if (verifyResult == VerifyResult.PASS) {
 			int id = Integer.parseInt(idString);
-			session.put("userId", id);
+			session.put("adminId", id);
 			return SUCCESS;
 		} else if (verifyResult == VerifyResult.ID_INVALID) {
 			session.put("fail", "ID不存在！");

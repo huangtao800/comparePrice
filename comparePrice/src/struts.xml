@@ -65,10 +65,9 @@
 		    <result name="brandWeight" type="chain">BrandWeightAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
-		
-		
-	
+
 	</package>
+
 	
 	
 </struts>

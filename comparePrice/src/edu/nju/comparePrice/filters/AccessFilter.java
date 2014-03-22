@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import edu.nju.comparePrice.attackDetector.AttackDetector;
 
@@ -25,15 +27,30 @@ public class AccessFilter extends HttpServlet implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-    	String ip = request.getRemoteAddr();
-    	
-//    	boolean canAccess = attackDetector.analyzeIP(ip);
-//    	if (canAccess) {
-//    		chain.doFilter(request, response); 
-//    	} else {
-//    		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-//    		httpServletResponse.sendRedirect("http://www.jsga.gov.cn/www/jsga/2010/index.htm");
-//    	}
+		
+		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
+		String ip = getIp(httpServletRequest);
+		
+    	boolean canAccess = attackDetector.analyzeIP(ip);
+    	if (canAccess) {
     		chain.doFilter(request, response); 
+    	} else {
+    		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
+    		httpServletResponse.sendRedirect("http://www.jsga.gov.cn/www/jsga/2010/index.htm");
+    	}
+	}
+	
+	private String getIp (HttpServletRequest request) {
+		String ip = request.getHeader("x-forwarded-for");  
+	      if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+	         ip = request.getHeader("Proxy-Client-IP");  
+	     }  
+	      if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+	         ip = request.getHeader("WL-Proxy-Client-IP");  
+	      }  
+	     if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+	          ip = request.getRemoteAddr();  
+	     }
+	     return ip;
 	}
 }
