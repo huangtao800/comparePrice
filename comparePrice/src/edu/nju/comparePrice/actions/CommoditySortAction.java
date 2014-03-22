@@ -22,4 +22,14 @@ public class CommoditySortAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public void setCommodities(ArrayList<Commodity> commodities) {
+		this.commodities = commodities;
+	}
+
+	public void setCommodityService(CommodityService commodityService) {
+		this.commodityService = commodityService;
+	}
+	
+	
+
 }

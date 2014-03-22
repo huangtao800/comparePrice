@@ -55,11 +55,46 @@
 		</property>
 	</bean>
 	
+	<bean id="BeforeForbidAction" class="edu.nju.comparePrice.actions.BeforeForbidAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<bean id="CancelForbidAction" class="edu.nju.comparePrice.actions.CancelForbidAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<bean id="ForbidAction" class="edu.nju.comparePrice.actions.ForbidAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<bean id="SensitiveWordAction" class="edu.nju.comparePrice.actions.SensitiveWordAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<bean id="RemoveSensitiveWordAction" class="edu.nju.comparePrice.actions.RemoveSensitiveWordAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	
+	
 	<!-- Services -->
 	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
 	</bean>
 	
 	<bean id="commodityService" class="edu.nju.comparePrice.services.CommodityService">
+	</bean>
+	
+	<bean id="systemAdminService" class="edu.nju.comparePrice.services.SystemAdminService">
 	</bean>
 	
 	<!-- 定义受环境影响易变的变量 -->

@@ -4,32 +4,59 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="struts2" extends="struts-default">
+	<package name="struts2" extends="struts-default" namespace="/user">
 		<action name="userBar" class="userBarAction">
-			<result name="logon">/userBar.jsp</result>
-			<result name="notLogon">/notLogonBar.jsp</result>
+			<result name="logon">/user/userBar.jsp</result>
+			<result name="notLogon">/user/notLogonBar.jsp</result>
 		</action>
 		
 		<action name="userLogin" class="userLoginAction" method="login">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="success">/user/homepage.jsp</result>
+			<result name="input">/user/login.jsp</result>
 		</action>
 		
 		<action name="userLogout" class="userLoginAction" method="logout">
-			<result name="success" type="redirect">/homepage.jsp</result>
+			<result name="success" type="redirect">/user/homepage.jsp</result>
 		</action>
 		
 		<action name="userRegister" class="userRegisterAction">
-			<result name="success" type="redirect">/homepage.jsp</result>
+			<result name="success" type="redirect">/user/homepage.jsp</result>
 		</action>
 		
 		<action name="commoditySortByPrice" class="commoditySortAction" method="sortByPrice">
-			<result name="success" type="redirect">/commodityList.jsp</result>
+			<result name="success" type="redirect">/user/commodityList.jsp</result>
 		</action>
 		
 		<action name="commoditySortByBrand" class="commoditySortAction" method="sortByBrand">
-			<result name="success" type="redirect">/commodityList.jsp</result>
+			<result name="success" type="redirect">/user/commodityList.jsp</result>
 		</action>
 		
 	</package>
+	<!--  
+	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
+	    <action name="BeforeForbidAction" class="BeforeForbidAction">
+		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="CancelForbidAction" class="CancelForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="ForbidAction" class="ForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SensitiveWordAction" class="SensitiveWordAction">
+		    <result name="SensitiveWord">/admin/sensitiveWord.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+	
+	</package>
+	-->
+	
 </struts>
