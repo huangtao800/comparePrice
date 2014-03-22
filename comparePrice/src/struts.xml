@@ -32,7 +32,7 @@
 		</action>
 		
 	</package>
-	
+	<!--  
 	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
 	    <action name="BeforeForbidAction" class="BeforeForbidAction">
 		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
@@ -57,6 +57,6 @@
 		</action>
 	
 	</package>
-	
+	-->
 	
 </struts>
