@@ -33,8 +33,8 @@
 		
 	</package>
 	
-	<package name="struts2" extends="struts-default" namespace="/admin">
-	    		<action name="BeforeForbidAction" class="BeforeForbidAction">
+	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
+	    <action name="BeforeForbidAction" class="BeforeForbidAction">
 		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
