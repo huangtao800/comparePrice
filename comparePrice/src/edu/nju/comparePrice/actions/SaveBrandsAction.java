@@ -19,11 +19,11 @@ public class SaveBrandsAction extends BaseAction{
 				int weight=brandId.get(i);
 				boolean result=systemAdminService.saveBrand(id, weight);
 				if(!result){
-					return "input";
+					return INPUT;
 				}
 			}
 		}
-		return "brandWeight"; 
+		return SUCCESS; 
 	}
 	
 	public SystemAdminService getSystemAdminService() {

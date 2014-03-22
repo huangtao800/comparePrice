@@ -21,7 +21,7 @@ public class BeforeForbidAction extends BaseAction{
 			toForbidList=systemAdminService.getToForbidCommodities(commodityName);
 		}
 		
-		return "forbidCommodity";
+		return SUCCESS;
 		
 	}
 

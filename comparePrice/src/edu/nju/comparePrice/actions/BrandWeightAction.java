@@ -15,7 +15,7 @@ public class BrandWeightAction extends BaseAction{
 	
 	public String execute(){
 		brandList=systemAdminService.getBrandList();
-		return "brandWeight";
+		return SUCCESS;
 	}
 
 	public SystemAdminService getSystemAdminService() {
