@@ -4,31 +4,31 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="struts2" extends="struts-default">
+	<package name="struts2" extends="struts-default" namespace="/user">
 		<action name="userBar" class="userBarAction">
-			<result name="logon">/userBar.jsp</result>
-			<result name="notLogon">/notLogonBar.jsp</result>
+			<result name="logon">/user/userBar.jsp</result>
+			<result name="notLogon">/user/notLogonBar.jsp</result>
 		</action>
 		
 		<action name="userLogin" class="userLoginAction" method="login">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="success">/user/homepage.jsp</result>
+			<result name="input">/user/login.jsp</result>
 		</action>
 		
 		<action name="userLogout" class="userLoginAction" method="logout">
-			<result name="success" type="redirect">/homepage.jsp</result>
+			<result name="success" type="redirect">/user/homepage.jsp</result>
 		</action>
 		
 		<action name="userRegister" class="userRegisterAction">
-			<result name="success" type="redirect">/homepage.jsp</result>
+			<result name="success" type="redirect">/user/homepage.jsp</result>
 		</action>
 		
 		<action name="commoditySortByPrice" class="commoditySortAction" method="sortByPrice">
-			<result name="success" type="redirect">/commodityList.jsp</result>
+			<result name="success" type="redirect">/user/commodityList.jsp</result>
 		</action>
 		
 		<action name="commoditySortByBrand" class="commoditySortAction" method="sortByBrand">
-			<result name="success" type="redirect">/commodityList.jsp</result>
+			<result name="success" type="redirect">/user/commodityList.jsp</result>
 		</action>
 		
 	</package>
