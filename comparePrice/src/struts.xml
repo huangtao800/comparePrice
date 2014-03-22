@@ -32,7 +32,42 @@
 		</action>
 		
 	</package>
-	
+	  
+	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
+	    <action name="BeforeForbidAction" class="BeforeForbidAction">
+		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="CancelForbidAction" class="CancelForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="ForbidAction" class="ForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SensitiveWordAction" class="SensitiveWordAction">
+		    <result name="SensitiveWord">/admin/sensitiveWord.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="BrandWeightAction" class="BrandWeightAction">
+		    <result name="brandWeight">/admin/brandWeight.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SaveBrandsAction" class="SaveBrandsAction">
+		    <result name="brandWeight" type="chain">BrandWeightAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+
+	</package>
+
 	
 	
 </struts>

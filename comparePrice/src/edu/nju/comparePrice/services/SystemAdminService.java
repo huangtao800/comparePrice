@@ -2,6 +2,7 @@ package edu.nju.comparePrice.services;
 
 import java.util.ArrayList;
 
+import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.SensitiveWord;
 
@@ -34,6 +35,14 @@ public class SystemAdminService {
 	}
 	
 	public boolean removeSensitiveWord(int sensitiveWordId){
+		return false;
+	}
+	
+	public ArrayList<Brand> getBrandList(){
+		return null;
+	}
+	
+	public boolean saveBrand(int brandId,int brandWeight){
 		return false;
 	}
 
