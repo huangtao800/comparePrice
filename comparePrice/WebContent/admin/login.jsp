@@ -7,7 +7,6 @@
 	<title>Login</title>
 
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../css/login.css" rel="stylesheet">
 </head>
 <body>

@@ -7,7 +7,7 @@ public class AttackDetector {
 	private IPList ipList = new IPList();
 	private IPList shieldList = new IPList();
 	private Free whiteList = new Free();
-	private final int NUMBER = 100;
+	private final int NUMBER = 10;
 	
 	public AttackDetector()
 	{
