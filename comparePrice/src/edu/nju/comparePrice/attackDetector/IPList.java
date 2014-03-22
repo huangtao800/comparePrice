@@ -30,8 +30,10 @@ public class IPList {
 		int number  = 0;
 		for(int i = 0; i < ipList.size(); ++i)
 		{
-			if(ip.equals(ipList.get(i)))
+			if(ip.equals(ipList.get(i))) {
 				++number;
+			}
+			
 		}
 		return number;
 	}

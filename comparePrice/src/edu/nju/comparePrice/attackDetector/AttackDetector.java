@@ -7,7 +7,7 @@ public class AttackDetector {
 	private IPList ipList = new IPList();
 	private IPList shieldList = new IPList();
 	private Free whiteList = new Free();
-	private final int NUMBER = 5;
+	private final int NUMBER = 100;
 	
 	public AttackDetector()
 	{
@@ -51,7 +51,7 @@ public class AttackDetector {
 	
 	private void startThread()
 	{
-		MyThread ipListThread = new MyThread(ipList, 1000);
+		MyThread ipListThread = new MyThread(ipList, 100);
 	     ipListThread.start();
 	    
 	    MyThread shieldListThread = new MyThread(shieldList, 1800000);

@@ -36,7 +36,7 @@ public class AccessFilter extends HttpServlet implements Filter{
     		chain.doFilter(request, response); 
     	} else {
     		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-    		httpServletResponse.sendRedirect("http://www.jsga.gov.cn/www/jsga/2010/index.htm");
+    		httpServletResponse.sendRedirect("http://www.baidu.com");
     	}
 	}
 	
