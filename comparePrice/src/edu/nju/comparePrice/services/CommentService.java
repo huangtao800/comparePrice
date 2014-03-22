@@ -7,11 +7,11 @@ public class CommentService {
 	private static final int SENSITIVECOUNT=10;
 	
 	private static CommentService commentService;
-	private ArrayList<String> sensitiveWords;	//initialized by DAOFacase
-	private ArrayList<String> specialWords;		//initialized by DAOFacase
+	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
+	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
 
 	private CommentService() {
-
+		
 	}
 
 	public static CommentService getInstance() {
@@ -48,8 +48,7 @@ public class CommentService {
 				//set SpecialFlag
 				result=true;
 			}
-				
-			return true;
+			
 		}
 		return result;
 	}
@@ -59,5 +58,6 @@ public class CommentService {
 		//add sensitiveCount
 		return sensitiveCount>=SENSITIVECOUNT;
 	}
+	
 }
 
