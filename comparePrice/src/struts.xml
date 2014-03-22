@@ -31,5 +31,27 @@
 			<result name="success" type="redirect">/commodityList.jsp</result>
 		</action>
 		
+		<action name="BeforeForbidAction" class="BeforeForbidAction">
+		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="CancelForbidAction" class="CancelForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="ForbidAction" class="ForbidAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SensitiveWordAction" class="SensitiveWordAction">
+		    <result name="SensitiveWord">/admin/sensitiveWord.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
 	</package>
 </struts>

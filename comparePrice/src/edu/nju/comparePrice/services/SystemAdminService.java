@@ -3,6 +3,7 @@ package edu.nju.comparePrice.services;
 import java.util.ArrayList;
 
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.SensitiveWord;
 
 public class SystemAdminService {
 	
@@ -21,6 +22,18 @@ public class SystemAdminService {
 	}
 	
 	public boolean forbid(int commodityId){
+		return false;
+	}
+	
+	public boolean addSensitiveWord(String sensitiveWord){
+		return false;
+	}
+	
+	public ArrayList<SensitiveWord> getSensiviveWordList(){
+		return null;
+	}
+	
+	public boolean removeSensitiveWord(int sensitiveWordId){
 		return false;
 	}
 
