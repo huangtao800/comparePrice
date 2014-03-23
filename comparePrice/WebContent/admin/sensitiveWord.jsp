@@ -8,14 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Sensitive Word</title>
 <title>Insert title here</title>
-    <link rel="stylesheet" href="<s:url value="../css/bootstrap-theme.min.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/bootstrap.min.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/forbidCommodity.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/admin.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/bootstrap-theme.min.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/bootstrap.min.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/forbidCommodity.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/admin.css" />" />
 
-    <script src=<s:url value="../js/bootstrap.min.js" /> type="text/javascript"></script>
-    <script src=<s:url value="../js/jquery-2.1.0.js" /> type="text/javascript"></script>
-    <script src=<s:url value="../js/sensitiveWord.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/jquery-2.1.0.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/sensitiveWord.js" /> type="text/javascript"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
