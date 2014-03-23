@@ -43,8 +43,8 @@
 		
 		<form action="commoditySort" >
 			<select name = "method" class = "navigation"  onchange="this.form.submit()">
-				<option value="default" <s:if test=%{selectedMethod == "default"}>selected="selected"</s:if>>默认</option>
-				<option value="price" <s:if test=%{selectedMethod == "price"}>selected="selected"</s:if>>价格</option>
+				<option value="default" <s:if test="%{selectedMethod=='default'}">selected="selected"</s:if>>默认</option>
+				<option value="price" <s:if test="%{selectedMethod=='price'}">selected="selected"</s:if>>价格</option>
 			</select>
 			<!-- <input type="submit" value="submit"> -->
 		</form>
@@ -60,11 +60,7 @@
 					<a class="btn btn-success pull-right">查看评论</a>
 				</div>
 			</s:iterator>
-			<div class="span6">
-				<h3>XXXXXXXX</h3>
-				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-				<a class="btn btn-success pull-right">查看评论</a>
-			</div>
+			
 		</div>
 	</div>
 	<script src="js/jquery-2.1.0.min.js"></script>
