@@ -32,13 +32,22 @@
 		</action>
 		
 	</package>
-	<!--  
+	 
 	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
-	    <action name="BeforeForbidAction" class="BeforeForbidAction">
-		    <result name="forbidCommodity">/admin/forbidCommodity.jsp</result>
-		    <result name="input">/admin/error.jsp</result>
+	    <action name="adminLogin" class="adminLoginAction" method="login">
+			<result name="success">/admin/sensitiveWord.jsp</result>
+			<result name="input">/admin/login.jsp</result>
 		</action>
 		
+		<action name="adminLogout" class="adminLoginAction" method="logout">
+			<result name="success">/admin/sensitiveWord.jsp</result>
+		</action>
+		
+	    <action name="BeforeForbidAction" class="BeforeForbidAction">
+		    <result name="success">/admin/forbidCommodity.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		 
 		<action name="CancelForbidAction" class="CancelForbidAction">
 		    <result name="input">/admin/error.jsp</result>
 		</action>
@@ -48,15 +57,23 @@
 		</action>
 		
 		<action name="SensitiveWordAction" class="SensitiveWordAction">
-		    <result name="SensitiveWord">/admin/sensitiveWord.jsp</result>
+		    <result name="success">/admin/sensitiveWord.jsp</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
 		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
 		    <result name="input">/admin/error.jsp</result>
 		</action>
-	
+		
+		<action name="BrandWeightAction" class="BrandWeightAction">
+		    <result name="success">/admin/brandWeight.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SaveBrandsAction" class="SaveBrandsAction">
+		    <result name="success" type="chain">BrandWeightAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
 	</package>
-	-->
-	
+	 
 </struts>

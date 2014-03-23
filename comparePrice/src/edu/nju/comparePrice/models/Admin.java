@@ -1,12 +1,11 @@
 package edu.nju.comparePrice.models;
 
-public class Admin{
+public class Admin extends BaseUser{
 	private int id;
 	private String password;
 	
 	public Admin(int id, String password) {
-		this.id = id;
-		this.password = password;
+		super(id, password);
 	}
 	
 	public int getId() {

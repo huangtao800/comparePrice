@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 public class CommentService {
 
+	private static final int SENSITIVECOUNT=10;
+	
 	private static CommentService commentService;
+	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
+	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
 
 	private CommentService() {
-
+		
 	}
 
 	public static CommentService getInstance() {
@@ -17,15 +21,43 @@ public class CommentService {
 		return commentService;
 	}
 
-	public void postComment(int userID, String comment) {
-
+	public boolean postComment(int userID, String comment) {
+		boolean result=false;
+		if(!checkComment(userID, comment)){
+			//addComment
+		}else{
+			//detect water navy
+			result=true;
+		}
+		return result;
 	}
 
-	public void checkComment(int userID, String comment) {
-
+	public boolean checkComment(int userID, String comment) {
+		boolean result =false;
+		for(int i=0;i<sensitiveWords.size();i++){
+			if(comment.contains(sensitiveWords.get(i))){
+				//add sensitiveCount
+				//set sensitiveFlag
+				result=true;
+			}
+				
+		}
+		
+		for(int i=0;i<specialWords.size();i++){
+			if(comment.contains(specialWords.get(i))){
+				//set SpecialFlag
+				result=true;
+			}
+			
+		}
+		return result;
 	}
 
-	public void checkWaterNavy(int userID, ArrayList<String> commentList) {
-
+	public boolean checkWaterNavy(int userID) {
+		int sensitiveCount=0;
+		//add sensitiveCount
+		return sensitiveCount>=SENSITIVECOUNT;
 	}
+	
 }
+

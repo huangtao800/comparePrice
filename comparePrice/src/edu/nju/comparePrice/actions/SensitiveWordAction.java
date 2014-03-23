@@ -16,7 +16,7 @@ public class SensitiveWordAction extends BaseAction{
 		}
 		
 		sensitiveWordList=systemAdminService.getSensiviveWordList();
-		return "SensitiveWord";
+		return SUCCESS;
 	}
 
 	public SystemAdminService getSystemAdminService() {

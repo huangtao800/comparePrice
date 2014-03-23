@@ -37,6 +37,12 @@
 		</property>
 	</bean>
 	
+	<bean id="adminLoginAction" class="edu.nju.comparePrice.actions.AdminLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
 	<bean id="userRegisterAction" class="edu.nju.comparePrice.actions.UserRegisterAction">
     	<property name="userService">
 			<ref bean="userService" />
@@ -86,6 +92,20 @@
 			<ref bean="systemAdminService" />
 		</property>
 	</bean>
+	
+	<bean id="BrandWeightAction" class="edu.nju.comparePrice.actions.BrandWeightAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<bean id="SaveBrandsAction" class="edu.nju.comparePrice.actions.SaveBrandsAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	
 	
 	
 	

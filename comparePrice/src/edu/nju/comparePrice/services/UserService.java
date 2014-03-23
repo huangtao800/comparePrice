@@ -1,8 +1,6 @@
 package edu.nju.comparePrice.services;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
-import edu.nju.comparePrice.models.Admin;
+import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.User;
 import edu.nju.comparePrice.models.VerifyResult;
 
@@ -14,18 +12,7 @@ public class UserService {
 	}
 	
 	public VerifyResult userVerify(String idString, String password) {
-		int id = 0;
-		try {
-			id = Integer.parseInt(idString);
-		} catch (ParseException e) {
-			return VerifyResult.ID_INVALID;
-		}
-		
-		User localUser = findUser(id);
-		if (localUser == null) {
-			return VerifyResult.ID_INVALID;
-		}
-		return verify(id, password, localUser.getId(), localUser.getPassword());
+		return verify(idString, password);
 	}
 	
 	/**
@@ -35,31 +22,32 @@ public class UserService {
 		return 123;
 	}
 	
-	public Admin findAdmin(int adminId) {
-		Admin admin = new Admin(123, "123");
-		return admin;
+	public VerifyResult adminVerify(String idString, String password) {
+		return verify(idString, password);
 	}
 	
-	public VerifyResult adminVerify(String idString, String password) {
+	private VerifyResult verify(String inputId, String inputPassword) {
 		int id = 0;
 		try {
-			id = Integer.parseInt(idString);
-		} catch (ParseException e) {
+			id = Integer.parseInt(inputId);
+		} catch (NumberFormatException e) {
 			return VerifyResult.ID_INVALID;
 		}
 		
-		Admin localAdmin = findAdmin(id);
-		if (localAdmin == null) {
+		BaseUser localBaseUser = findBaseUser(id);
+		if (localBaseUser == null) {
 			return VerifyResult.ID_INVALID;
 		}
-		return verify(id, password, localAdmin.getId(), localAdmin.getPassword());
-	}
-	
-	private VerifyResult verify(int id, String inputPassword, int localId, String localPassword) {
-		if (!inputPassword.equals(localPassword)) {
+		
+		if (!inputPassword.equals(localBaseUser.getPassword())) {
 			return VerifyResult.PASSWORD_INVALD;
 		} else {
 			return VerifyResult.PASS;
 		}
+	}
+	
+	private BaseUser findBaseUser (int id) {
+		BaseUser baseUser = new BaseUser(123, "123");
+		return baseUser;
 	}
 }
