@@ -30,38 +30,42 @@
 	</div>
 
 	<div class="container">
-		
-        <form action="commoditySearch" class="form-inline" method="post">
-          	<div class="form-group" id="waitlist_email_group">
-            	<input class="form-control input-lg waitlist-email" name="search" placeholder="Enter commodity infomation" size="40">
-          	</div>
-          	<div class="form-group">
-            	<button class="btn btn-lg btn-default" type="submit">搜索</button>
-          	</div>
-        </form>
-  
-		
-		<form action="commoditySort" >
-			<select name = "method" class = "navigation"  onchange="this.form.submit()">
-				<option value="default" <s:if test="%{selectedMethod=='default'}">selected="selected"</s:if>>默认</option>
-				<option value="price" <s:if test="%{selectedMethod=='price'}">selected="selected"</s:if>>价格</option>
-			</select>
-			<!-- <input type="submit" value="submit"> -->
-		</form>
-
 		<div class="row">
-
+			<div class="col-md-6">
+        		<form action="commoditySearch" class="form-inline" method="post">
+          			<div class="form-group" id="waitlist_email_group">
+            			<input class="form-control input-lg waitlist-email" name="search" placeholder="Enter commodity infomation" size="40">
+          			</div>
+          			<div class="form-group">
+            			<button class="btn btn-lg btn-default" type="submit">搜索</button>
+          			</div>
+        		</form>
+  			</div>
+  		</div>
+  		
+  		<div class="row left-space font20">
+			<form action="commoditySort" class="form-inline">
+				<div class="form-group">
+					<label class="label-lg">排序方式:</label>
+				</div>
+				<div class="form-group">
+					<select name = "method" class = "navigation"  onchange="this.form.submit()" class="select-lg">
+						<option value="default" <s:if test="%{selectedMethod=='default'}">selected="selected"</s:if>>默认</option>
+						<option value="price" <s:if test="%{selectedMethod=='price'}">selected="selected"</s:if>>价格</option>
+					</select>
+				</div>
+			</form>
+		</div>
+		
+		<div class="row">
 			<s:iterator value="commodities" status="st">
-				<div class="span6">
-					<h3>
-						<a href=<s:property value="link" />><s:property value="name" /></a>
-					</h3>
-					<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-					<a class="btn btn-success pull-right">查看评论</a>
+				<div class="col-md-7 top-space">
+					<a class="font20" href=<s:property value="link" />><s:property value="name" /></a>
+					<a class="btn btn-primary pull-right">查看评论</a>
 				</div>
 			</s:iterator>
-			
 		</div>
+		
 	</div>
 	<script src="js/jquery-2.1.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
