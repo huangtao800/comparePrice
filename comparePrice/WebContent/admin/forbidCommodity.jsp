@@ -44,7 +44,7 @@
         
     <div class="container">
         <div class="input-group" id="search">
-             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="/BeforeForbidAction" >
+             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="BeforeForbidAction" >
                 <s:textfield   id="commodityName" name="commodityName"  cssClass="textfield_mem_uid" placeholder="请输入要屏蔽的商品名称：" />
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="搜索"/>
             </s:form>

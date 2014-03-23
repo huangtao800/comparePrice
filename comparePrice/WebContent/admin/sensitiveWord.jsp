@@ -44,7 +44,7 @@
     
     <div class="container text-center">
         <div class="input-group" id="search">
-             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="/SensitiveWordAction" >
+             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="SensitiveWordAction" >
                 <s:textfield   id="sensitiveWord" name="sensitiveWord"  cssClass="textfield_mem_uid" placeholder="请输入要添加的敏感词：" />
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="添加"/>
             </s:form>
