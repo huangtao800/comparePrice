@@ -30,13 +30,17 @@ public class AccessFilter extends HttpServlet implements Filter{
 		
 		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
 		String ip = getIp(httpServletRequest);
+		String url = httpServletRequest.getServletPath();
+		System.out.println(url);
+		
+		String contextPath = httpServletRequest.getContextPath();
 		
     	boolean canAccess = attackDetector.analyzeIP(ip);
     	if (canAccess) {
     		chain.doFilter(request, response); 
     	} else {
     		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-    		httpServletResponse.sendRedirect("http://www.baidu.com");
+    		httpServletResponse.sendRedirect(contextPath+"/user/attackWarn.jsp");
     	}
 	}
 	

@@ -13,7 +13,7 @@ public class Writer {
 	{
 		try{
 			String path = this.getClass().getClassLoader().getResource("/").getPath();
-			file = new File(path + "log.txt"); 
+			file = new File(path + "log.txt");
             BufferedWriter out = new BufferedWriter(new FileWriter(file, true)); 
             
             String time = DateFormat.getDateTimeInstance(2, 2, Locale.CHINESE).format(new java.util.Date());
