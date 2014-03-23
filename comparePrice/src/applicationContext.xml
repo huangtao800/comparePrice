@@ -104,7 +104,27 @@
 	</bean>
 	
 	
+	<!-- Comment部分起始 -->	
+	<bean id="CommentDao" class="edu.nju.comparePrice.dao.CommentDaoStub"></bean>
 	
+	<bean id="CommentService" class="edu.nju.comparePrice.services.CommentService">
+		<property name="dao">
+			<ref bean="CommentDao"/>
+		</property>
+	</bean>	
+			
+	<bean id="AddCommentAction" class="edu.nju.comparePrice.actions.AddCommentAction">
+		<property name="service">
+			<ref bean="CommentService"/>
+		</property>
+	</bean>
+	
+	<bean id="GetCommentsAction" class="edu.nju.comparePrice.actions.GetCommentsAction">
+		<property name="service">
+			<ref bean="CommentService"/>
+		</property>
+	</bean>	
+	<!-- Comment部分结束 -->	
 	
 	
 	<!-- Services -->
