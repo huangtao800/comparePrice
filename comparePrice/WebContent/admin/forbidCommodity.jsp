@@ -8,14 +8,15 @@
     <s:head theme="simple"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Insert title here</title>
-    <link rel="stylesheet" href="<s:url value="../css/bootstrap-theme.min.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/bootstrap.min.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/forbidCommodity.css" />" />
-    <link rel="stylesheet" href="<s:url value="../css/admin.css" />" />
+   <link rel="stylesheet" href="<s:url value="/css/bootstrap-theme.min.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/bootstrap.min.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/forbidCommodity.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/admin.css" />" />
 
-    <script src=<s:url value="../js/bootstrap.min.js" /> type="text/javascript"></script>
-    <script src=<s:url value="../js/jquery-2.1.0.js" /> type="text/javascript"></script>
-    <script src=<s:url value="../js/forbidCommodity.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/jquery-2.1.0.js" /> type="text/javascript"></script>
+    <script src=<s:url value="/js/forbidCommodity.js" /> type="text/javascript"></script>
+    
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -44,7 +45,7 @@
         
     <div class="container">
         <div class="input-group" id="search">
-             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="/BeforeForbidAction" >
+             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="BeforeForbidAction" >
                 <s:textfield   id="commodityName" name="commodityName"  cssClass="textfield_mem_uid" placeholder="请输入要屏蔽的商品名称：" />
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="搜索"/>
             </s:form>

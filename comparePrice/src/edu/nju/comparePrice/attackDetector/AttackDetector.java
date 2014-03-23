@@ -51,7 +51,7 @@ public class AttackDetector {
 	
 	private void startThread()
 	{
-		MyThread ipListThread = new MyThread(ipList, 100);
+		MyThread ipListThread = new MyThread(ipList, 1000);
 	     ipListThread.start();
 	    
 	    MyThread shieldListThread = new MyThread(shieldList, 1800000);

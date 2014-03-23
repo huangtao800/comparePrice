@@ -31,12 +31,12 @@
     
     <div class="container text-center">
         <h1>Welcome to iBiJia</h1>
-        <form action="" class="form-inline" method="post">
+        <form action="commoditySearch" class="form-inline" method="post">
           	<div class="form-group" id="waitlist_email_group">
             	<input class="form-control input-lg waitlist-email" name="search" placeholder="Enter commodity infomation" size="40">
           	</div>
           	<div class="form-group">
-            	<button class="btn btn-lg btn-default" type="submit">Get Access</button>
+            	<button class="btn btn-lg btn-default" type="submit">搜索</button>
           	</div>
         </form>
     </div>

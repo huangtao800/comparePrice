@@ -2,3 +2,19 @@
 body {
   padding-top: 100px;
 }
+
+.row{
+	margin-top:20px;
+}
+
+.left-space {
+	margin-left:5px;
+}
+
+.font20 {
+	font-size:20px;
+}
+
+.top-space {
+	margin-top:20px;
+}
