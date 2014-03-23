@@ -11,14 +11,29 @@ public class CommoditySortAction extends BaseAction {
 
 	private ArrayList<Commodity> commodities = new ArrayList<>();
 	private CommodityService commodityService;
+	private String selectedMethod = "default";
+	
+	
+	public String execute() {
+		String method = request.getParameter("method");
+		selectedMethod = method;
+		if(method.equals("price")){
+			return sortByPrice();
+		}else if(method.equals("default")){
+			return sortByBrand();
+		}else {
+			return ERROR;
+		}
+			
+	}
 
 	public String sortByPrice() {
-		commodities = commodityService.sortByPrice(commodities);
+		commodities = commodityService.sortByPrice();
 		return SUCCESS;
 	}
 
 	public String sortByBrand() {
-		commodities = commodityService.sortByBrand(commodities);
+		commodities = commodityService.sortByBrand();
 		return SUCCESS;
 	}
 
@@ -29,7 +44,13 @@ public class CommoditySortAction extends BaseAction {
 	public void setCommodityService(CommodityService commodityService) {
 		this.commodityService = commodityService;
 	}
-	
-	
+
+	public ArrayList<Commodity> getCommodities() {
+		return commodities;
+	}
+
+	public String getSelectedMethod() {
+		return selectedMethod;
+	}
 
 }

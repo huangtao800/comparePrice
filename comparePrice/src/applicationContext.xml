@@ -43,17 +43,19 @@
 		</property>
 	</bean>
 	
-	<bean id="commoditySortByPrice" class="edu.nju.comparePrice.actions.CommoditySortAction">
+	<bean id="commoditySortAction" class="edu.nju.comparePrice.actions.CommoditySortAction">
     	<property name="commodityService">
 			<ref bean="commodityService" />
 		</property>
 	</bean>
 	
-	<bean id="commoditySortByBrand" class="edu.nju.comparePrice.actions.CommoditySortAction">
+	<bean id="commoditySearchAction" class="edu.nju.comparePrice.actions.CommoditySearchAction">
     	<property name="commodityService">
 			<ref bean="commodityService" />
 		</property>
 	</bean>
+	
+	
 	
 	<bean id="BeforeForbidAction" class="edu.nju.comparePrice.actions.BeforeForbidAction">
 	    <property name="systemAdminService">

@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>commodities</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/commodityList.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/commodityList.css" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,19 +30,28 @@
 	</div>
 
 	<div class="container">
-		<form action="" class="form-inline" method="post">
-			<div class="form-group">
-				<input class="form-control input-lg" name="search"
-					placeholder="Enter commodity infomation" size="40">
-			</div>
-			<div class="form-group">
-				<button class="btn btn-lg btn-default" type="submit">比价一下</button>
-			</div>
+		
+        <form action="commoditySearch" class="form-inline" method="post">
+          	<div class="form-group" id="waitlist_email_group">
+            	<input class="form-control input-lg waitlist-email" name="search" placeholder="Enter commodity infomation" size="40">
+          	</div>
+          	<div class="form-group">
+            	<button class="btn btn-lg btn-default" type="submit">搜索</button>
+          	</div>
+        </form>
+  
+		
+		<form action="commoditySort" >
+			<select name = "method" class = "navigation"  onchange="this.form.submit()">
+				<option value="default" <s:if test=%{selectedMethod == "default"}>selected="selected"</s:if>>默认</option>
+				<option value="price" <s:if test=%{selectedMethod == "price"}>selected="selected"</s:if>>价格</option>
+			</select>
+			<!-- <input type="submit" value="submit"> -->
 		</form>
 
 		<div class="row">
 
-			<%-- <s:iterator value="commodities" status="st">
+			<s:iterator value="commodities" status="st">
 				<div class="span6">
 					<h3>
 						<a href=<s:property value="link" />><s:property value="name" /></a>
@@ -50,12 +59,7 @@
 					<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 					<a class="btn btn-success pull-right">查看评论</a>
 				</div>
-			</s:iterator> --%>
-			<div class="span6">
-				<h3>XXXXXXXX</h3>
-				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-				<a class="btn btn-success pull-right">查看评论</a>
-			</div>
+			</s:iterator>
 			<div class="span6">
 				<h3>XXXXXXXX</h3>
 				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
