@@ -37,7 +37,6 @@ public class DaoFacade {
 	
 	
 	
-	
 	public static DaoFacade getInstance(){
 		return ApplicationContextContainer.getBean(DaoFacade.class);
 	}
