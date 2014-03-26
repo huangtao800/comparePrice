@@ -1,10 +1,12 @@
 package edu.nju.comparePrice.models;
 
-// Generated 2014-3-19 22:36:57 by Hibernate Tools 3.4.0.CR1
+// Generated 2014-3-26 7:32:39 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,31 +19,42 @@ import javax.persistence.Table;
 @Table(name = "comment", catalog = "comparepricedb")
 public class Comment implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Commodity commodity;
 	private User user;
 	private String details;
-	private int state;
+	private Boolean state;
+	private Boolean iscandidateword;
+	private Boolean specialstate;
+	private Integer uid;
+	private Integer cid;
 
 	public Comment() {
 	}
 
-	public Comment(int id, Commodity commodity, User user, String details,
-			int state) {
-		this.id = id;
+	public Comment(Commodity commodity, User user) {
+		this.commodity = commodity;
+		this.user = user;
+	}
+
+	public Comment(Commodity commodity, User user, String details,
+			Boolean state, Boolean iscandidateword, Boolean specialstate) {
 		this.commodity = commodity;
 		this.user = user;
 		this.details = details;
 		this.state = state;
+		this.iscandidateword = iscandidateword;
+		this.specialstate = specialstate;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -65,7 +78,7 @@ public class Comment implements java.io.Serializable {
 		this.user = user;
 	}
 
-	@Column(name = "details", nullable = false)
+	@Column(name = "details")
 	public String getDetails() {
 		return this.details;
 	}
@@ -74,13 +87,47 @@ public class Comment implements java.io.Serializable {
 		this.details = details;
 	}
 
-	@Column(name = "state", nullable = false)
-	public int getState() {
+	@Column(name = "state")
+	public Boolean getState() {
 		return this.state;
 	}
 
-	public void setState(int state) {
+	public void setState(Boolean state) {
 		this.state = state;
+	}
+
+	@Column(name = "iscandidateword")
+	public Boolean getIscandidateword() {
+		return this.iscandidateword;
+	}
+
+	public void setIscandidateword(Boolean iscandidateword) {
+		this.iscandidateword = iscandidateword;
+	}
+
+	@Column(name = "specialstate")
+	public Boolean getSpecialstate() {
+		return this.specialstate;
+	}
+
+	public void setSpecialstate(Boolean specialstate) {
+		this.specialstate = specialstate;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getCid() {
+		return cid;
+	}
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
 	}
 
 }

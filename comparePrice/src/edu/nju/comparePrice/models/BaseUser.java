@@ -1,6 +1,6 @@
 package edu.nju.comparePrice.models;
 
-public class BaseUser {
+public class BaseUser implements java.io.Serializable  {
 	private int id;
 	private String password;
 	

@@ -1,12 +1,17 @@
 package edu.nju.comparePrice.models;
 
-// Generated 2014-3-19 22:36:57 by Hibernate Tools 3.4.0.CR1
+// Generated 2014-3-26 7:32:39 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,42 +21,41 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user", catalog = "comparepricedb")
-public class User extends BaseUser implements java.io.Serializable{
+public class User implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private String password;
 	private String name;
+	private Integer sensitivecount;
 	private Set comments = new HashSet(0);
 	private Set navies = new HashSet(0);
 
 	public User() {
+		super();
 	}
 
-	public User(int id, String password, String name) {
-		this.id = id;
+	public User(Integer id,String password, String name, Integer sensitivecount,
+			Set comments, Set navies) {
+		this.id=id;
 		this.password = password;
 		this.name = name;
-	}
-
-	public User(int id, String password, String name, Set comments, Set navies) {
-		this.id = id;
-		this.password = password;
-		this.name = name;
+		this.sensitivecount = sensitivecount;
 		this.comments = comments;
 		this.navies = navies;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	@Column(name = "password", nullable = false, length = 16)
+	@Column(name = "password", length = 16)
 	public String getPassword() {
 		return this.password;
 	}
@@ -60,13 +64,22 @@ public class User extends BaseUser implements java.io.Serializable{
 		this.password = password;
 	}
 
-	@Column(name = "name", nullable = false, length = 16)
+	@Column(name = "name", length = 16)
 	public String getName() {
 		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Column(name = "sensitivecount")
+	public Integer getSensitivecount() {
+		return this.sensitivecount;
+	}
+
+	public void setSensitivecount(Integer sensitivecount) {
+		this.sensitivecount = sensitivecount;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")

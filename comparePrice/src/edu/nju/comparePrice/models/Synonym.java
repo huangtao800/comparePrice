@@ -1,9 +1,11 @@
 package edu.nju.comparePrice.models;
 
-// Generated 2014-3-19 22:36:57 by Hibernate Tools 3.4.0.CR1
+// Generated 2014-3-26 7:32:39 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,30 +16,26 @@ import javax.persistence.Table;
 @Table(name = "synonym", catalog = "comparepricedb")
 public class Synonym implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Integer flag;
 	private String name;
 
 	public Synonym() {
 	}
 
-	public Synonym(int id) {
-		this.id = id;
-	}
-
-	public Synonym(int id, Integer flag, String name) {
-		this.id = id;
+	public Synonym(Integer flag, String name) {
 		this.flag = flag;
 		this.name = name;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

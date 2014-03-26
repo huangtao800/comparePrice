@@ -1,12 +1,14 @@
 package edu.nju.comparePrice.models;
 
-// Generated 2014-3-19 22:36:57 by Hibernate Tools 3.4.0.CR1
+// Generated 2014-3-26 7:32:39 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,47 +22,44 @@ import javax.persistence.Table;
 @Table(name = "commodity", catalog = "comparepricedb")
 public class Commodity implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Brand brand;
+	private Integer bid;
 	private String name;
-	private double price;
-	private int unit;
+	private Double price;
+	private Integer unit;
 	private String link;
+	private String onlineId;
 	private Set forbidCommodities = new HashSet(0);
 	private Set comments = new HashSet(0);
 
 	public Commodity() {
 	}
 
-	public Commodity(int id, Brand brand, String name, double price, int unit,
-			String link) {
-		this.id = id;
+	public Commodity(Brand brand) {
 		this.brand = brand;
-		this.name = name;
-		this.price = price;
-		this.unit = unit;
-		this.link = link;
 	}
 
-	public Commodity(int id, Brand brand, String name, double price, int unit,
-			String link, Set forbidCommodities, Set comments) {
-		this.id = id;
+	public Commodity(Brand brand, String name, Double price, Integer unit,
+			String link, String onlineId, Set forbidCommodities, Set comments) {
 		this.brand = brand;
 		this.name = name;
 		this.price = price;
 		this.unit = unit;
 		this.link = link;
+		this.onlineId = onlineId;
 		this.forbidCommodities = forbidCommodities;
 		this.comments = comments;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -74,7 +73,7 @@ public class Commodity implements java.io.Serializable {
 		this.brand = brand;
 	}
 
-	@Column(name = "name", nullable = false, length = 16)
+	@Column(name = "name", length = 16)
 	public String getName() {
 		return this.name;
 	}
@@ -83,31 +82,40 @@ public class Commodity implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@Column(name = "price", nullable = false, precision = 22, scale = 0)
-	public double getPrice() {
+	@Column(name = "price", precision = 22, scale = 0)
+	public Double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-	@Column(name = "unit", nullable = false)
-	public int getUnit() {
+	@Column(name = "unit")
+	public Integer getUnit() {
 		return this.unit;
 	}
 
-	public void setUnit(int unit) {
+	public void setUnit(Integer unit) {
 		this.unit = unit;
 	}
 
-	@Column(name = "link", nullable = false)
+	@Column(name = "link")
 	public String getLink() {
 		return this.link;
 	}
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	@Column(name = "onlineId", length = 32)
+	public String getOnlineId() {
+		return this.onlineId;
+	}
+
+	public void setOnlineId(String onlineId) {
+		this.onlineId = onlineId;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "commodity")
@@ -127,10 +135,13 @@ public class Commodity implements java.io.Serializable {
 	public void setComments(Set comments) {
 		this.comments = comments;
 	}
-	
-	
-	public int getWeight(){
-		return brand.getWeight();
+
+	public Integer getBid() {
+		return bid;
+	}
+
+	public void setBid(Integer bid) {
+		this.bid = bid;
 	}
 
 }

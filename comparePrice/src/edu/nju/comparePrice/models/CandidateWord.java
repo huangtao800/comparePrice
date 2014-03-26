@@ -1,10 +1,15 @@
 package edu.nju.comparePrice.models;
 
-// Generated 2014-3-19 22:36:57 by Hibernate Tools 3.4.0.CR1
+// Generated 2014-3-26 7:32:39 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,29 +19,42 @@ import javax.persistence.Table;
 @Table(name = "candidate_word", catalog = "comparepricedb")
 public class CandidateWord implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
+	private Brand brand;
+	 private Integer bid;
 	private String name;
 
 	public CandidateWord() {
 	}
 
-	public CandidateWord(int id) {
-		this.id = id;
+	public CandidateWord(Brand brand) {
+		this.brand = brand;
 	}
 
-	public CandidateWord(int id, String name) {
-		this.id = id;
+	public CandidateWord(Brand brand, String name) {
+		this.brand = brand;
 		this.name = name;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "bid", nullable = false)
+	public Brand getBrand() {
+		return this.brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
 	@Column(name = "name", length = 16)
@@ -46,6 +64,14 @@ public class CandidateWord implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getBid() {
+		return bid;
+	}
+
+	public void setBid(Integer bid) {
+		this.bid = bid;
 	}
 
 }
