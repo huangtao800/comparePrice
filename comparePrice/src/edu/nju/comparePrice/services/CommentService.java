@@ -2,24 +2,40 @@ package edu.nju.comparePrice.services;
 
 import java.util.ArrayList;
 
+import edu.nju.comparePrice.dao.CommentDaoStub;
+import edu.nju.comparePrice.models.Comment;
+
+
 public class CommentService {
 
 	private static final int SENSITIVECOUNT=10;
 	
-	private static CommentService commentService;
 	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
 	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
 
-	private CommentService() {
-		
+	private CommentDaoStub dao;
+	
+	public CommentService(){
+	}
+	
+	public boolean addComment(Comment comment){
+		dao.addComment(comment);
+		return true;
+	}
+	
+	
+	public ArrayList<Comment> getComments(int cid){
+		return dao.getComments(cid);
 	}
 
-	public static CommentService getInstance() {
-		if (commentService == null) {
-			commentService = new CommentService();
-		}
-		return commentService;
+	public CommentDaoStub getDao() {
+		return dao;
 	}
+
+	public void setDao(CommentDaoStub dao) {
+		this.dao = dao;
+	}
+
 
 	public boolean postComment(int userID, String comment) {
 		boolean result=false;
