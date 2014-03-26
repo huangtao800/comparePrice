@@ -25,6 +25,8 @@
 	
 	<!-- Basic Part Begin -->
 	<!-- Actions -->
+	
+	<!-- Users部分起始 -->
 	<bean id="userBarAction" class="edu.nju.comparePrice.actions.UserBarAction">
     	<property name="userService">
 			<ref bean="userService" />
@@ -48,6 +50,7 @@
 			<ref bean="userService" />
 		</property>
 	</bean>
+	<!-- User部分结束 -->
 	
 	<bean id="commoditySortAction" class="edu.nju.comparePrice.actions.CommoditySortAction">
     	<property name="commodityService">
@@ -131,12 +134,19 @@
 	
 	<!-- Services -->
 	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
+		<property name="userDao">
+			<ref bean="userDao"/>
+		</property>
 	</bean>
 	
 	<bean id="commodityService" class="edu.nju.comparePrice.services.CommodityService">
 	</bean>
 	
 	<bean id="systemAdminService" class="edu.nju.comparePrice.services.SystemAdminService">
+	</bean>
+	
+	<!-- DAOs -->
+	<bean id="userDao" class="edu.nju.comparePrice.dao.UserDao">
 	</bean>
 	
 	<!-- 定义受环境影响易变的变量 -->
