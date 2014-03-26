@@ -25,7 +25,7 @@ import org.springframework.core.io.Resource;
 public class ApplicationContextContainer implements ApplicationContextAware {
 	protected static Logger logger = LoggerFactory.getLogger(ApplicationContextContainer.class);
 	
-	// 声明�?��静�?变量保存
+
     private static ApplicationContext applicationContext;
 		
 
