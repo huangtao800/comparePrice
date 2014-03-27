@@ -35,6 +35,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	@Autowired
 	@Qualifier("jdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
+	@Autowired
+    private BrandDao brandDao;
 
 	public ArrayList<Commodity> getForbiddenCommodities(){
 		final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
@@ -85,7 +87,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
                 commodity.setPrice(rs.getDouble("price"));
                 commodity.setOnlineId(rs.getString("onlineid"));
                 commodity.setUnit(rs.getInt("unit"));
-                Brand brand=DaoFacade.getInstance().queryBrandById(bid);
+                Brand brand=brandDao.queryBrandById(bid);
                 commodity.setBrand(brand);
             	commodityList.add(commodity);
             }
@@ -123,7 +125,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	                commodity.setPrice(rs.getDouble("price"));
 	                commodity.setOnlineId(rs.getString("onlineid"));
 	                commodity.setUnit(rs.getInt("unit"));
-	                Brand brand=DaoFacade.getInstance().queryBrandById(bid);
+	                Brand brand=brandDao.queryBrandById(bid);
 	                commodity.setBrand(brand);
 	            	
 	            }
@@ -136,7 +138,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	}
 	
 	
-	public void testcase() {
+	/*public void testcase() {
 		ArrayList<Commodity> forbiddenCommodities=DaoFacade.getInstance().getForbiddenCommodities();
 		System.out.println("forbiddenCommodities");
 		for(Commodity c:forbiddenCommodities) {
@@ -153,7 +155,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		boolean isCancel=DaoFacade.getInstance().cancelForbid(2);
 		
 		
-	}
+	}*/
 	
 
 }

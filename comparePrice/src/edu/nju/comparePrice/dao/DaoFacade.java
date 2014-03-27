@@ -37,9 +37,9 @@ public class DaoFacade {
 	
 	
 	
-	public static DaoFacade getInstance(){
+	/*public static DaoFacade getInstance(){
 		return ApplicationContextContainer.getBean(DaoFacade.class);
-	}
+	}*/
 	
 	public boolean login(String username,String password) {
 		return uDao.login(username, password);

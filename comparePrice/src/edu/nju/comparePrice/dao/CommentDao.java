@@ -43,6 +43,10 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	@Autowired
 	@Qualifier("jdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private UserDao userDao;
+	@Autowired
+	private CommodityDao commodityDao;
 
 	public void setSensitiveFlag(int commentID, boolean flag) {
 		jdbcTemplate.update("UPDATE comment SET state=?  where id=?", new Object[] {flag,commentID});  
@@ -69,12 +73,12 @@ public class CommentDao extends HibernateDao<Comment, Long> {
             	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
             	comment.setState(rs.getBoolean("state"));
             	Integer userId=rs.getInt("uid");
-            			User user=DaoFacade.getInstance().find(userId);
+            			User user=userDao.find(userId);
             	comment.setUser(user);
             	comment.setUid(userId);
             	Integer commodityId=rs.getInt("cid");
             	comment.setCid(commodityId);
-            	Commodity commodity=DaoFacade.getInstance().queryCommodityByID(commodityId);
+            	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
             	comment.setCommodity(commodity);
             	            
             	commentList.add(comment);
@@ -96,20 +100,20 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 			
 			jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 	            public void processRow(ResultSet rs) throws SQLException {    
-	            	
 	            	comment.setId(rs.getInt("id"));
 	            	comment.setDetails(rs.getString("details"));
 	            	
 	            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
 	            	comment.setState(rs.getBoolean("state"));
 	            	Integer userId=rs.getInt("uid");
-	            			User user=DaoFacade.getInstance().find(userId);
+	            			User user=userDao.find(userId);
 	            	comment.setUser(user);
 	            	comment.setUid(userId);
 	            	Integer commodityId=rs.getInt("cid");
 	            	comment.setCid(commodityId);
-	            	Commodity commodity=DaoFacade.getInstance().queryCommodityByID(commodityId);
+	            	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
 	            	comment.setCommodity(commodity);
+	            	            
 	            }
 	               });
 			return  comment;
@@ -120,7 +124,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	}
 	
 	
-	public void testcase() {
+	/*public void testcase() {
 		Comment comment =new Comment();
 		
 		comment.setDetails("nothing");
@@ -139,6 +143,6 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 		DaoFacade.getInstance().setSensitiveFlag(3, true);
 		
 		
-	}
+	}*/
 }
 

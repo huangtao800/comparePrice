@@ -68,7 +68,7 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 		return true;
 	}
 
-	public void testcase() {
+	/*public void testcase() {
 		
 		{
 		ArrayList<Brand> brandList=DaoFacade.getInstance().getBrandList();
@@ -79,6 +79,6 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 		DaoFacade.getInstance().saveBrand(1, 2);
 		}
 		
-	}
+	}*/
 	
 }

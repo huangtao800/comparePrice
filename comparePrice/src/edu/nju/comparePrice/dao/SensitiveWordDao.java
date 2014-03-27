@@ -58,7 +58,7 @@ public class SensitiveWordDao extends HibernateDao<SensitiveWord, Long> {
 		return  sensitivewordList;
 	}
 	
-	public void testcase() {
+/*	public void testcase() {
 		ArrayList<SensitiveWord> sensitiveWords=DaoFacade.getInstance().getSensitiveWords();
 		for(SensitiveWord s:sensitiveWords) {
 			System.out.print(s.getName()+"|");
@@ -68,5 +68,5 @@ public class SensitiveWordDao extends HibernateDao<SensitiveWord, Long> {
 		boolean isRemove=DaoFacade.getInstance().removeSensitiveWord(1);
 		
 		}
-
+*/
 }

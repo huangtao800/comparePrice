@@ -148,7 +148,7 @@ public class UserDao extends HibernateDao<User, Long> {
 			
 		}
 		
-		public void testcase() {
+	/*	public void testcase() {
 			
 			boolean isExist=DaoFacade.getInstance().login("use1","123");
 			
@@ -166,7 +166,7 @@ public class UserDao extends HibernateDao<User, Long> {
 			System.out.println(count);
 			addSentsitiveCount(2, 4);
 		}
-	
+	*/
 	
 	
 }
