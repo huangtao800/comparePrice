@@ -3,19 +3,27 @@ package edu.nju.comparePrice.services;
 import java.util.ArrayList;
 
 import edu.nju.comparePrice.dao.CommentDaoStub;
+import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Comment;
+import edu.nju.comparePrice.models.SensitiveWord;
+import edu.nju.comparePrice.models.SpecialWord;
 
 
 public class CommentService {
 
 	private static final int SENSITIVECOUNT=10;
 	
-	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
-	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
+	private ArrayList<SensitiveWord> sensitiveWords=new ArrayList<SensitiveWord>();	//should be initialized by DAOFacase
+	private ArrayList<SpecialWord> specialWords =new ArrayList<SpecialWord>();		//should be initialized by DAOFacase
 
 	private CommentDaoStub dao;
+	private DaoFacade daoFacade;
 	
 	public CommentService(){
+		this.daoFacade=new DaoFacade();
+		sensitiveWords=daoFacade.getSensitiveWords();
+		specialWords=daoFacade.getSpecialWords();
+		
 	}
 	
 	public boolean addComment(Comment comment){
@@ -51,8 +59,8 @@ public class CommentService {
 	public boolean checkComment(int userID, String comment) {
 		boolean result =false;
 		for(int i=0;i<sensitiveWords.size();i++){
-			if(comment.contains(sensitiveWords.get(i))){
-				//add sensitiveCount
+			if(comment.contains(sensitiveWords.get(i).getName())){
+				daoFacade.addSentsitiveCount(userID, 1);//add sensitiveCount
 				//set sensitiveFlag
 				result=true;
 			}
@@ -60,7 +68,7 @@ public class CommentService {
 		}
 		
 		for(int i=0;i<specialWords.size();i++){
-			if(comment.contains(specialWords.get(i))){
+			if(comment.contains(specialWords.get(i).getName())){
 				//set SpecialFlag
 				result=true;
 			}
@@ -71,7 +79,7 @@ public class CommentService {
 
 	public boolean checkWaterNavy(int userID) {
 		int sensitiveCount=0;
-		//add sensitiveCount
+		sensitiveCount=daoFacade.getSensitiveCountByUseID(userID);//add sensitiveCount
 		return sensitiveCount>=SENSITIVECOUNT;
 	}
 	
