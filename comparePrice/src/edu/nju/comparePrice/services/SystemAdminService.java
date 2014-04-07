@@ -2,48 +2,53 @@ package edu.nju.comparePrice.services;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.SensitiveWord;
 
+
 public class SystemAdminService {
-	
+	@Autowired 
+	private DaoFacade daoFacade;	
 	
 	//获取已经被屏蔽的商品列表
 	public ArrayList<Commodity> getForbiddenCommodities(){
-		return null;
+		return daoFacade.getForbiddenCommodities();
 	}
 	
 	public ArrayList<Commodity> getToForbidCommodities(String commodityName){
-		return null;
+		return daoFacade.getToForbidCommodities(commodityName);
 	}
 	
 	public boolean cancelForbid(int commodityId){
-		return false;
+		return daoFacade.cancelForbid(commodityId);
 	}
 	
 	public boolean forbid(int commodityId){
-		return false;
+		return daoFacade.forbid(commodityId);
 	}
 	
 	public boolean addSensitiveWord(String sensitiveWord){
-		return false;
+		return daoFacade.addSensitiveWord(sensitiveWord);
 	}
 	
 	public ArrayList<SensitiveWord> getSensiviveWordList(){
-		return null;
+		return daoFacade.getSensiviveWordList();
 	}
 	
 	public boolean removeSensitiveWord(int sensitiveWordId){
-		return false;
+		return daoFacade.removeSensitiveWord(sensitiveWordId);
 	}
 	
 	public ArrayList<Brand> getBrandList(){
-		return null;
+		return daoFacade.getBrandList();
 	}
 	
 	public boolean saveBrand(int brandId,int brandWeight){
-		return false;
+		return daoFacade.saveBrand(brandId, brandWeight);
 	}
 
 }
