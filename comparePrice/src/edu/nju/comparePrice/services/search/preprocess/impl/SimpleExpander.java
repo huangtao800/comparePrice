@@ -21,6 +21,7 @@ public class SimpleExpander implements Expander {
 	
 	private List<String> getSynoym(String keyword) {
 		//TODO 实现同义词查找
+		return null;
 	}
 
 }
