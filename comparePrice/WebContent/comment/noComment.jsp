@@ -62,7 +62,7 @@
     </div>
     
     
-	<div style="font-size:80px; margin-top:80px; margin-left:50px;">当前商品尚无评论</div>
+	<div style="font-size:80px; margin-top:80px; margin-left:50px;">当前商品尚无评论!</div>
 	<a class="navbar-brand" class="active" style="margin-left:50px" href="../user/homepage.jsp">•̩̩̩́ ˑ̫ •̩̩̩̀ 对不起，因为程序猿偷懒所以你只能回到主页了...</a>
 	
 
