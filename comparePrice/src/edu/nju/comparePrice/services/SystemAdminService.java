@@ -20,35 +20,35 @@ public class SystemAdminService {
 	}
 	
 	public ArrayList<Commodity> getToForbidCommodities(String commodityName){
-		return null;
+		return daoFacade.getToForbidCommodities(commodityName);
 	}
 	
 	public boolean cancelForbid(int commodityId){
-		return false;
+		return daoFacade.cancelForbid(commodityId);
 	}
 	
 	public boolean forbid(int commodityId){
-		return false;
+		return daoFacade.forbid(commodityId);
 	}
 	
 	public boolean addSensitiveWord(String sensitiveWord){
-		return false;
+		return daoFacade.addSensitiveWord(sensitiveWord);
 	}
 	
 	public ArrayList<SensitiveWord> getSensiviveWordList(){
-		return null;
+		return daoFacade.getSensiviveWordList();
 	}
 	
 	public boolean removeSensitiveWord(int sensitiveWordId){
-		return false;
+		return daoFacade.removeSensitiveWord(sensitiveWordId);
 	}
 	
 	public ArrayList<Brand> getBrandList(){
-		return null;
+		return daoFacade.getBrandList();
 	}
 	
 	public boolean saveBrand(int brandId,int brandWeight){
-		return false;
+		return daoFacade.saveBrand(brandId, brandWeight);
 	}
 
 }
