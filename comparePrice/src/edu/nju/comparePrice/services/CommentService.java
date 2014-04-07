@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import edu.nju.comparePrice.dao.CommentDaoStub;
 import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Comment;
+import edu.nju.comparePrice.models.SensitiveWord;
+import edu.nju.comparePrice.models.SpecialWord;
 
 
 public class CommentService {
@@ -15,12 +17,17 @@ public class CommentService {
 	
 	private static final int SENSITIVECOUNT=10;
 	
-	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
-	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
+	private ArrayList<SensitiveWord> sensitiveWords=new ArrayList<SensitiveWord>();	//should be initialized by DAOFacase
+	private ArrayList<SpecialWord> specialWords =new ArrayList<SpecialWord>();		//should be initialized by DAOFacase
+
 
 	//private CommentDaoStub dao;
 	
 	public CommentService(){
+		this.daoFacade=new DaoFacade();
+		sensitiveWords=daoFacade.getSensitiveWords();
+		specialWords=daoFacade.getSpecialWords();
+		
 	}
 	
 	public boolean addComment(Comment comment){
@@ -42,31 +49,31 @@ public class CommentService {
 //	}
 
 
-	public boolean postComment(int userID, String comment) {
-		boolean result=false;
-		if(!checkComment(userID, comment)){
-			//addComment
-		}else{
-			//detect water navy
-			result=true;
-		}
-		return result;
-	}
+//	public boolean postComment(int userID, Comment comment) {
+//		boolean result=false;
+//		if(!checkComment(userID, comment)){
+//			daoFacade.addComment(comment);//addComment
+//		}else{
+//			checkWaterNavy(userID);//detect water navy
+//			result=true;
+//		}
+//		return result;
+//	}
 
-	public boolean checkComment(int userID, String comment) {
+	public boolean checkComment(int userID, Comment comment) {
 		boolean result =false;
 		for(int i=0;i<sensitiveWords.size();i++){
-			if(comment.contains(sensitiveWords.get(i))){
-				//add sensitiveCount
-				//set sensitiveFlag
+			if(comment.getDetails().contains(sensitiveWords.get(i).getName())){
+				daoFacade.addSentsitiveCount(userID, 1);//add sensitiveCount
+				comment.setState(true);//set sensitiveFlag
 				result=true;
 			}
 				
 		}
 		
 		for(int i=0;i<specialWords.size();i++){
-			if(comment.contains(specialWords.get(i))){
-				//set SpecialFlag
+			if(comment.getDetails().contains(specialWords.get(i).getName())){
+				comment.setSpecialstate(true);//set SpecialFlag
 				result=true;
 			}
 			
@@ -76,7 +83,7 @@ public class CommentService {
 
 	public boolean checkWaterNavy(int userID) {
 		int sensitiveCount=0;
-		//add sensitiveCount
+		sensitiveCount=daoFacade.getSensitiveCountByUseID(userID);//add sensitiveCount
 		return sensitiveCount>=SENSITIVECOUNT;
 	}
 	
