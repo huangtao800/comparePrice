@@ -45,31 +45,31 @@ public class CommentService {
 	}
 
 
-	public boolean postComment(int userID, String comment) {
-		boolean result=false;
-		if(!checkComment(userID, comment)){
-			//addComment
-		}else{
-			//detect water navy
-			result=true;
-		}
-		return result;
-	}
+//	public boolean postComment(int userID, Comment comment) {
+//		boolean result=false;
+//		if(!checkComment(userID, comment)){
+//			daoFacade.addComment(comment);//addComment
+//		}else{
+//			checkWaterNavy(userID);//detect water navy
+//			result=true;
+//		}
+//		return result;
+//	}
 
-	public boolean checkComment(int userID, String comment) {
+	public boolean checkComment(int userID, Comment comment) {
 		boolean result =false;
 		for(int i=0;i<sensitiveWords.size();i++){
-			if(comment.contains(sensitiveWords.get(i).getName())){
+			if(comment.getDetails().contains(sensitiveWords.get(i).getName())){
 				daoFacade.addSentsitiveCount(userID, 1);//add sensitiveCount
-				//set sensitiveFlag
+				comment.setState(true);//set sensitiveFlag
 				result=true;
 			}
 				
 		}
 		
 		for(int i=0;i<specialWords.size();i++){
-			if(comment.contains(specialWords.get(i).getName())){
-				//set SpecialFlag
+			if(comment.getDetails().contains(specialWords.get(i).getName())){
+				comment.setSpecialstate(true);//set SpecialFlag
 				result=true;
 			}
 			
