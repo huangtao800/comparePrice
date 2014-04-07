@@ -30,7 +30,7 @@ public class CommentDaoStub {
 //			comment.setCid(i);
 //			comment.setUid((int)(100*Math.random()));
 			comment.setDetails("This is the Test Content..."+i+i+i+"!!!!!!!");
-			comment.setState(0);
+			comment.setState(false);
 			list.add(comment);
 		}
 	}
