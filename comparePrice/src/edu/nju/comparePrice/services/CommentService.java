@@ -2,39 +2,44 @@ package edu.nju.comparePrice.services;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.nju.comparePrice.dao.CommentDaoStub;
+import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Comment;
 
 
 public class CommentService {
-
+	@Autowired 
+	private DaoFacade daoFacade;
+	
 	private static final int SENSITIVECOUNT=10;
 	
 	private ArrayList<String> sensitiveWords=new ArrayList<String>();	//should be initialized by DAOFacase
 	private ArrayList<String> specialWords =new ArrayList<String>();		//should be initialized by DAOFacase
 
-	private CommentDaoStub dao;
+	//private CommentDaoStub dao;
 	
 	public CommentService(){
 	}
 	
 	public boolean addComment(Comment comment){
-		dao.addComment(comment);
+		daoFacade.addComment(comment);
 		return true;
 	}
 	
 	
 	public ArrayList<Comment> getComments(int cid){
-		return dao.getComments(cid);
+		return daoFacade.getComments(cid);
 	}
 
-	public CommentDaoStub getDao() {
-		return dao;
-	}
-
-	public void setDao(CommentDaoStub dao) {
-		this.dao = dao;
-	}
+//	public CommentDaoStub getDao() {
+//		return daoFacade;
+//	}
+//
+//	public void setDao(CommentDaoStub dao) {
+//		this.daoFacade = dao;
+//	}
 
 
 	public boolean postComment(int userID, String comment) {
