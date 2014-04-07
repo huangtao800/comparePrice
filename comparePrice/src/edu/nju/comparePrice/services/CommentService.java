@@ -17,18 +17,17 @@ public class CommentService {
 	
 	private static final int SENSITIVECOUNT=10;
 	
-	private ArrayList<SensitiveWord> sensitiveWords=new ArrayList<SensitiveWord>();	//should be initialized by DAOFacase
-	private ArrayList<SpecialWord> specialWords =new ArrayList<SpecialWord>();		//should be initialized by DAOFacase
+			//should be initialized by DAOFacase
 
 
 	//private CommentDaoStub dao;
 	
-	public CommentService(){
-		this.daoFacade=new DaoFacade();
-		sensitiveWords=daoFacade.getSensitiveWords();
-		specialWords=daoFacade.getSpecialWords();
-		
-	}
+//	public CommentService(){
+//		this.daoFacade=new DaoFacade();
+//		sensitiveWords=daoFacade.getSensitiveWords();
+//		specialWords=daoFacade.getSpecialWords();
+//		
+//	}
 	
 	public boolean addComment(Comment comment){
 		daoFacade.addComment(comment);
@@ -61,6 +60,8 @@ public class CommentService {
 //	}
 
 	public boolean checkComment(int userID, Comment comment) {
+		ArrayList<SensitiveWord> sensitiveWords=daoFacade.getSensitiveWords();	//should be initialized by DAOFacase
+		ArrayList<SpecialWord> specialWords =daoFacade.getSpecialWords();
 		boolean result =false;
 		for(int i=0;i<sensitiveWords.size();i++){
 			if(comment.getDetails().contains(sensitiveWords.get(i).getName())){

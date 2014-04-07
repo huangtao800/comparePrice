@@ -21,7 +21,7 @@ public class CommodityService {
 
 		Collections.sort(commodityList, new Comparator<Commodity>() {
 			public int compare(Commodity c1, Commodity c2) {
-				return (c1.getWeight() - c2.getWeight());
+				return (c1.getBrand().getWeight() - c2.getBrand().getWeight());
 			}
 		});
 
@@ -40,8 +40,8 @@ public class CommodityService {
 		c2.setName("bbbb");
 		c1.setBrand(b1);
 		c2.setBrand(b2);
-		c1.setPrice(20);
-		c2.setPrice(10);
+		c1.setPrice(20.0);
+		c2.setPrice(10.0);
 		result.add(c1);
 		result.add(c2);
 		// 做测试
