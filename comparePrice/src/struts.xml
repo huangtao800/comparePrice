@@ -31,6 +31,21 @@
 			<result name="success" >/user/commodityList.jsp</result>
 		</action>
 		
+		<action name="addComment" class="AddCommentAction">
+		    <result name="goodComment" type="redirectAction">
+		        <param name="actionName">getComments </param>
+    			<param name="cid">%{comment.cid} </param>
+			</result>
+			<result name="badComment">/comment/badComment.jsp</result>
+			<result name="toLogin">/admin/login.jsp</result>
+		</action>
+
+		<action name="getComments" class="GetCommentsAction">
+			<result name="success">/comment/comments.jsp</result>
+			<result name="error">/comment/noComment.jsp</result>
+		</action>
+
+		
 	</package>
 	 
 	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
@@ -77,27 +92,5 @@
 		
 	</package>
 				
-		
-	<!-- Comment部分始 -->
-	<package name="strutsComment" extends="struts-default" namespace="/comment">
-		<action name="addComment" class="AddCommentAction">
-		    <result name="goodComment" type="redirectAction">
-		        <param name="actionName">getComments </param>
-    			<param name="cid">%{comment.cid} </param>
-			</result>
-			<result name="badComment">/comment/badComment.jsp</result>
-			<result name="toLogin">/admin/login.jsp</result>
-		</action>
-
-		<action name="getComments" class="GetCommentsAction">
-			<result name="success">/comment/comments.jsp</result>
-			<result name="error">/comment/noComment.jsp</result>
-		</action>	
-	</package>
-					
-	<!-- Comment部分终 -->
-	
-		
-	 
 	
 </struts>
