@@ -63,6 +63,33 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 				
 		}
 
+	public  Brand queryBrandByName(String brandName){
+		
+		 final Brand brand =new Brand();
+			
+			String sql = "select * from brand where name='"+brandName+"'";
+			
+			jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+	            public void processRow(ResultSet rs) throws SQLException {    
+	            	brand.setId(rs.getInt("id"));
+	            	brand.setName(rs.getString("name"));
+	            	brand.setWeight(rs.getInt("weight"));
+	                brand.setFlag(rs.getBoolean("flag"));
+	            	
+	            	
+	            }
+	               });
+			return  brand;
+	        
+	  
+				
+				
+		}
+	
+	public boolean saveBrand(String brandName) {
+		jdbcTemplate.update("INSERT INTO brand VALUES(?, ?, ?, ?)", new Object[] {null, brandName ,null, null});  
+		return true;
+	}
 	public boolean saveBrand(int brandId,int brandWeight) {
 		jdbcTemplate.update("INSERT INTO brand VALUES(?, ?, ?, ?)", new Object[] {brandId, null,null, brandWeight});  
 		return true;

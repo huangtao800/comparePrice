@@ -16,6 +16,8 @@ import java.util.Map;
 
 
 
+
+
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ import org.springside.modules.orm.hibernate.HibernateDao;
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.CommodityCrawl;
 
 
 @Repository
@@ -137,7 +140,47 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		
 	}
 	
+	public Commodity queryCommodityByOnlineID(String cOnlineId) {
+		
+		 final Commodity commodity =new Commodity();
+			
+			String sql = "select * from commodity where onlineid='"+cOnlineId+"'";
+			
+			jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+	            public void processRow(ResultSet rs) throws SQLException {    
+	            	
+	            	commodity.setId(rs.getInt("id"));
+	            	commodity.setLink(rs.getString("link"));
+	            	commodity.setName(rs.getString("name")); 
+	            	Integer bid=rs.getInt("bid");
+	                commodity.setBid(bid);
+	                commodity.setPrice(rs.getDouble("price"));
+	                commodity.setOnlineId(rs.getString("onlineid"));
+	                commodity.setUnit(rs.getInt("unit"));
+	                Brand brand=brandDao.queryBrandById(bid);
+	                commodity.setBrand(brand);
+	            	
+	            }
+	               });
+			return  commodity;
+	        
+	  
+				
+		
+	}
+	public boolean updateCommodityByCrawl(CommodityCrawl crawl,int commodityid) {
+		
+			jdbcTemplate.update("UPDATE commodity SET link=?, name=?,bid=?,price=?,onlineid=?,unit=? where id=?", new Object[] {crawl.getLink(),crawl.getName(),crawl.getBrandId(),crawl.getPrice(),crawl.getOnlineId(),crawl.getUnit(),commodityid});  
+		
+		 return true;
+	}
 	
+	
+	public boolean insertCommodity(CommodityCrawl crawl) {
+		jdbcTemplate.update("INSERT INTO commodity VALUES(?,?,?,?,?,?,?)", new Object[] {null,crawl.getLink(),crawl.getName(),crawl.getBrandId(),crawl.getPrice(),crawl.getOnlineId(),crawl.getUnit()});  
+		
+		 return true;
+	}
 	/*public void testcase() {
 		ArrayList<Commodity> forbiddenCommodities=DaoFacade.getInstance().getForbiddenCommodities();
 		System.out.println("forbiddenCommodities");

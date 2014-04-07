@@ -12,6 +12,7 @@ import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.CommodityCrawl;
 import edu.nju.comparePrice.models.CrawlerWebsite;
 import edu.nju.comparePrice.models.SensitiveWord;
 import edu.nju.comparePrice.models.SpecialWord;
@@ -46,6 +47,28 @@ public class DaoFacade {
 	}
 
 	 
+	public boolean updateCommodity(ArrayList<CommodityCrawl> crawlList){
+	for(CommodityCrawl crawl:crawlList) {
+		Brand brand=bDao.queryBrandByName(crawl.getBrandName());
+		
+		if(brand==null) {
+			bDao.saveBrand(crawl.getBrandName());
+	        brand=bDao.queryBrandByName(crawl.getBrandName());
+		}
+		crawl.setBrandId(brand.getId());
+		Commodity commodity=pDao.queryCommodityByOnlineID(crawl.getOnlineId());
+		
+		if(commodity==null) {
+			pDao.insertCommodity(crawl);
+		}
+		else {
+			pDao.updateCommodityByCrawl(crawl, commodity.getId());
+		}
+	}
+	return true;
+		
+		
+	}
 
 	public ArrayList<SensitiveWord> getSensitiveWords(){
 		return (ArrayList<SensitiveWord>)sDao.getSensiviveWordList();
