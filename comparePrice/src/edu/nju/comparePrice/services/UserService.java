@@ -1,15 +1,20 @@
 package edu.nju.comparePrice.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.dao.UserDao;
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.User;
 import edu.nju.comparePrice.models.VerifyResult;
 
 public class UserService {
-	private UserDao userDao;
+	@Autowired 
+	private DaoFacade daoFacade;
+//	private UserDao userDao;
 	
 	public User findUser(int userId) {
-		User user = userDao.find(userId);
+		User user = daoFacade.find(userId);
 		return user;
 	}
 	
@@ -21,7 +26,7 @@ public class UserService {
 	 * @return 用户id
 	 */
 	public int register(String username, String password) {
-		int id = userDao.save(username, password);
+		int id = daoFacade.save(username, password);
 		return id;
 	}
 	
@@ -50,7 +55,7 @@ public class UserService {
 	}
 	
 	private BaseUser findBaseUser (int id) {
-		BaseUser baseUser = userDao.findBaseUser(id);
+		BaseUser baseUser = daoFacade.findBaseUser(id);
 		return baseUser;
 	}
 }
