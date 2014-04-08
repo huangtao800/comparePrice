@@ -6,7 +6,7 @@ import java.util.Set;
 public class CommodityCrawl {
 	private String name; 
 	private double price; 
-	private String unit; 
+	private int unit; 
 	private int brandId;
 	private String brandName; 
 	private String link; 
@@ -23,10 +23,10 @@ public class CommodityCrawl {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getUnit() {
+	public int getUnit() {
 		return unit;
 	}
-	public void setUnit(String unit) {
+	public void setUnit(int unit) {
 		this.unit = unit;
 	}
 	public String getBrandName() {
