@@ -132,6 +132,15 @@
 	</bean>	
 	<!-- Comment部分结束 -->	
 	
+	<!-- crawler -->
+	<bean id="CrawlerAction" class="edu.nju.comparePrice.actions.CrawlerAction">
+		<property name="CrawlerService">
+			<ref bean="CrawlerService"/>
+		</property>
+	</bean>	
+	
+	<!-- crawler end -->
+	
 	
 	<!-- Services -->
 	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
@@ -145,6 +154,9 @@
 	
 	<bean id="systemAdminService" class="edu.nju.comparePrice.services.SystemAdminService">
 	</bean>
+	
+	<bean id="CrawlerService" class="edu.nju.comparePrice.services.CrawlerService">
+	</bean>	
 	
 	<!-- DAOs -->
 	<bean id="userDao" class="edu.nju.comparePrice.dao.UserDao">
