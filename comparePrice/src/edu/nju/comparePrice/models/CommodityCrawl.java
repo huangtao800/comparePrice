@@ -11,6 +11,17 @@ public class CommodityCrawl {
 	private String brandName; 
 	private String link; 
 	private String onlineId;
+	
+	public CommodityCrawl(String name, double price, int unit, String brandName, String link, String onlineId){
+		this.name = name;
+		this.price = price;
+		this.unit = unit;
+		this.brandName = brandName;
+		this.brandId = -1;
+		this.link = link;
+		this.onlineId = onlineId;
+	}
+	
 	public String getName() {
 		return name;
 	}
