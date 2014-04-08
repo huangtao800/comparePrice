@@ -91,7 +91,7 @@
 		</action>
 		
 		<action name="updateCrawler" class="CrawlerAction">
-		    <result name="success"></result>
+		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
 		
 	</package>
