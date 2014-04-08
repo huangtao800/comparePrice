@@ -90,6 +90,10 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
+		<action name="updateCrawler" class="CrawlerAction">
+		    <result name="success"></result>
+		</action>
+		
 	</package>
 				
 	

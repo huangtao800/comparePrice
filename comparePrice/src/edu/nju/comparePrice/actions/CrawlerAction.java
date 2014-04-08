@@ -6,7 +6,7 @@ import edu.nju.comparePrice.services.CrawlerService;
 public class CrawlerAction  extends BaseAction{
 	private CrawlerService crawlerService;
 	
-	public String updateCommodity(){
+	public String execute(){
 		crawlerService.updateCommodity();
 		return "success";
 	}
