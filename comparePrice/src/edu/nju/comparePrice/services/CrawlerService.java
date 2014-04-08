@@ -11,15 +11,22 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.CommodityCrawl;
 
 
 public class CrawlerService {
+	@Autowired 
+	private DaoFacade daoFacade;
+	
 	private Context ctx; 
 	private DataSource ds;
 	private Connection con = null;
 
 	public void updateCommodity() {
+		System.out.println("---------------------");
 		ArrayList<CommodityCrawl> commodityList = new ArrayList<CommodityCrawl>();
 		double price;
 		String id;
@@ -43,11 +50,11 @@ public class CrawlerService {
 				CommodityCrawl commodity = new CommodityCrawl(name,price,0,brand,link,id);
 				commodityList.add(commodity);
 				if(commodityList.size() == 100){
-					//daoFactory.updateCommodity(commodity);
+					daoFacade.updateCommodity(commodityList);
 					commodityList =  new ArrayList<CommodityCrawl>();
 					count ++;
 				}
-				//daoFactory.updateCommodity(commodity);
+				daoFacade.updateCommodity(commodityList);
 				System.out.println(commodity.getOnlineId()+"/"+commodity.getBrandName()+"/"+commodity.getName());
 			}
 			stmt.close();

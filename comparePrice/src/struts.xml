@@ -90,7 +90,7 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
-		<action name="updateCrawler" class="CrawlerAction">
+		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
 		

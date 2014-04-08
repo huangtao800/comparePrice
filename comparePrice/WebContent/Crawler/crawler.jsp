@@ -11,7 +11,8 @@
 </head>
 <body>
     <div class="container">
-	<form class="form-signin" role="form" action="updateCrawler" method="post">
+    <!-- http://localhost:8080/comparePrice/admin/UpdateCrawler -->
+	<form class="form-signin" role="form" action="/admin/UpdateCrawler" method="post">
 		<h2 class="form-signin-heading">Update Commodity</h2>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
       </form>
