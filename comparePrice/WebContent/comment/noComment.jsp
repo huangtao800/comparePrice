@@ -66,7 +66,7 @@
 	<a class="navbar-brand" class="active" style="margin-left:50px" href="../user/homepage.jsp">•̩̩̩́ ˑ̫ •̩̩̩̀ 对不起，因为程序猿偷懒所以你只能回到主页了...</a>
 	
 
-	<s:form id="addCommentPart" action="addComment" method="POST">
+	<s:form id="addCommentPart" action="/user/addComment" method="POST">
 		<div><label style="font-size:26px;">评论：</label></div>
 		<s:hidden name="comment.user.id" value="12306"> </s:hidden>
 		<s:hidden name="comment.commodity.id" value="%{cid}"> </s:hidden>

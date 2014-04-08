@@ -13,7 +13,7 @@
 <body>
 
 	<div id="inputPart">						
-		<s:form action="getComments" method="POST">
+		<s:form action="/user/getComments" method="POST">
 			<div id="titleText">商品1 blah blah blah</div>
 			<s:hidden name="cid" value="3"> </s:hidden>
 			<s:submit value="查看评论" />

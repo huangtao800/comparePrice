@@ -36,13 +36,13 @@
 		        <param name="actionName">getComments </param>
     			<param name="cid">%{comment.cid} </param>
 			</result>
-			<result name="badComment">/user/badComment.jsp</result>
+			<result name="badComment">/comment/badComment.jsp</result>
 			<result name="toLogin">/user/login.jsp</result>
 		</action>
 
 		<action name="getComments" class="GetCommentsAction">
-			<result name="success">/user/comments.jsp</result>
-			<result name="error">/user/noComment.jsp</result>
+			<result name="success">/comment/comments.jsp</result>
+			<result name="error">/comment/noComment.jsp</result>
 		</action>
 
 		

@@ -70,7 +70,7 @@
 		</div>
 	</s:iterator>
 
-	<s:form id="addCommentPart" action="addComment" method="POST">
+	<s:form id="addCommentPart" action="/user/addComment" method="POST">
 		<div><label style="font-size:26px;">фюбшё╨</label></div>
 		<s:hidden name="comment.user.id" value="12306"> </s:hidden>
 		<s:hidden name="comment.commodity.id" value="%{cid}"> </s:hidden>
