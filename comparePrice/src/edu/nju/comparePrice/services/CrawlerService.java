@@ -26,11 +26,10 @@ public class CrawlerService {
 		String name;
 		String brand;
 		String link;
-		String website;
 		int count = 0;
 		try {
 			ctx=new InitialContext();
-			ds= (DataSource) ctx.lookup("java:comp/env/jdbc/Lab5") ;	
+			ds= (DataSource) ctx.lookup("java:comp/env/jdbc/crawler") ;	
 			Connection con;
 			con = ds.getConnection();
 			Statement stmt = con.createStatement();
@@ -40,7 +39,6 @@ public class CrawlerService {
 				id = rs.getString("id");
 				name = rs.getString("name");
 				link = rs.getString("link");
-				website = rs.getString("website");
 				brand = rs.getString("brand");
 				CommodityCrawl commodity = new CommodityCrawl(name,price,0,brand,link,id);
 				commodityList.add(commodity);
