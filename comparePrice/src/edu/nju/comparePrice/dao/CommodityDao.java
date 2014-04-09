@@ -162,6 +162,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	            	
 	            }
 	               });
+			if(commodity.getId() == null)
+				return null;
 			return  commodity;
 	        
 	  
