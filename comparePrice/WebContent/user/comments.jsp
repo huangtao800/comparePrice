@@ -51,7 +51,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="../user/homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           	<div class="navbar-form navbar-right nav navbar-nav" >
@@ -70,11 +70,10 @@
 		</div>
 	</s:iterator>
 
-	<s:form id="addCommentPart" action="/user/addComment" method="POST">
+	<s:form id="addCommentPart" action="addComment" method="POST">
 		<div><label style="font-size:26px;">ÆÀÂÛ£º</label></div>
 		<s:hidden name="comment.user.id" value="12306"> </s:hidden>
 		<s:hidden name="comment.commodity.id" value="%{cid}"> </s:hidden>
-		<s:hidden name="comment.state" value="0"> </s:hidden>
 		<s:textarea name="comment.details" cols="97" rows="7"></s:textarea>
 		<s:submit  cssClass="btn btn-success" cssStyle="margin-top:3px;margin-bottom:10px;" value="Submit"></s:submit>
 	</s:form>

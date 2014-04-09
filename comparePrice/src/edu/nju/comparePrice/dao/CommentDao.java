@@ -80,8 +80,11 @@ public class CommentDao extends HibernateDao<Comment, Long> {
             	comment.setCid(commodityId);
             	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
             	comment.setCommodity(commodity);
-            	            
-            	commentList.add(comment);
+            	
+            	//condition added !!!!!!!!!!!!!!!!
+            	if(!comment.getState()&&!comment.getIscandidateword()&&!comment.getSpecialstate()){
+                	commentList.add(comment);
+            	}
             }
                });
 		return  commentList;

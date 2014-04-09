@@ -51,7 +51,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="../user/homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           	<div class="navbar-form navbar-right nav navbar-nav" >
@@ -63,14 +63,13 @@
     
     
 	<div style="font-size:80px; margin-top:80px; margin-left:50px;">当前商品尚无评论!</div>
-	<a class="navbar-brand" class="active" style="margin-left:50px" href="../user/homepage.jsp">•̩̩̩́ ˑ̫ •̩̩̩̀ 对不起，因为程序猿偷懒所以你只能回到主页了...</a>
+	<a class="navbar-brand" class="active" style="margin-left:50px" href="homepage.jsp">•̩̩̩́ ˑ̫ •̩̩̩̀ 对不起，因为程序猿偷懒所以你只能回到主页了...</a>
 	
 
-	<s:form id="addCommentPart" action="/user/addComment" method="POST">
+	<s:form id="addCommentPart" action="addComment" method="POST">
 		<div><label style="font-size:26px;">评论：</label></div>
 		<s:hidden name="comment.user.id" value="12306"> </s:hidden>
 		<s:hidden name="comment.commodity.id" value="%{cid}"> </s:hidden>
-		<s:hidden name="comment.state" value="0"> </s:hidden>
 		<s:textarea name="comment.details" cols="97" rows="7"></s:textarea>
 		<s:submit  cssClass="btn btn-success" cssStyle="margin-top:3px;margin-bottom:10px;" value="Submit"></s:submit>
 	</s:form>

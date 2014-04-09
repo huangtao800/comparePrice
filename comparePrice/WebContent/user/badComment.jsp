@@ -22,7 +22,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="../user/homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           	<div class="navbar-form navbar-right nav navbar-nav" >
@@ -36,7 +36,7 @@
 
 	<div style="font-size:80px; margin-top:80px; margin-left:50px;">评论失败</div>
 	
-	<a class="navbar-brand" class="active" style="margin-left:50px" href="/user/getComments?cid=%{comment.id}">点击返回商品列表...</a>
+	<a class="navbar-brand" class="active" style="margin-left:50px" href="getComments?cid=%{comment.id}">点击返回商品列表...</a>
 	
 </body>
 

@@ -22,12 +22,22 @@ public class AddCommentAction extends BaseAction {
 			User user = new User();
 			user.setId(id);
 			comment.setUser(user);
+			// set all states false
+			comment.setIscandidateword(false);
+			comment.setSpecialstate(false);
+			comment.setState(false);
+		
 		}
 		
-		if(service.addComment(comment)){
-			return "goodComment";
-		}else{
+		if(service.checkWaterNavy(id)){
 			return "badComment";
+		}
+		
+		if(service.checkComment(id, comment)){
+			return "badComment";
+		}else{
+			service.addComment(comment);
+			return "goodComment";
 		}
 
 	}

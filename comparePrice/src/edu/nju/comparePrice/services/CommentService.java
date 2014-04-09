@@ -74,7 +74,7 @@ public class CommentService {
 		
 		for(int i=0;i<specialWords.size();i++){
 			if(comment.getDetails().contains(specialWords.get(i).getName())){
-				comment.setSpecialstate(true);//set SpecialFlag
+				comment.setIscandidateword(true);;//set SpecialFlag
 				result=true;
 			}
 			
