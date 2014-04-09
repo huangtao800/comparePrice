@@ -56,6 +56,7 @@ public class CrawlerService {
 				}
 				daoFacade.updateCommodity(commodityList);
 				System.out.println(commodity.getOnlineId()+"/"+commodity.getBrandName()+"/"+commodity.getName());
+				System.out.println(count);
 			}
 			stmt.close();
 			rs.close();
