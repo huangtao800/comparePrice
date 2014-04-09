@@ -30,10 +30,12 @@ public class AddCommentAction extends BaseAction {
 		}
 		
 		if(service.checkWaterNavy(id)){
+//			service.addComment(comment);
 			return "badComment";
 		}
 		
 		if(service.checkComment(id, comment)){
+			service.addComment(comment);
 			return "badComment";
 		}else{
 			service.addComment(comment);

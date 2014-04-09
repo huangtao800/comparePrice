@@ -114,6 +114,12 @@ public class DaoFacade {
 		return cDao.addComment(c);
 	}
 
+	public ArrayList<Comment> getSpecialComments(int cid){
+		return cDao.getSpecialComments(cid);
+	}
+
+	
+	
 	 
 
 	public ArrayList<Commodity> getForbiddenCommodities(){
