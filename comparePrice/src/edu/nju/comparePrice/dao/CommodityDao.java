@@ -179,7 +179,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	
 	public boolean insertCommodity(CommodityCrawl crawl) {
-		jdbcTemplate.update("INSERT INTO commodity VALUES(?,?,?,?,?,?,?)", new Object[] {null,crawl.getLink(),crawl.getName(),crawl.getBrandId(),crawl.getPrice(),crawl.getOnlineId(),crawl.getUnit()});  
+		jdbcTemplate.update("INSERT INTO commodity VALUES(?,?,?,?,?,?,?)", new Object[] {null,crawl.getName(),crawl.getPrice(),crawl.getUnit(),crawl.getBrandId(),crawl.getLink(),crawl.getOnlineId()});  
 		
 		 return true;
 	}
