@@ -17,7 +17,7 @@
 		if (failMsg != null) {%>
 		<span class="error"><%=failMsg%></span>
 		<%} %>
-        <input type="text" class="form-control" name="userId" placeholder="ID" required autofocus>
+        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
         <input type="password" class="form-control" name="password" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>

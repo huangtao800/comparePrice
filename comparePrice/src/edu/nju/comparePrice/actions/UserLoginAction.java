@@ -10,13 +10,13 @@ private static final long serialVersionUID = 897954802106607865L;
 	private UserService userService;
 	
 	public String login() {
-		String idString = request.getParameter("userId");
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		VerifyResult verifyResult = userService.userVerify(idString, password);
+		VerifyResult verifyResult = userService.userVerify(username, password);
 		
 		if (verifyResult == VerifyResult.PASS) {
-			int id = Integer.parseInt(idString);
+			int id = Integer.parseInt(username);
 			session.put("userId", id);
 			return SUCCESS;
 		} else if (verifyResult == VerifyResult.ID_INVALID) {
