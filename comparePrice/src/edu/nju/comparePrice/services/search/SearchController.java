@@ -1,6 +1,6 @@
 package edu.nju.comparePrice.services.search;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.services.search.lexicon.LexiconSearcher;
@@ -17,7 +17,7 @@ public class SearchController {
 		lexiconSearcher = new LexiconSearcher();
 	}
 	
-	public List<Commodity> search(String keyword) {
+	public ArrayList<Commodity> search(String keyword) {
 		return lexiconSearcher.lookup(
 					preprocessor.preprocess(keyword));
 	}

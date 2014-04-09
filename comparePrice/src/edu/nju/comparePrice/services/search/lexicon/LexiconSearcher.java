@@ -12,7 +12,7 @@ public class LexiconSearcher {
 	 * @param keywords 关键词列表
 	 * @return 商品列表
 	 */
-	public List<Commodity> lookup(List<List<String>> keywords) {
+	public ArrayList<Commodity> lookup(List<List<String>> keywords) {
 		//TODO 调用数据库接口实现
 		return new ArrayList<Commodity>();
 		
