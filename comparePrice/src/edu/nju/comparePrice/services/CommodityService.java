@@ -9,21 +9,30 @@ public class CommodityService {
 	private ArrayList<Commodity> commodityList = new ArrayList<>();
 
 	public ArrayList<Commodity> sortByPrice() {
-		Collections.sort(commodityList, new Comparator<Commodity>() {
-			public int compare(Commodity c1, Commodity c2) {
-				return (int) (c1.getPrice() - c2.getPrice());
-			}
-		});
+		if(commodityList.isEmpty()){
+			
+		}else{
+			Collections.sort(commodityList, new Comparator<Commodity>() {
+				public int compare(Commodity c1, Commodity c2) {
+					return (int) (c1.getPrice() - c2.getPrice());
+				}
+			});
+		}
+		
 		return commodityList;
 	}
 
 	public ArrayList<Commodity> sortByBrand() {
+		if(commodityList.isEmpty()){
+			
+		}else{
 
-		Collections.sort(commodityList, new Comparator<Commodity>() {
-			public int compare(Commodity c1, Commodity c2) {
-				return (c1.getBrand().getWeight() - c2.getBrand().getWeight());
-			}
-		});
+			Collections.sort(commodityList, new Comparator<Commodity>() {
+				public int compare(Commodity c1, Commodity c2) {
+					return (c1.getBrand().getWeight() - c2.getBrand().getWeight());
+				}
+			});
+		}
 
 		return commodityList;
 	}
