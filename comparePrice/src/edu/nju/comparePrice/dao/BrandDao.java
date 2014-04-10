@@ -97,7 +97,6 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 		return true;
 	}
 	
-	
 	/*public void testcase() {
 		
 		{
