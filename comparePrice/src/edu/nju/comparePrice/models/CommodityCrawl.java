@@ -5,14 +5,14 @@ import java.util.Set;
 
 public class CommodityCrawl {
 	private String name; 
-	private double price; 
+	private float price; 
 	private int unit; 
 	private int brandId;
 	private String brandName; 
 	private String link; 
 	private String onlineId;
 	
-	public CommodityCrawl(String name, double price, int unit, String brandName, String link, String onlineId){
+	public CommodityCrawl(String name, float price, int unit, String brandName, String link, String onlineId){
 		this.name = name;
 		this.price = price;
 		this.unit = unit;
@@ -31,7 +31,7 @@ public class CommodityCrawl {
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public int getUnit() {
