@@ -96,6 +96,7 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 		jdbcTemplate.update("INSERT INTO brand VALUES(?, ?, ?, ?)", new Object[] {brandId, null,null, brandWeight});  
 		return true;
 	}
+	
 	/*public void testcase() {
 		
 		{
