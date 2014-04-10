@@ -66,8 +66,8 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 	public  Brand queryBrandByName(String brandName){
 		
 		 final Brand brand =new Brand();
-			
-			String sql = "select * from brand where name='"+brandName+"'";
+		 	String name = brandName.replaceAll("'", "");
+			String sql = "select * from brand where name='"+name+"'";
 			
 			jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 	            public void processRow(ResultSet rs) throws SQLException {    
@@ -79,6 +79,8 @@ public class BrandDao extends HibernateDao<Brand, Long> {
 	            	
 	            }
 	               });
+			if(brand.getId() == null)
+				return null;
 			return  brand;
 	        
 	  
