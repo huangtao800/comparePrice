@@ -28,12 +28,14 @@ public class CrawlerService {
 	public void updateCommodity() {
 		System.out.println("---------------------");
 		ArrayList<CommodityCrawl> commodityList = new ArrayList<CommodityCrawl>();
-		double price;
+		float price;
 		String id;
-		String name;
+		String cname;
 		String brand;
 		String link;
+		int unit;
 		int count = 0;
+		int tmp = 0;
 		try {
 			ctx=new InitialContext();
 			ds= (DataSource) ctx.lookup("java:comp/env/jdbc/crawler") ;	
@@ -42,20 +44,28 @@ public class CrawlerService {
 			Statement stmt = con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM commodity;");  
 			while(rs.next()){
-				price = rs.getDouble("price");
+				tmp++;
+				if(tmp<12670)
+					continue;
+				price = rs.getFloat("price");
 				id = rs.getString("id");
-				name = rs.getString("name");
+				cname = rs.getString("name");
 				link = rs.getString("link");
 				brand = rs.getString("brand");
-				CommodityCrawl commodity = new CommodityCrawl(name,price,0,brand,link,id);
+				unit = rs.getInt("unit");
+				String brandName = brand.replaceAll("'", "");
+				String name = cname.replaceAll("'", "");
+				CommodityCrawl commodity = new CommodityCrawl(name,price,unit,brandName,link,id);
 				commodityList.add(commodity);
-				if(commodityList.size() == 100){
+				if(commodityList.size() == 10){
 					daoFacade.updateCommodity(commodityList);
 					commodityList =  new ArrayList<CommodityCrawl>();
 					count ++;
 				}
+				
 				daoFacade.updateCommodity(commodityList);
 				System.out.println(commodity.getOnlineId()+"/"+commodity.getBrandName()+"/"+commodity.getName());
+				System.out.println(count+"/"+commodityList.size());
 			}
 			stmt.close();
 			rs.close();
