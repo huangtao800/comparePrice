@@ -3,9 +3,10 @@ package edu.nju.comparePrice.actions;
 import java.util.ArrayList;
 
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.CandidateWord;
 import edu.nju.comparePrice.models.SpecialWord;
+import edu.nju.comparePrice.services.BrandService;
 import edu.nju.comparePrice.services.CommentService;
+import edu.nju.comparePrice.services.SpecialWordService;
 
 public class CandidateWordAction extends BaseAction{
 	private static final long serialVersionUID = 6756350499319035598L;
@@ -16,12 +17,13 @@ public class CandidateWordAction extends BaseAction{
 	private String brandId;
 	
 	private CommentService commentService;
+	private SpecialWordService specialWordService;
 	private BrandService brandService;
 	
 	@Override
 	public String execute () {
 		if (candidateWordList == null) {
-			candidateWordList = commentService.getSpecialWordsList();
+			candidateWordList = specialWordService.getSpecialWordsList();
 		}
 		return SUCCESS;
 	}
@@ -36,7 +38,7 @@ public class CandidateWordAction extends BaseAction{
 		specialWord.setBid(brand.getId());
 		specialWord.setBrand(brand);
 		specialWord.setName(candidateWord);
-		commentService.addSpecialWord(specialWord);
+		specialWordService.addSpecialWord(specialWord);
 		return SUCCESS;
 	}
 
@@ -65,7 +67,6 @@ public class CandidateWordAction extends BaseAction{
 		}
 		
 		boolean isValid = brandService.contains(brandId);
-		boolean isValid = true;
 		if (isValid) {
 			Brand brand = new Brand();
 			brand.setId(brandId);
