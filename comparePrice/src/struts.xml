@@ -99,6 +99,11 @@
 		    <result name="error">error.jsp</result>
 		</action>
 		
+		<action name="deleteCandidateWord" class="candidateWordAction" method="delete">
+		    <result name="success" type="chain">candidateWordAction</result>
+		    <result name="error">error.jsp</result>
+		</action>
+		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>

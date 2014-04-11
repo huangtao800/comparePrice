@@ -3,9 +3,9 @@ package edu.nju.comparePrice.actions;
 import java.util.ArrayList;
 
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.CandidateWord;
 import edu.nju.comparePrice.models.SpecialWord;
-import edu.nju.comparePrice.services.CommentService;
+import edu.nju.comparePrice.services.BrandService;
+import edu.nju.comparePrice.services.SpecialWordService;
 
 public class CandidateWordAction extends BaseAction{
 	private static final long serialVersionUID = 6756350499319035598L;
@@ -15,13 +15,13 @@ public class CandidateWordAction extends BaseAction{
 	private String candidateWord;
 	private String brandId;
 	
-	private CommentService commentService;
-//	private BrandService brandService;
+	private SpecialWordService specialWordService;
+	private BrandService brandService;
 	
 	@Override
 	public String execute () {
 		if (candidateWordList == null) {
-			candidateWordList = commentService.getSpecialWordsList();
+			candidateWordList = specialWordService.getSpecialWordsList();
 		}
 		return SUCCESS;
 	}
@@ -36,7 +36,14 @@ public class CandidateWordAction extends BaseAction{
 		specialWord.setBid(brand.getId());
 		specialWord.setBrand(brand);
 		specialWord.setName(candidateWord);
-		commentService.addSpecialWord(specialWord);
+		specialWordService.addSpecialWord(specialWord);
+		return SUCCESS;
+	}
+	
+	public String delete() {
+		String candidateWordIdString = request.getParameter("candidateWordId");
+		int candidateWordId = Integer.parseInt(candidateWordIdString);
+		specialWordService.deleteSpecialWord(candidateWordId);
 		return SUCCESS;
 	}
 
@@ -44,8 +51,12 @@ public class CandidateWordAction extends BaseAction{
 		return candidateWordList;
 	}
 
-	public void setCommentService(CommentService commentService) {
-		this.commentService = commentService;
+	public void setSpecialWordService(SpecialWordService specialWordService) {
+		this.specialWordService = specialWordService;
+	}
+
+	public void setBrandService(BrandService brandService) {
+		this.brandService = brandService;
 	}
 
 	public void setCandidateWord(String candidateWord) {
@@ -64,8 +75,7 @@ public class CandidateWordAction extends BaseAction{
 			return null;
 		}
 		
-//		boolean isValid = brandService.contains(brandId);
-		boolean isValid = true;
+		boolean isValid = brandService.contains(brandId);
 		if (isValid) {
 			Brand brand = new Brand();
 			brand.setId(brandId);
@@ -74,6 +84,4 @@ public class CandidateWordAction extends BaseAction{
 			return null;
 		}
 	}
-	
-	
 }

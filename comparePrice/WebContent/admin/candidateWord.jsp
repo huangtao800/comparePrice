@@ -45,8 +45,8 @@
     <div class="container text-center">
         <div class="input-group" id="search">
              <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="addCandidateWord" >
-                <s:textfield name="candidateWord" cssClass="textfield_input" placeholder="请输入要添加的候选词" required/>
-                <s:textfield name="brandId" cssClass="textfield_input" placeholder="请输入商家ID" required/>
+                <s:textfield name="candidateWord" cssClass="textfield_input" placeholder="请输入要添加的候选词"/>
+                <s:textfield name="brandId" cssClass="textfield_input" placeholder="请输入商家ID"/>
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="添加"/>
             </s:form>
         </div>
@@ -64,7 +64,8 @@
                     <td><s:property value="brand.name" /></td>
                     <td><s:property value="name" /></td>
                     <td>
-                        <s:a cssClass="btn btn-primary removeSensitiveWord">删除</s:a>
+                        <a class="btn btn-primary removeSensitiveWord" 
+                        	href='deleteCandidateWord?candidateWordId=<s:property value="id"/>'>删除</a>
                     </td>
                 </tr>
             </s:iterator>

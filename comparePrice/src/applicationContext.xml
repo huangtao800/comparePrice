@@ -109,10 +109,22 @@
 	</bean>
 	
 	<bean id="candidateWordAction" class="edu.nju.comparePrice.actions.CandidateWordAction">
-		<property name="commentService">
-			<ref bean="CommentService" />
+		<property name="specialWordService">
+			<ref bean="specialWordService" />
+		</property>
+		<property name="brandService">
+			<ref bean="brandService" />
 		</property>
 	</bean>
+	
+	<bean id="specialWordService" class="edu.nju.comparePrice.services.SpecialWordService">
+	</bean>
+	
+	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
+	</bean>
+	
+	
+	
 	
 	<!-- Comment部分起始 -->	
 	<bean id="CommentDao" class="edu.nju.comparePrice.dao.CommentDaoStub"></bean>
