@@ -16,7 +16,7 @@ public class CandidateWordAction extends BaseAction{
 	private String brandId;
 	
 	private CommentService commentService;
-	private BrandService brandService;
+//	private BrandService brandService;
 	
 	@Override
 	public String execute () {
@@ -64,7 +64,7 @@ public class CandidateWordAction extends BaseAction{
 			return null;
 		}
 		
-		boolean isValid = brandService.contains(brandId);
+//		boolean isValid = brandService.contains(brandId);
 		boolean isValid = true;
 		if (isValid) {
 			Brand brand = new Brand();
