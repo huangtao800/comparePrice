@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+.container{
+	width:800px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.textfield_input{
+    height: 34px;
+	width: 200px;
+}
+
+#search{
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}

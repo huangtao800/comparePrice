@@ -6,6 +6,8 @@ import edu.nju.comparePrice.models.SensitiveWord;
 import edu.nju.comparePrice.services.SystemAdminService;
 
 public class SensitiveWordAction extends BaseAction{
+	private static final long serialVersionUID = 8487878989869650070L;
+	
 	private SystemAdminService systemAdminService;
 	private String sensitiveWord;
 	private ArrayList<SensitiveWord> sensitiveWordList=new ArrayList<SensitiveWord>();

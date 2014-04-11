@@ -108,6 +108,11 @@
 		</property>
 	</bean>
 	
+	<bean id="candidateWordAction" class="edu.nju.comparePrice.actions.CandidateWordAction">
+		<property name="commentService">
+			<ref bean="CommentService" />
+		</property>
+	</bean>
 	
 	<!-- Comment部分起始 -->	
 	<bean id="CommentDao" class="edu.nju.comparePrice.dao.CommentDaoStub"></bean>

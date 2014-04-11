@@ -85,6 +85,7 @@ public class CommentService {
 	public ArrayList<SpecialWord> getSpecialWords(int id){
 		//桩
 		Brand brand2 = new Brand();
+		brand2.setName("amazon");
 		ArrayList<SpecialWord> specialWords = new ArrayList<>();
 		SpecialWord s1 = new SpecialWord(brand2,"sb");
 		SpecialWord s2 = new SpecialWord(brand2,"假冒");
@@ -97,6 +98,7 @@ public class CommentService {
 	public ArrayList<SpecialWord> getSpecialWordsList(){
 		//桩
 		Brand brand2 = new Brand();
+		brand2.setName("amazon");
 		ArrayList<SpecialWord> specialWords = new ArrayList<>();
 		SpecialWord s1 = new SpecialWord(brand2,"sb");
 		SpecialWord s2 = new SpecialWord(brand2,"假冒");
@@ -107,11 +109,11 @@ public class CommentService {
 	}
 	
 	public void addSpecialWord(SpecialWord specialWord){
-		
+		System.out.println("add candidate word");
 	}
 	
-	public void deleteSpecialWord(SpecialWord specialWord){
-		
+	public void deleteSpecialWord(int specialWordId){
+		System.out.println("delete candidate word " + specialWordId);
 	}
 
 	public boolean checkComment(int userID, Comment comment) {

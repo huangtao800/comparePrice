@@ -90,9 +90,15 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
+		<action name="candidateWordAction" class="candidateWordAction">
+		    <result name="success">candidateWord.jsp</result>
+		</action>
+		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
+		
+		
 		
 	</package>
 				
