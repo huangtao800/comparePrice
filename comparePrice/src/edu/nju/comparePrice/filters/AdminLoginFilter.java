@@ -31,7 +31,7 @@ public class AdminLoginFilter extends HttpServlet implements javax.servlet.Filte
 		System.out.println(url);
 		
 		if (url.contains("admin") && !url.contains("login")) {
-			String adminUserString = (String) session.getAttribute("adminId");
+			Integer adminUserString = (Integer) session.getAttribute("adminId");
 			if (adminUserString == null) {
 				response.sendRedirect(contextPath+"/admin/login.jsp"); 
 				return;
