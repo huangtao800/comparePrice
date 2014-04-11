@@ -94,6 +94,11 @@
 		    <result name="success">candidateWord.jsp</result>
 		</action>
 		
+		<action name="addCandidateWord" class="candidateWordAction" method="add">
+		    <result name="success" type="chain">candidateWordAction</result>
+		    <result name="error">error.jsp</result>
+		</action>
+		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
