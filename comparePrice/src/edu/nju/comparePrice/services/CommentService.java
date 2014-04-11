@@ -68,20 +68,25 @@ public class CommentService {
 		Brand b2 = new Brand();
 		b1.setName("腾讯");
 		b2.setName("网易");
-		Commodity a1= new Commodity(); 
+		Commodity a1= new Commodity();
 		a1.setBrand(b1);
 		Commodity a2= new Commodity(); 
 		a2.setBrand(b2);
 		User u1 =new User();
 		Comment c1 = new Comment(a1,u1, "details1 adadaf" ,
 				true,true,true);
+		c1.setId(1);
 		Comment c2 = new Comment(a2,u1, "details2 adadaf" ,
 				true,true,true);
+		c2.setId(2);
 		comments.add(c1);
 		comments.add(c2);
 		return comments;
 	}
 	
+	public void cancelSpecial(int commentId) {
+		System.out.println("cancel " + commentId);
+	}
 	
 
 	public boolean checkComment(int userID, Comment comment) {
