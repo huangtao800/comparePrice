@@ -158,6 +158,34 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	
 	}
 	
+	public ArrayList<Comment> getCommentsWithCandidateWord(){
+		
+		final ArrayList<Comment> commentList =new ArrayList<Comment>();
+		String sql = "select * from comment where iscandidateword ="+true;	
+		
+		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+            public void processRow(ResultSet rs) throws SQLException {    
+            	Comment comment=new Comment();
+            	comment.setId(rs.getInt("id"));
+            	comment.setDetails(rs.getString("details"));            	
+            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
+            	comment.setState(rs.getBoolean("state"));
+            	Integer userId=rs.getInt("uid");
+            			User user=userDao.find(userId);
+            	comment.setUser(user);
+            	comment.setUid(userId);
+            	Integer commodityId=rs.getInt("cid");
+            	comment.setCid(commodityId);
+            	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
+            	comment.setCommodity(commodity);
+                commentList.add(comment);
+            	
+            }
+               });
+		return  commentList;
+	
+	}
+	
 	
 	
 	/*public void testcase() {
