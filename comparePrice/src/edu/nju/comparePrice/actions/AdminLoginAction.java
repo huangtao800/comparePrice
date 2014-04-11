@@ -27,7 +27,7 @@ public class AdminLoginAction extends BaseAction{
 	}
 
 	public String logout() {
-		session.remove("userId");
+		session.remove("adminId");
 		session.remove("fail");
 		return SUCCESS;
 	}

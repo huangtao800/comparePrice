@@ -50,12 +50,12 @@
 	 
 	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
 	    <action name="adminLogin" class="adminLoginAction" method="login">
-			<result name="success">/admin/sensitiveWord.jsp</result>
+			<result name="success" type="chain">SensitiveWordAction</result>
 			<result name="input">/admin/login.jsp</result>
 		</action>
 		
 		<action name="adminLogout" class="adminLoginAction" method="logout">
-			<result name="success">/admin/sensitiveWord.jsp</result>
+			<result name="success">/admin/login.jsp</result>
 		</action>
 		
 	    <action name="BeforeForbidAction" class="BeforeForbidAction">

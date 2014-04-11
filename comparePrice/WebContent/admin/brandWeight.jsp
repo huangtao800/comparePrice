@@ -28,9 +28,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<li><a href="sensitiveWord.jsp">敏感词管理</a></li>
-            <li><a href="forbidCommodity.jsp">商品屏蔽</a></li>
-            <li class="active"><a href="brandWeight.jsp">商家权重管理</a></li>
+          	<li><a href='<s:url action="SensitiveWordAction"/>'>敏感词管理</a></li>
+            <li><a href='<s:url action="BeforeForbidAction"/>'>商品屏蔽</a></li>
+            <li class="active"><a href='<s:url action="BrandWeightAction"/>'>商家权重管理</a></li>
           </ul>
           	<div class="navbar-form navbar-right nav navbar-nav" >
           		<a class="btn btn-success"><s:property value="session.adminId" /></a>
