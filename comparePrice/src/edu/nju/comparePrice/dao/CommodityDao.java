@@ -13,11 +13,6 @@ import java.util.Map;
 
 
 
-
-
-
-
-
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +26,7 @@ import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.CommodityCrawl;
+import edu.nju.comparePrice.models.Synonym;
 
 
 @Repository
@@ -40,6 +36,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
     private BrandDao brandDao;
+	@Autowired
+    private SynonymDao synonymDao;
 
 	public ArrayList<Commodity> getForbiddenCommodities(){
 		final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
@@ -183,6 +181,71 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		
 		 return true;
 	}
+	
+	public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
+		ArrayList<String> queryList=new ArrayList<String>();
+		for(int i=0;i<1;i++) {
+	    
+		ArrayList<Synonym> synonymList=(ArrayList<Synonym>) synonymDao.getSynonymByFlag(keywords.get(i).getFlag());
+		StringBuilder sBuilder=new StringBuilder();
+	
+		for(Synonym temp:synonymList) {
+		sBuilder.append(" OR name like '%"+temp.getName()+"%'");
+		}
+        String query=new String();
+        query=sBuilder.substring(4).toString();
+        queryList.add(query);
+		}
+	    
+		final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
+
+		String sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
+
+		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+		            public void processRow(ResultSet rs) throws SQLException {    
+		            	Commodity commodity=new Commodity();
+		            	commodity.setId(rs.getInt("id"));
+		            	commodity.setLink(rs.getString("link"));
+		            	commodity.setName(rs.getString("name")); 
+		            	Integer bid=rs.getInt("bid");
+		                commodity.setBid(bid);
+		                commodity.setPrice(rs.getDouble("price"));
+		                commodity.setOnlineId(rs.getString("onlineid"));
+		                commodity.setUnit(rs.getInt("unit"));
+		                Brand brand=brandDao.queryBrandById(bid);
+		                commodity.setBrand(brand);
+		            	commodityList.add(commodity);
+		            }
+		               });
+		
+		if(commodityList.size()==0){
+			String sql2 = 	"select * from commodity where ("+queryList.get(0)+ ") OR ("+queryList.get(1)+")";
+
+			jdbcTemplate.query(sql2, new RowCallbackHandler() { //editing    
+			            public void processRow(ResultSet rs) throws SQLException {    
+			            	Commodity commodity=new Commodity();
+			            	commodity.setId(rs.getInt("id"));
+			            	commodity.setLink(rs.getString("link"));
+			            	commodity.setName(rs.getString("name")); 
+			            	Integer bid=rs.getInt("bid");
+			                commodity.setBid(bid);
+			                commodity.setPrice(rs.getDouble("price"));
+			                commodity.setOnlineId(rs.getString("onlineid"));
+			                commodity.setUnit(rs.getInt("unit"));
+			                Brand brand=brandDao.queryBrandById(bid);
+			                commodity.setBrand(brand);
+			            	commodityList.add(commodity);
+			            }
+			               });
+			
+			
+		}
+		return  commodityList;
+
+
+
+
+		}
 	/*public void testcase() {
 		ArrayList<Commodity> forbiddenCommodities=DaoFacade.getInstance().getForbiddenCommodities();
 		System.out.println("forbiddenCommodities");
@@ -201,7 +264,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		
 		
 	}*/
-	
 
-}
+	}
+
+
 
