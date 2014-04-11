@@ -80,10 +80,21 @@ public class CommentService {
 		comments.add(c1);
 		comments.add(c2);
 		return comments;
+	}
+	
+	public ArrayList<SpecialWord> getSpecialWords(int id){
+		//桩
+		Brand brand2 = new Brand();
+		ArrayList<SpecialWord> specialWords = new ArrayList<>();
+		SpecialWord s1 = new SpecialWord(brand2,"sb");
+		SpecialWord s2 = new SpecialWord(brand2,"假冒");
+		specialWords.add(s1);
+		specialWords.add(s2);
+		return specialWords;
 		
 	}
 	
-	public ArrayList<SpecialWord> getSpecialWords(Brand brand){
+	public ArrayList<SpecialWord> getSpecialWordsList(){
 		//桩
 		Brand brand2 = new Brand();
 		ArrayList<SpecialWord> specialWords = new ArrayList<>();
