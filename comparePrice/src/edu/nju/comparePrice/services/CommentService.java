@@ -83,19 +83,8 @@ public class CommentService {
 		return comments;
 	}
 	
-	public Comment getComment(int commentId) {
-		//TODO 
-		return new Comment();
-	}
-	
-	public void update(Comment comment) {
-		//TODO 
-	}
-	
 	public void cancelSpecial(int commentId) {
-		Comment comment = getComment(commentId);
-		comment.setSpecialstate(false);
-		update(comment);
+		daoFacade.setSpecialFlag(commentId, false);
 	}
 
 	public boolean checkComment(int userID, Comment comment) {
