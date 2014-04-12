@@ -128,6 +128,11 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
+		<action name="ModifySensitiveCommentAction" class="ManageSensitiveCommentAction" method="modify">
+		    <result name="ModifySensitiveComment">/admin/modifySensitiveComment.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
 		
 		
 		

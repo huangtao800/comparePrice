@@ -24,7 +24,7 @@ public class ManageSensitiveCommentAction extends BaseAction{
 	public String save(){
 		boolean result=systemAdminService.editSensitiveComment(commentID, commentDetails);
 		if(result)
-			return "";
+			return "SensitiveComment";
 		else {
 			return "input";
 		}
@@ -33,9 +33,15 @@ public class ManageSensitiveCommentAction extends BaseAction{
 	public String delete(){
 		boolean result=systemAdminService.deleteSensitiveComment(commentID);
 		if(result)
-			return "";
+			return "SensitiveComment";
 		else
 			return "input";
+	}
+	
+	public String modify(){
+		Comment comment=systemAdminService.getCommentById(commentID);
+		commentDetails=comment.getDetails();
+		return "ModifySensitiveComment";
 	}
 
 	public SystemAdminService getSystemAdminService() {

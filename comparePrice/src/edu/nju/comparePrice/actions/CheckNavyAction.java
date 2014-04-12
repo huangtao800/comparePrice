@@ -6,6 +6,10 @@ import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.services.SystemAdminService;
 
 public class CheckNavyAction extends BaseAction{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private SystemAdminService systemAdminService;
 	private ArrayList<Navy> navyList=new ArrayList<Navy>();
 	
