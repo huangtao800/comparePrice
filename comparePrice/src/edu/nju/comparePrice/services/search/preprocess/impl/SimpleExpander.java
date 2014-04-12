@@ -11,8 +11,8 @@ import edu.nju.comparePrice.services.search.preprocess.Expander;
 
 public class SimpleExpander implements Expander<Synonym> {
 	
-	@Autowired
-	private DaoFacade dao;
+	@Autowired 
+	private DaoFacade daoFacade;
 
 	@Override
 	public List<Synonym> expander(List<String> keywords) {
@@ -25,7 +25,7 @@ public class SimpleExpander implements Expander<Synonym> {
 	}
 	
 	private Synonym getSynonym(String keyword) {
-		Synonym syn = dao.getSynonymByName(keyword);
+		Synonym syn = daoFacade.getSynonymByName(keyword);
 		if (!syn.getName().equals(keyword))
 			syn.setName(keyword);
 		return syn;

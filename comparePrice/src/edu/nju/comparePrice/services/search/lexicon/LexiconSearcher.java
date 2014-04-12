@@ -12,7 +12,7 @@ import edu.nju.comparePrice.models.Synonym;
 public class LexiconSearcher {
 	
 	@Autowired
-	private DaoFacade dao;
+	private DaoFacade daoFacade;
 	
 	/**
 	 * 从数据库中查找指定关键词列表所对应商品
@@ -20,6 +20,6 @@ public class LexiconSearcher {
 	 * @return 商品列表
 	 */
 	public ArrayList<Commodity> lookup(List<Synonym> keywords) {
-		return dao.findCommodity(keywords);
+		return daoFacade.findCommodity(keywords);
 	}
 }
