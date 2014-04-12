@@ -25,7 +25,10 @@ public class SimpleExpander implements Expander<Synonym> {
 	}
 	
 	private Synonym getSynonym(String keyword) {
-		return dao.getSynonymByName(keyword);
+		Synonym syn = dao.getSynonymByName(keyword);
+		if (!syn.getName().equals(keyword))
+			syn.setName(keyword);
+		return syn;
 	}
 
 }
