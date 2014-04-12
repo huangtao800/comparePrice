@@ -23,7 +23,7 @@ public class AddCommentAction extends BaseAction {
 			user.setId(id);
 			comment.setUser(user);
 			// set all states false
-			comment.setIscandidateword(false);
+		
 			comment.setSpecialstate(false);
 			comment.setState(false);
 		
