@@ -3,25 +3,29 @@ package edu.nju.comparePrice.services.search.preprocess.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.nju.comparePrice.dao.DaoFacade;
+import edu.nju.comparePrice.models.Synonym;
 import edu.nju.comparePrice.services.search.preprocess.Expander;
 
-public class SimpleExpander implements Expander {
+public class SimpleExpander implements Expander<Synonym> {
+	
+	@Autowired
+	private DaoFacade dao;
 
 	@Override
-	public List<List<String>> expander(List<String> keywords) {
-		List<List<String>> result = new ArrayList<List<String>>();
+	public List<Synonym> expander(List<String> keywords) {
+		List<Synonym> result = new ArrayList<Synonym>();
 		for(String keyword : keywords) {
-			List<String> list = new ArrayList<String>();
-			list.add(keyword);
-			list.addAll(getSynoym(keyword));
-			result.add(list);
+			Synonym syn = getSynonym(keyword);
+			result.add(syn);
 		}
 		return result;
 	}
 	
-	private List<String> getSynoym(String keyword) {
-		//TODO 实现同义词查找
-		return null;
+	private Synonym getSynonym(String keyword) {
+		return dao.getSynonymByName(keyword);
 	}
 
 }

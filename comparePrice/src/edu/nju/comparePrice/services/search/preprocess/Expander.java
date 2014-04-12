@@ -2,6 +2,6 @@ package edu.nju.comparePrice.services.search.preprocess;
 
 import java.util.List;
 
-public interface Expander {
-	List<List<String>> expander(List<String> keywords);
+public interface Expander<T> {
+	List<T> expander(List<String> keywords);
 }
