@@ -22,7 +22,7 @@ public class SynonymDao extends HibernateDao<Synonym, Long> {
 
 
 
-	public List<Synonym> getSynonymByFlag(int flag){
+	public ArrayList<Synonym> getSynonymByFlag(int flag){
 	    final ArrayList<Synonym> synonymList =new ArrayList<Synonym>();
 			
 			String sql = "select * from synonym where flag="+flag;

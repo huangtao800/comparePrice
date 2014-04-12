@@ -26,7 +26,7 @@ public class CandidateWordDao extends HibernateDao<CandidateWord, Long> {
 	@Autowired
     private BrandDao brandDao;
 
-	public List<CandidateWord> queryCommoditiesByName(int brandId){
+	public List<CandidateWord> queryCandidateWordByBrandId(int brandId){
 	    final ArrayList<CandidateWord> candidateWordList =new ArrayList<CandidateWord>();
 			
 			String sql = "select * from candidate_word where bid="+brandId;

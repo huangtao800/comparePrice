@@ -1,21 +1,26 @@
 package edu.nju.comparePrice.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
+import edu.nju.comparePrice.models.CandidateWord;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.CommodityCrawl;
 import edu.nju.comparePrice.models.CrawlerWebsite;
 import edu.nju.comparePrice.models.SensitiveWord;
 import edu.nju.comparePrice.models.SpecialWord;
+import edu.nju.comparePrice.models.Synonym;
 import edu.nju.comparePrice.models.User;
 import edu.nju.comparePrice.spring.ApplicationContextContainer;
 
@@ -35,6 +40,8 @@ public class DaoFacade {
 	private BrandDao bDao;
 	@Autowired
 	private CrawlerWebsiteDao crDao;
+	@Autowired
+	private SynonymDao synonDao;
 	
 	
 	
@@ -195,8 +202,43 @@ public class DaoFacade {
 	}
 
 	
+	public ArrayList<Synonym> getSynonymByFlag(int flag){
+	    return synonDao.getSynonymByFlag(flag);
+		
+		}
 	
+		
 	
-	
+		
+		public Synonym getSynonymByName(String name) {
+		return synonDao.getSynonymByName(name);
+		
+			
+		}
 
+		public boolean addSynonym(Synonym synonym) {
+			
+			return synonDao.addSynonym(synonym);
+		}
+	
+		public List<CandidateWord> queryCandidateWordByBrandId(int brandId){
+		  return cwDao.queryCandidateWordByBrandId(brandId);
+			}
+		
+		public boolean removeCandidateWord(CandidateWord cw) {
+			return cwDao.removeCandidateWord(cw);
+		}
+		
+		public boolean addCandidateWord(CandidateWord cw){
+			
+			return cwDao.addCandidateWord(cw);
+		}
+		
+		public ArrayList<Comment> getCommentsWithCandidateWord(){
+		return cDao.getCommentsWithCandidateWord();
+		}
+		
+		public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
+			return pDao.findCommodity(keywords);
+		}
 }
