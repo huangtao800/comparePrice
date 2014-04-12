@@ -2,6 +2,7 @@ package edu.nju.comparePrice.services;
 
 import java.util.ArrayList;
 
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.nju.comparePrice.dao.CommentDaoStub;
@@ -82,7 +83,20 @@ public class CommentService {
 		return comments;
 	}
 	
+	public Comment getComment(int commentId) {
+		//TODO 
+		return new Comment();
+	}
 	
+	public void update(Comment comment) {
+		//TODO 
+	}
+	
+	public void cancelSpecial(int commentId) {
+		Comment comment = getComment(commentId);
+		comment.setSpecialstate(false);
+		update(comment);
+	}
 
 	public boolean checkComment(int userID, Comment comment) {
 		ArrayList<SensitiveWord> sensitiveWords=daoFacade.getSensitiveWords();	//should be initialized by DAOFacase
