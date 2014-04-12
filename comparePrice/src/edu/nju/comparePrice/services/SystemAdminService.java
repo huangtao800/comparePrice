@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Brand;
+import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SensitiveWord;
 
 
@@ -50,5 +52,25 @@ public class SystemAdminService {
 	public boolean saveBrand(int brandId,int brandWeight){
 		return daoFacade.saveBrand(brandId, brandWeight);
 	}
+	
+	public ArrayList<Navy> getNavyList(){
+		return null;
+	}
+	
+	public ArrayList<Comment> getSensitiveCommentList(){
+		return null;
+	}
+	
+	public boolean deleteSensitiveComment(int cid){
+		return true;
+	}
+	
+	public boolean editSensitiveComment(int cid,String details){
+		return true;
+	}
+	
+	
+	
+	
 
 }

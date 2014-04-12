@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Sensitive Word</title>
-<title>Insert title here</title>
     <link rel="stylesheet" href="<s:url value="/css/bootstrap-theme.min.css" />" />
     <link rel="stylesheet" href="<s:url value="/css/bootstrap.min.css" />" />
     <link rel="stylesheet" href="<s:url value="/css/forbidCommodity.css" />" />

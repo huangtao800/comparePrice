@@ -107,6 +107,27 @@
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
+
+		<action name="CheckNavyAction" class="CheckNavyAction">
+		    <result name="CheckNavy">/admin/checkNavy.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="ManageSensitiveCommentAction" class="ManageSensitiveCommentAction">
+		    <result name="SensitiveComment">/admin/sensitiveComment.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="DeleteSensitiveCommentAction" class="ManageSensitiveCommentAction" method="delete">
+		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction"</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="SaveSensitiveCommentAction" class="ManageSensitiveCommentAction" method="save">
+		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction"</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
 		
 		
 		
