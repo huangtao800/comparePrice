@@ -12,6 +12,19 @@ public class SpecialWordService {
 	@Autowired 
 	private DaoFacade daoFacade;
 	
+	public ArrayList<SpecialWord> getSpecialWords(int id){
+		//桩
+		Brand brand2 = new Brand();
+		brand2.setName("amazon");
+		ArrayList<SpecialWord> specialWords = new ArrayList<>();
+		SpecialWord s1 = new SpecialWord(brand2,"sb");
+		SpecialWord s2 = new SpecialWord(brand2,"假冒");
+		specialWords.add(s1);
+		specialWords.add(s2);
+		return specialWords;
+		
+	}
+	
 	public ArrayList<SpecialWord> getSpecialWordsList(){
 		//桩
 		Brand brand2 = new Brand();

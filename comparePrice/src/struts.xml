@@ -104,14 +104,6 @@
 		    <result name="error">error.jsp</result>
 		</action>
 		
-		<action name="specialWordCommentAction" class="specialWordCommentAction">
-		    <result name="success">specialWordComment.jsp</result>
-		</action>
-		
-		<action name="cancelSpecial" class="specialWordCommentAction" method="delete">
-		    <result name="success" type="chain">specialWordCommentAction</result>
-		</action>
-		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>

@@ -17,7 +17,7 @@
 <title>候选词管理</title>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
         <div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,7 +33,6 @@
             <li><a href='<s:url action="BeforeForbidAction"/>'>商品屏蔽</a></li>
             <li><a href='<s:url action="BrandWeightAction"/>'>商家权重管理</a></li>
             <li class="active"><a href='<s:url action="candidateWordAction"/>'>商家候选词管理</a></li>
-            <li><a href='<s:url action="specialWordCommentAction"/>'>候选词评论</a></li>
           </ul>
           	<div class="navbar-form navbar-right nav navbar-nav" >
           		<a class="btn btn-success"><s:property value="session.adminId" /></a>
