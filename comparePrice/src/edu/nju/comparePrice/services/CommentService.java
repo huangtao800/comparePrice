@@ -63,39 +63,12 @@ public class CommentService {
 //		return result;
 //	}
 	public ArrayList<Comment> getCommentsWithSpecialWord(){
-		//桩
-		ArrayList<Comment> comments = new ArrayList<>();
-		Brand b1 = new Brand();
-		Brand b2 = new Brand();
-		b1.setName("腾讯");
-		b2.setName("网易");
-		Commodity a1= new Commodity(); 
-		a1.setBrand(b1);
-		Commodity a2= new Commodity(); 
-		a2.setBrand(b2);
-		User u1 =new User();
-		Comment c1 = new Comment(a1,u1, "details1 adadaf" ,
-				true,true,true);
-		Comment c2 = new Comment(a2,u1, "details2 adadaf" ,
-				true,true,true);
-		comments.add(c1);
-		comments.add(c2);
+		ArrayList<Comment> comments = daoFacade.getCommentsWithSpecialWord();
 		return comments;
 	}
 	
-	public Comment getComment(int commentId) {
-		//TODO 
-		return new Comment();
-	}
-	
-	public void update(Comment comment) {
-		//TODO 
-	}
-	
 	public void cancelSpecial(int commentId) {
-		Comment comment = getComment(commentId);
-		comment.setSpecialstate(false);
-		update(comment);
+		daoFacade.setSpecialFlag(commentId, false);
 	}
 
 	public boolean checkComment(int userID, Comment comment) {
