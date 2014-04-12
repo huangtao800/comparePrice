@@ -135,6 +135,14 @@
 		</property>
 	</bean>
 	
+	<bean id="ManageSensitiveCommentAction" class="edu.nju.comparePrice.actions.ManageSensitiveCommentAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	
+	
 	
 	
 	
