@@ -115,6 +115,11 @@
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
+
+		<action name="CheckNavyAction" class="CheckNavyAction">
+		    <result name="CheckNavy">/admin/checkNavy.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
 		
 		
 		
