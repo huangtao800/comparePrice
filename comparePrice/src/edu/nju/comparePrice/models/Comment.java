@@ -24,7 +24,7 @@ public class Comment implements java.io.Serializable {
 	private User user;
 	private String details;
 	private Boolean state;
-	private Boolean iscandidateword;
+
 	private Boolean specialstate;
 	private Integer uid;
 	private Integer cid;
@@ -43,7 +43,7 @@ public class Comment implements java.io.Serializable {
 		this.user = user;
 		this.details = details;
 		this.state = state;
-		this.iscandidateword = iscandidateword;
+	
 		this.specialstate = specialstate;
 	}
 
@@ -96,14 +96,7 @@ public class Comment implements java.io.Serializable {
 		this.state = state;
 	}
 
-	@Column(name = "iscandidateword")
-	public Boolean getIscandidateword() {
-		return this.iscandidateword;
-	}
-
-	public void setIscandidateword(Boolean iscandidateword) {
-		this.iscandidateword = iscandidateword;
-	}
+	
 
 	@Column(name = "specialstate")
 	public Boolean getSpecialstate() {

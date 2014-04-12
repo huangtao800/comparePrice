@@ -13,7 +13,7 @@ import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.CandidateWord;
+import edu.nju.comparePrice.models.SpecialWord;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.CommodityCrawl;
@@ -35,7 +35,7 @@ public class DaoFacade {
 	@Autowired
 	private CommodityDao pDao;
 	@Autowired
-	private CandidateWordDao cwDao;
+	private SpecialWordDao swDao;
 	@Autowired
 	private BrandDao bDao;
 	@Autowired
@@ -82,7 +82,7 @@ public class DaoFacade {
 	}
 
 	public ArrayList<SpecialWord> getSpecialWords(){
-		return uDao.getSpecialWords();
+		return swDao.getSpecialWords();
 	}
 
 	public int getSensitiveCountByUseID(int userId) {
@@ -221,21 +221,21 @@ public class DaoFacade {
 			return synonDao.addSynonym(synonym);
 		}
 	
-		public List<CandidateWord> queryCandidateWordByBrandId(int brandId){
-		  return cwDao.queryCandidateWordByBrandId(brandId);
+		public List<SpecialWord> querySpecialWordByBrandId(int brandId){
+		  return swDao.querySpecialWordByBrandId(brandId);
 			}
 		
-		public boolean removeCandidateWord(CandidateWord cw) {
-			return cwDao.removeCandidateWord(cw);
+		public boolean removeSpecialWord(SpecialWord cw) {
+			return swDao.removeSpecialWord(cw);
 		}
 		
-		public boolean addCandidateWord(CandidateWord cw){
+		public boolean addSpecialWord(SpecialWord cw){
 			
-			return cwDao.addCandidateWord(cw);
+			return swDao.addSpecialWord(cw);
 		}
 		
-		public ArrayList<Comment> getCommentsWithCandidateWord(){
-		return cDao.getCommentsWithCandidateWord();
+		public ArrayList<Comment> getCommentsWithSpecialWord(){
+		return cDao.getCommentsWithSpecialWord();
 		}
 		
 		public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
@@ -248,7 +248,5 @@ public class DaoFacade {
 		
 		}
 		
-		public boolean updateCommentSpecialState(Comment c) {
-			return cDao.updateCommentSpecialState(c);
-		}
+	
 }

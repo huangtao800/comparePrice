@@ -112,25 +112,7 @@ public class UserDao extends HibernateDao<User, Long> {
 		
 	
 		
-		public ArrayList<SpecialWord> getSpecialWords(){
-
-		 	String sql = "select * from special_word";
-			
-		        final ArrayList<SpecialWord> wordList =new ArrayList<SpecialWord>();
-				
-				jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
-		            public void processRow(ResultSet rs) throws SQLException {    
-		            	SpecialWord specialWord=new SpecialWord();
-		            	specialWord.setBid(rs.getInt("bid"));
-		            	specialWord.setName(rs.getString("name"));
-		            	wordList.add(specialWord);
-		            }
-		               });
-				
 	
-			return wordList;
-			
-		}
 
 		public int getSensitiveCountByUseID(int userId) {
 			User user=this.find(userId);

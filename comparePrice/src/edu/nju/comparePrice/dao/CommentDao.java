@@ -71,7 +71,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
             	comment.setId(rs.getInt("id"));
             	comment.setDetails(rs.getString("details"));
             	
-            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
+            	comment.setSpecialstate(rs.getBoolean("specialstate"));
             	comment.setState(rs.getBoolean("state"));
             	Integer userId=rs.getInt("uid");
             			User user=userDao.find(userId);
@@ -83,7 +83,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
             	comment.setCommodity(commodity);
             	
             	//condition added !!!!!!!!!!!!!!!!
-            	if(!comment.getState()&&!comment.getIscandidateword()&&!comment.getSpecialstate()){
+            	if(!comment.getState()&&!comment.getSpecialstate()){
                 	commentList.add(comment);
             	}
             }
@@ -93,16 +93,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	}
 
 	public boolean addComment(Comment c) {
-		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),c.getIscandidateword(),c.getSpecialstate()});
-		return true;		
-	}
-	
-	
-	public boolean updateCommentSpecialState(Comment c) {
-	
-		
-		jdbcTemplate.update("UPDATE comment SET specialstate=? where id=?", new Object[] {c.getSpecialstate(),c.getId()});  
-
+		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),c.getSpecialstate()});
 		return true;		
 	}
 	
@@ -116,7 +107,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	            	comment.setId(rs.getInt("id"));
 	            	comment.setDetails(rs.getString("details"));
 	            	
-	            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
+	            	comment.setSpecialstate(rs.getBoolean("specialstate"));
 	            	comment.setState(rs.getBoolean("state"));
 	            	Integer userId=rs.getInt("uid");
 	            			User user=userDao.find(userId);
@@ -148,7 +139,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
             	comment.setId(rs.getInt("id"));
             	comment.setDetails(rs.getString("details"));
             	
-            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
+            	comment.setSpecialstate(rs.getBoolean("specialstate"));
             	comment.setState(rs.getBoolean("state"));
             	Integer userId=rs.getInt("uid");
             			User user=userDao.find(userId);
@@ -168,17 +159,17 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	
 	}
 	
-	public ArrayList<Comment> getCommentsWithCandidateWord(){
+	public ArrayList<Comment> getCommentsWithSpecialWord(){
 		
 		final ArrayList<Comment> commentList =new ArrayList<Comment>();
-		String sql = "select * from comment where iscandidateword ="+true;	
+		String sql = "select * from comment where specialstate ="+true;	
 		
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
             public void processRow(ResultSet rs) throws SQLException {    
             	Comment comment=new Comment();
             	comment.setId(rs.getInt("id"));
             	comment.setDetails(rs.getString("details"));            	
-            	comment.setIscandidateword(rs.getBoolean("iscandidateword"));
+            	comment.setSpecialstate(rs.getBoolean("specialstate"));
             	comment.setState(rs.getBoolean("state"));
             	Integer userId=rs.getInt("uid");
             			User user=userDao.find(userId);
