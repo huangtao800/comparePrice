@@ -9,12 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.stereotype.Repository;
 import org.springside.modules.orm.hibernate.HibernateDao;
 
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Synonym;
 import edu.nju.comparePrice.models.Synonym;
-
+@Repository
 public class SynonymDao extends HibernateDao<Synonym, Long> {
 	@Autowired
 	@Qualifier("jdbcTemplate")
