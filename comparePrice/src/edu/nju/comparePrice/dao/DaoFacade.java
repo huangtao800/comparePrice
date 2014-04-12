@@ -247,4 +247,8 @@ public class DaoFacade {
 			return synonDao.getCurrentMaxFlag();
 		
 		}
+		
+		public boolean updateCommentSpecialState(Comment c) {
+			return cDao.updateCommentSpecialState(c);
+		}
 }

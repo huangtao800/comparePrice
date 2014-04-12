@@ -21,6 +21,7 @@ import java.util.Map;
 
 
 
+
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,6 +94,15 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 
 	public boolean addComment(Comment c) {
 		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),c.getIscandidateword(),c.getSpecialstate()});
+		return true;		
+	}
+	
+	
+	public boolean updateCommentSpecialState(Comment c) {
+	
+		
+		jdbcTemplate.update("UPDATE comment SET specialstate=? where id=?", new Object[] {c.getSpecialstate(),c.getId()});  
+
 		return true;		
 	}
 	
