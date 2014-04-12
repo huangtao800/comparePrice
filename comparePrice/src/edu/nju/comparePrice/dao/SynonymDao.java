@@ -58,8 +58,7 @@ public class SynonymDao extends HibernateDao<Synonym, Long> {
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	
 		            	synonym.setId(rs.getInt("id"));
-		            	
-		            	synonym.setId(rs.getInt("id"));
+		     
 			            
 		            	synonym.setName(rs.getString("name")); 
 		            	synonym.setFlag(rs.getInt("flag"));
@@ -71,6 +70,25 @@ public class SynonymDao extends HibernateDao<Synonym, Long> {
 		  
 					
 			
+		}
+		
+		public int getCurrentMaxFlag(){
+			 final Synonym synonym =new Synonym();
+				
+				String sql = "select * from synonym where id in (select max(flag) from synonym)";
+				
+				jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+		            public void processRow(ResultSet rs) throws SQLException {    
+		            	
+		            	synonym.setId(rs.getInt("id"));
+		            	
+		            	synonym.setName(rs.getString("name")); 
+		            	synonym.setFlag(rs.getInt("flag"));
+		            	
+		            }
+		               });
+				return  synonym.getFlag();
+		        
 		}
 
 }

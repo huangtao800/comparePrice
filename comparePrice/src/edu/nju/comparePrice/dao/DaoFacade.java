@@ -241,4 +241,10 @@ public class DaoFacade {
 		public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
 			return pDao.findCommodity(keywords);
 		}
+		
+		
+		public int getCurrentMaxFlag(){
+			return synonDao.getCurrentMaxFlag();
+		
+		}
 }
