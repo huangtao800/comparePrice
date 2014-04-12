@@ -184,7 +184,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
 		ArrayList<String> queryList=new ArrayList<String>();
-		for(int i=0;i<1;i++) {
+		for(int i=0;i<2;i++) {
 	    
 		ArrayList<Synonym> synonymList=(ArrayList<Synonym>) synonymDao.getSynonymByFlag(keywords.get(i).getFlag());
 		StringBuilder sBuilder=new StringBuilder();
