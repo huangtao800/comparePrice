@@ -1,7 +1,7 @@
 package edu.nju.comparePrice.services.search.preprocess;
 
-public interface PreprocessTools {
+public interface PreprocessTools<T> {
 	Splitor createSplitor();
 	Checker createChecker();
-	Expander createExpander();
+	Expander<T> createExpander();
 }

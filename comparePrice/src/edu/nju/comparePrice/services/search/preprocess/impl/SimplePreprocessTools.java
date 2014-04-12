@@ -1,11 +1,12 @@
 package edu.nju.comparePrice.services.search.preprocess.impl;
 
+import edu.nju.comparePrice.models.Synonym;
 import edu.nju.comparePrice.services.search.preprocess.Checker;
 import edu.nju.comparePrice.services.search.preprocess.Expander;
 import edu.nju.comparePrice.services.search.preprocess.PreprocessTools;
 import edu.nju.comparePrice.services.search.preprocess.Splitor;
 
-public class SimplePreprocessTools implements PreprocessTools {
+public class SimplePreprocessTools implements PreprocessTools<Synonym> {
 	
 	@Override
 	public Splitor createSplitor() {
@@ -18,7 +19,7 @@ public class SimplePreprocessTools implements PreprocessTools {
 	}
 
 	@Override
-	public Expander createExpander() {
+	public Expander<Synonym> createExpander() {
 		return new SimpleExpander();
 	}
 
