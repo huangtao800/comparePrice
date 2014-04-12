@@ -76,9 +76,19 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
-		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		<action name="AddSensitiveWordAction" class="SensitiveWordAction" method="add">
+		    <result name="SensitiveWord" type="chain">SensitiveWordAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
+		
+		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		    <result name="SensitiveWord" type="chain">SensitiveWordAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+
+		
+		
 		
 		<action name="BrandWeightAction" class="BrandWeightAction">
 		    <result name="success">/admin/brandWeight.jsp</result>

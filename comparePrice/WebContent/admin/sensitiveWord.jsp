@@ -44,7 +44,7 @@
     
     <div class="container text-center">
         <div class="input-group" id="search">
-             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="SensitiveWordAction" >
+             <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="AddSensitiveWordAction" >
                 <s:textfield   id="sensitiveWord" name="sensitiveWord"  cssClass="textfield_mem_uid" placeholder="请输入要添加的敏感词：" />
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="添加"/>
             </s:form>
@@ -54,16 +54,17 @@
           <table class="table">
             <caption>敏感词列表</caption>
             <tr>
-                <th>ID</th>
-                <th>敏感词</th>
-                <th>操作</th>
+                <td>ID</td>
+                <td>敏感词</td>
+                <td>操作</td>
             </tr>
-            <s:iterator value="sensitiveWordList" id="sensitiveWord" status="st">
+            <s:iterator value="sensitiveWordList"  status="st">
                 <tr>
-                    <td class="td_sensitiveWordId"><s:property value="#sensitiveWord.id" /></td>
-                    <td><s:property value="#sensitiveWord.name" /></td>
+                    <td class="td_sensitiveWordId"><s:property value="id" /></td>
+                    <td><s:property value="name" /></td>
                     <td>
-                        <s:a cssClass="btn btn-primary removeSensitiveWord">删除</s:a>
+                        <a  href="RemoveSensitiveWordAction?sensitiveId=<s:property value='id' />"   
+                              class="btn btn-primary removeSensitiveWord">删除</a>
                     </td>
                 </tr>
             </s:iterator>

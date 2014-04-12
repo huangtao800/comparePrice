@@ -13,12 +13,18 @@ public class SensitiveWordAction extends BaseAction{
 	private ArrayList<SensitiveWord> sensitiveWordList=new ArrayList<SensitiveWord>();
 	
 	public String execute(){
-		if(sensitiveWord!=null && !sensitiveWord.equals("")){
-			boolean result=systemAdminService.addSensitiveWord(sensitiveWord);
-		}
-		
+		sensitiveWordList.clear();		
 		sensitiveWordList=systemAdminService.getSensiviveWordList();
 		return SUCCESS;
+	}
+	
+	public String add(){
+		if(sensitiveWord!=null && !sensitiveWord.equals("")){
+			boolean result=systemAdminService.addSensitiveWord(sensitiveWord);
+			if(result)
+			    return "SensitiveWord";
+		}
+		return "input";
 	}
 
 	public SystemAdminService getSystemAdminService() {

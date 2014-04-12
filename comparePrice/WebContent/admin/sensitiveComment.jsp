@@ -42,7 +42,7 @@
                     </td>
                     <td>
                         <s:a cssClass="btn btn-danger"
-                             href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>删除</s:a>
+                        href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>删除</s:a>
                     </td>
                     
                 </tr>
