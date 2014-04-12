@@ -10,16 +10,16 @@ public class ForbidAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private SystemAdminService systemAdminService;
-	private int commodityId;
 	
-	public String execute() throws IOException{
+	
+	public String execute() {
+		int commodityId=Integer.parseInt( request.getParameter("commodityId") );
 		boolean result=systemAdminService.forbid(commodityId);
 		if(result)
-			response.getWriter().print("Y");
+			return "Forbid";
 		else {
-			response.getWriter().print("N");
+			return "input";
 		}
-		return null;
 	}
 
 	public SystemAdminService getSystemAdminService() {
@@ -28,14 +28,6 @@ public class ForbidAction extends BaseAction{
 
 	public void setSystemAdminService(SystemAdminService systemAdminService) {
 		this.systemAdminService = systemAdminService;
-	}
-
-	public int getCommodityId() {
-		return commodityId;
-	}
-
-	public void setCommodityId(int commodityId) {
-		this.commodityId = commodityId;
 	}
 	
 

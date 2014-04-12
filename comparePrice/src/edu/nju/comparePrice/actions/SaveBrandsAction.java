@@ -1,6 +1,9 @@
 package edu.nju.comparePrice.actions;
 
 import java.util.ArrayList;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
 import edu.nju.comparePrice.services.SystemAdminService;
 
 public class SaveBrandsAction extends BaseAction{
@@ -16,7 +19,8 @@ public class SaveBrandsAction extends BaseAction{
 		if(brandId!=null && brandWeight!=null){
 			for(int i=0;i<brandId.size();i++){
 				int id=brandId.get(i);
-				int weight=brandId.get(i);
+				int weight=brandWeight.get(i);
+				System.out.println(id+" -- "+weight);
 				boolean result=systemAdminService.saveBrand(id, weight);
 				if(!result){
 					return INPUT;

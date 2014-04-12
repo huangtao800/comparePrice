@@ -64,10 +64,12 @@
 		</action>
 		 
 		<action name="CancelForbidAction" class="CancelForbidAction">
+		    <result name="Success" type="chain">BeforeForbidAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
 		<action name="ForbidAction" class="ForbidAction">
+		    <result name="Forbid" type="chain">BeforeForbidAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		

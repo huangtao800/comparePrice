@@ -52,23 +52,21 @@
             </s:form>
         </div>
         
+        <br><br>
         <div id="to_forbid">
             <table class="table">
-                 <s:iterator value="toForbidList" id="toForbid" status="st">
+                 <caption>要屏蔽的商品</caption><br>
+                 <tr>
+                     <td>商品ID</td>
+                     <td>商品名</td>
+                     <td>操作</td>
+                 </tr>
+                 <s:iterator value="toForbidList"  status="st">
                      <tr>
-                         <td class="td_toForbidId"><s:property value="#toForbid.id" /></td>
-                         <td><s:property value="#toForbid.name" /></td>
+                         <td class="td_toForbidId"><s:property value="id" /></td>
+                         <td><s:property value="name" /></td>
                          <td>
-                            <!--  
-                            <s:url action="ForbidAction" var="ForbidLink">
-                               <s:param name="commodityId">
-                                  <s:property value="#toForbid.id" />
-                               </s:param>
-                             </s:url>
-                              
-                             <s:a  theme="simple" href="%{ForbidLink}" cssClass="btn btn-primary" >屏蔽</s:a>
-                             -->
-                             <s:a cssClass="btn btn-primary forbid">屏蔽</s:a>
+                             <a class="btn btn-primary" href="ForbidAction?commodityId=<s:property value='id' />">屏蔽</a>
                          </td>
                      </tr>
                  </s:iterator>
@@ -76,32 +74,23 @@
             </table>
         
         </div>
-        <br>
+        <br><br>
         
         <div id="forbidden">
         
             <table class="table">
-              <caption>已经被屏蔽的商品列表</caption>
+              <caption>已经被屏蔽的商品列表</caption><br>
               <tr>
-                <th>商品ID</th>
-                <th>商品名</th>
-                <th>操作</th>
+                <td>商品ID</td>
+                <td>商品名</td>
+                <td>操作</td>
               </tr>
-              <s:iterator value="forbiddenList" id="forbidden" status="st">
+              <s:iterator value="forbiddenList" status="st">
                  <tr>
-                   <td class="td_cancelForbidId"><s:property value="#forbidden.id" /></td>
-                   <td><s:property value="#forbidden.name" /></td>
+                   <td class="td_cancelForbidId"><s:property value="id" /></td>
+                   <td><s:property value="name" /></td>
                    <td>
-                   <!--  
-                     <s:url action="CancelForbidAction" var="cancelForbidLink">
-                            <s:param name="commodityId">
-                                <s:property value="#forbidden.id" />
-                            </s:param>
-                      </s:url>
-                                    
-                      <s:a  theme="simple" href="%{cancelForbidLink}" cssClass="btn btn-primary" >取消屏蔽</s:a>
-                   -->
-                       <s:a cssClass="btn btn-primary cancelForbid">取消屏蔽</s:a>
+                        <a class="btn btn-primary" href="CancelForbidAction?commodityId=<s:property value='id' />">取消屏蔽</a>
                    </td>
                  </tr>
               </s:iterator>

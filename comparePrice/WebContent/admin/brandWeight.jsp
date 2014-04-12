@@ -43,11 +43,14 @@
     
     <div class="container">
         <s:form theme="simple"  role="form" method="post" action="SaveBrandsAction" >
+            <br><br><br>
             <table class="table">
+                <caption>商家权重列表</caption>
+                <br>
                 <tr>
-                    <th>商家ID</th>
-                    <th>商家名称</th>
-                    <th>商家权重</th>
+                    <td>商家ID</td>
+                    <td>商家名称</td>
+                    <td>权重</td>
                 </tr>
                 <s:iterator value="brandList" id="brand" status="st">
                     <tr>
@@ -56,9 +59,11 @@
                            <s:hidden  name="brandId"  value="%{#brand.id}" /></td>
                         <td>
                             <s:property value="%{#brand.name}" />
-                            <!--<s:hidden  name="brandName"  value="%{#brand.name}" /></td>-->
                         <td>
-                            <s:textfield name="brandWeight"  />
+                           <s:textfield  name="brandWeight" value="%{#brand.weight}" >
+                              <!--   <s:property value="%{#brand.weight}" />-->
+                           </s:textfield>
+                            
                         </td>
                     </tr>
                 </s:iterator>
