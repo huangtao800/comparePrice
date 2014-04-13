@@ -53,20 +53,29 @@ public class SystemAdminService {
 		return daoFacade.saveBrand(brandId, brandWeight);
 	}
 	
+	//获得水军列表，即navy表中的说有数据
 	public ArrayList<Navy> getNavyList(){
 		return null;
 	}
 	
+	//获得敏感评论列表
 	public ArrayList<Comment> getSensitiveCommentList(){
 		return null;
 	}
 	
+	//给定评论的id，删除该评论
 	public boolean deleteSensitiveComment(int cid){
 		return true;
 	}
 	
+	//修改评论。给定评论id和评论的details，保存detail
 	public boolean editSensitiveComment(int cid,String details){
 		return true;
+	}
+	
+	//给定评论id，返回该评论
+	public Comment getCommentById(int commentId){
+		return null;
 	}
 	
 	

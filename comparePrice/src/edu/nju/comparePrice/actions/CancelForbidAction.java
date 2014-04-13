@@ -1,6 +1,7 @@
 package edu.nju.comparePrice.actions;
 
 import java.io.IOException;
+
 import edu.nju.comparePrice.services.SystemAdminService;
 
 public class CancelForbidAction extends BaseAction{
@@ -9,15 +10,15 @@ public class CancelForbidAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private SystemAdminService systemAdminService;
-	private int commodityId;
+	
 	
 	public String execute() throws IOException{
+		int commodityId=Integer.parseInt( request.getParameter("commodityId") );
 		boolean result=systemAdminService.cancelForbid(commodityId);
 		if(result)
-		    response.getWriter().print("Y");
+		    return "Success";
 		else 
-			response.getWriter().print("N");
-		return null;
+			return "input";
 	}
 
 	public SystemAdminService getSystemAdminService() {
@@ -26,14 +27,6 @@ public class CancelForbidAction extends BaseAction{
 
 	public void setSystemAdminService(SystemAdminService systemAdminService) {
 		this.systemAdminService = systemAdminService;
-	}
-
-	public int getCommodityId() {
-		return commodityId;
-	}
-
-	public void setCommodityId(int commodityId) {
-		this.commodityId = commodityId;
 	}
 	
 

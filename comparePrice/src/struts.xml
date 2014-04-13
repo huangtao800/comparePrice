@@ -64,10 +64,12 @@
 		</action>
 		 
 		<action name="CancelForbidAction" class="CancelForbidAction">
+		    <result name="Success" type="chain">BeforeForbidAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
 		<action name="ForbidAction" class="ForbidAction">
+		    <result name="Forbid" type="chain">BeforeForbidAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
@@ -76,9 +78,19 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
-		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		<action name="AddSensitiveWordAction" class="SensitiveWordAction" method="add">
+		    <result name="SensitiveWord" type="chain">SensitiveWordAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
+		
+		<action name="RemoveSensitiveWordAction" class="RemoveSensitiveWordAction">
+		    <result name="SensitiveWord" type="chain">SensitiveWordAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+
+		
+		
 		
 		<action name="BrandWeightAction" class="BrandWeightAction">
 		    <result name="success">/admin/brandWeight.jsp</result>
@@ -125,6 +137,11 @@
 		
 		<action name="SaveSensitiveCommentAction" class="ManageSensitiveCommentAction" method="save">
 		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction"</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="ModifySensitiveCommentAction" class="ManageSensitiveCommentAction" method="modify">
+		    <result name="ModifySensitiveComment">/admin/modifySensitiveComment.jsp</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		

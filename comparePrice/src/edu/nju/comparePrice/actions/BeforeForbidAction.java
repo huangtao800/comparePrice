@@ -16,9 +16,13 @@ public class BeforeForbidAction extends BaseAction{
 	ArrayList<Commodity> forbiddenList=new ArrayList<Commodity>();
 	
 	public String execute(){
+		forbiddenList.clear();
+		toForbidList.clear();
 		forbiddenList=systemAdminService.getForbiddenCommodities();
 		if(commodityName!=null && !commodityName.equals("")){
 			toForbidList=systemAdminService.getToForbidCommodities(commodityName);
+		}else{
+			toForbidList=new ArrayList<Commodity>();
 		}
 		
 		return SUCCESS;

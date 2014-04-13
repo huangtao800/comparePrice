@@ -26,7 +26,7 @@
                 <th>商品ID</th>
                 <th>用户ID</th>
                 <th>评论内容</th>
-                <th>保存修改</th>
+                <th>修改评论</th>
                 <th>删除评论</th>
             </tr>
             
@@ -35,16 +35,14 @@
                     <td><s:property value="#sensitiveComment.id" /></td>
                     <td><s:property value="#sensitiveComment.cid" /></td>
                     <td><s:property value="#sensitiveComment.uid" /></td>
-                    <td><s:textfield name="commentDetails" value=<s:property value="#sensitiveComment.details" /> /></td>
-                    <!--  <td><s:property value="#sensitiveComment.details" /></td>  -->
+                    <td><s:property value="#sensitiveComment.details" /></td>
                     <td>
                         <s:a cssClass="btn btn-primary"
-                        href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>&commentDetails='>
-                                                                                   保存</s:a>
+                        href='ModifySensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>修改</s:a>
                     </td>
                     <td>
                         <s:a cssClass="btn btn-danger"
-                             href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>删除</s:a>
+                        href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>删除</s:a>
                     </td>
                     
                 </tr>

@@ -65,7 +65,7 @@
                     <td><s:property value="name" /></td>
                     <td>
                         <a class="btn btn-primary removeSensitiveWord" 
-                        	href='deleteCandidateWord?candidateWordId=<s:property value="id"/>'>删除</a>
+                        	href="deleteCandidateWord?candidateWordId=<s:property value='id' />">删除</a>
                     </td>
                 </tr>
             </s:iterator>
