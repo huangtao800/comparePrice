@@ -22,6 +22,7 @@ import java.util.Map;
 
 
 
+
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,6 +160,46 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	
 	}
 	
+	
+	
+	
+public ArrayList<Comment> getSensitiveCommentList(){
+		
+		final ArrayList<Comment> commentList =new ArrayList<Comment>();
+		String sql = "select * from comment where state ="+false;	
+		
+		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+            public void processRow(ResultSet rs) throws SQLException {    
+            	Comment comment=new Comment();
+            	comment.setId(rs.getInt("id"));
+            	comment.setDetails(rs.getString("details"));
+            	
+            	comment.setSpecialstate(rs.getBoolean("specialstate"));
+            	comment.setState(rs.getBoolean("state"));
+            	Integer userId=rs.getInt("uid");
+            			User user=userDao.find(userId);
+            	comment.setUser(user);
+            	comment.setUid(userId);
+            	Integer commodityId=rs.getInt("cid");
+            	comment.setCid(commodityId);
+            	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
+            	comment.setCommodity(commodity);
+            	
+            	
+            }
+               });
+		return  commentList;
+	
+	}
+
+
+public boolean editSensitiveComment(int id,String details){
+	jdbcTemplate.update("UPDATE comment SET details=?  where id=?", new Object[] {details,id});  
+
+	return true;
+}
+
+
 	public ArrayList<Comment> getCommentsWithSpecialWord(){
 		
 		final ArrayList<Comment> commentList =new ArrayList<Comment>();
@@ -188,7 +229,11 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	}
 	
 	
-	
+	public boolean deleteSensitiveComment(int id) {
+		jdbcTemplate.update("DELETE FROM comment WHERE id= ?", new Object[] {id});
+		
+		return true;
+	}
 	/*public void testcase() {
 		Comment comment =new Comment();
 		

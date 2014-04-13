@@ -25,6 +25,7 @@ import com.sun.org.apache.xpath.internal.operations.And;
 
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
+import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SpecialWord;
 import edu.nju.comparePrice.models.User;
 
@@ -149,7 +150,27 @@ public class UserDao extends HibernateDao<User, Long> {
 			addSentsitiveCount(2, 4);
 		}
 	*/
-	
+		public ArrayList<Navy> getNavyList(){
+			
+				
+				final ArrayList<Navy> navyList =new ArrayList<Navy>();
+					String sql = "select * from navy";
+					
+					jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+			            public void processRow(ResultSet rs) throws SQLException {    
+			            	Navy navy=new Navy();
+			            	navy.setId(rs.getInt("id"));
+			            	int userid=rs.getInt("uid");
+			            	User user=find(userid);
+			            	navy.setUser(user);
+			         
+			                navy.setFlag(rs.getBoolean("flag"));
+			            	navyList.add(navy);
+			            }
+			               });
+					return  navyList;
+				}
+		
 	
 }
 
