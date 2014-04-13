@@ -54,7 +54,7 @@
           <table class="table">
             <caption>敏感词列表</caption>
             <tr>
-                <td>ID</td>
+                <td>编号</td>
                 <td>敏感词</td>
                 <td>操作</td>
             </tr>
@@ -64,7 +64,7 @@
                     <td><s:property value="name" /></td>
                     <td>
                         <a  href="RemoveSensitiveWordAction?sensitiveId=<s:property value='id' />"   
-                              class="btn btn-primary removeSensitiveWord">删除</a>
+                              class="btn btn-danger removeSensitiveWord">删除</a>
                     </td>
                 </tr>
             </s:iterator>

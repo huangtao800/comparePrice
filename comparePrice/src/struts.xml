@@ -145,6 +145,25 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
+		<action name="CrawlerWebsiteAction" class="CrawlerWebsiteAction" >
+		    <result name="Success">/admin/crawlerWebsite.jsp</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="AddCrawlerWebsiteAction" class="CrawlerWebsiteAction" method="add">
+		    <result name="Success" type="chain">CrawlerWebsiteAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		<action name="RemoveCrawlerWebsiteAction" class="CrawlerWebsiteAction" method="remove">
+		    <result name="Success" type="chain">CrawlerWebsiteAction</result>
+		    <result name="input">/admin/error.jsp</result>
+		</action>
+		
+		
+		
+		
+		
 		
 		
 		

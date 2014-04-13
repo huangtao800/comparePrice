@@ -8,6 +8,7 @@ import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.CrawlerWebsite;
 import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SensitiveWord;
 
@@ -78,6 +79,20 @@ public class SystemAdminService {
 		return null;
 	}
 	
+	//获得爬取的网站列表，即CrawlerWebsite表中的所有数据
+	public ArrayList<CrawlerWebsite> getCrawlerWebsiteList(){
+		return null;
+	}
+	
+	//新增CrawlerWebsite
+	public boolean addCrawlerWebsite(String name,String link){
+		return false;
+	}
+	
+	//删除CrawlerWebsite
+	public boolean deleteCrawlerWebsite(int id){
+		return false;
+	}
 	
 	
 	

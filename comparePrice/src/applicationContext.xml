@@ -115,15 +115,7 @@
 		<property name="brandService">
 			<ref bean="brandService" />
 		</property>
-	</bean>
-	
-	<bean id="specialWordService" class="edu.nju.comparePrice.services.SpecialWordService">
-	</bean>
-	
-	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
-	</bean>
-	
-	
+	</bean>	
 	
 	<bean id="CheckNavyAction" class="edu.nju.comparePrice.actions.CheckNavyAction">
 	    <property name="systemAdminService">
@@ -137,10 +129,42 @@
 		</property>
 	</bean>
 	
+	<bean id="CrawlerWebsiteAction" class="edu.nju.comparePrice.actions.CrawlerWebsiteAction">
+	    <property name="systemAdminService">
+			<ref bean="systemAdminService" />
+		</property>
+	</bean>
+	
+	<!-- crawler -->
+	<bean id="CrawlerAction" class="edu.nju.comparePrice.actions.CrawlerAction">
+		<property name="CrawlerService">
+			<ref bean="CrawlerService"/>
+		</property>
+	</bean>		
+	<!-- crawler end -->
 	
 	
+	<!-- Services -->
+	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
+		<!--  <property name="userDao">
+			<ref bean="userDao"/>
+		</property>-->
+	</bean>
 	
+	<bean id="commodityService" class="edu.nju.comparePrice.services.CommodityService">
+	</bean>
 	
+	<bean id="systemAdminService" class="edu.nju.comparePrice.services.SystemAdminService">
+	</bean>
+	
+	<bean id="CrawlerService" class="edu.nju.comparePrice.services.CrawlerService">
+	</bean>	
+	
+	<bean id="specialWordService" class="edu.nju.comparePrice.services.SpecialWordService">
+	</bean>
+	
+	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
+	</bean>
 	
 	<!-- Comment部分起始 -->	
 	<bean id="CommentDao" class="edu.nju.comparePrice.dao.CommentDaoStub"></bean>
@@ -164,32 +188,6 @@
 		</property>
 	</bean>	
 	<!-- Comment部分结束 -->	
-	
-	<!-- crawler -->
-	<bean id="CrawlerAction" class="edu.nju.comparePrice.actions.CrawlerAction">
-		<property name="CrawlerService">
-			<ref bean="CrawlerService"/>
-		</property>
-	</bean>	
-	
-	<!-- crawler end -->
-	
-	
-	<!-- Services -->
-	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
-		<!--  <property name="userDao">
-			<ref bean="userDao"/>
-		</property>-->
-	</bean>
-	
-	<bean id="commodityService" class="edu.nju.comparePrice.services.CommodityService">
-	</bean>
-	
-	<bean id="systemAdminService" class="edu.nju.comparePrice.services.SystemAdminService">
-	</bean>
-	
-	<bean id="CrawlerService" class="edu.nju.comparePrice.services.CrawlerService">
-	</bean>	
 	
 	<!-- DAOs -->
 	<bean id="userDao" class="edu.nju.comparePrice.dao.UserDao">
