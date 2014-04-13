@@ -15,6 +15,35 @@
     <script src=<s:url value="/js/jquery-2.1.0.js" /> type="text/javascript"></script>
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+        <div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+          	</button>
+			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          	<li><a href='<s:url action="ManageSensitiveCommentAction"/>'>敏感评论</a></li>
+          	<li><a href='<s:url action="SensitiveWordAction"/>'>敏感词</a></li>
+          	<li class="active"><a href='<s:url action="CheckNavyAction"/>'>水军</a></li>
+            <li><a href='<s:url action="BeforeForbidAction"/>'>商品屏蔽</a></li>
+            <li><a href='<s:url action="BrandWeightAction"/>'>商家权重</a></li>
+            <li><a href='<s:url action="candidateWordAction"/>'>商家候选词</a></li>
+            <li><a href='<s:url action="specialWordCommentAction"/>'>候选词评论</a></li>
+            <li><a href='<s:url action="CrawlerWebsiteAction"/>'>爬虫网站</a></li>
+          </ul>
+          	<div class="navbar-form navbar-right nav navbar-nav" >
+          		<a class="btn btn-success"><s:property value="session.adminId" /></a>
+				<a href='<s:url action="adminLogout"/>' class="btn btn-success">logout</a>
+			</div> 
+        </div>
+      </div>
+    </div>
+    
     
     <div class="container">
         <div class="navy">

@@ -97,7 +97,7 @@ public class DaoFacade {
 	}
 
 	public void setSpecialFlag(int commentID,boolean flag) {
-	
+		cDao.setSpecialFlag(commentID, flag);
 	}
 
 	public void addWaterNavy(int userID) {
