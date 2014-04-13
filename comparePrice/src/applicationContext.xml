@@ -117,6 +117,12 @@
 		</property>
 	</bean>	
 	
+	<bean id="specialWordCommentAction" class="edu.nju.comparePrice.actions.SpecialWordCommentAction">
+		<property name="commentService">
+			<ref bean="CommentService" />
+		</property>
+	</bean>	
+	
 	<bean id="CheckNavyAction" class="edu.nju.comparePrice.actions.CheckNavyAction">
 	    <property name="systemAdminService">
 			<ref bean="systemAdminService" />
@@ -146,9 +152,6 @@
 	
 	<!-- Services -->
 	<bean id="userService" class="edu.nju.comparePrice.services.UserService">
-		<!--  <property name="userDao">
-			<ref bean="userDao"/>
-		</property>-->
 	</bean>
 	
 	<bean id="commodityService" class="edu.nju.comparePrice.services.CommodityService">
