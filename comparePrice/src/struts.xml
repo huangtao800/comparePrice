@@ -114,6 +114,16 @@
 		    <result name="error">error.jsp</result>
 		</action>
 		
+		<action name="specialWordCommentAction" class="specialWordCommentAction">
+		    <result name="success">specialWordComment.jsp</result>
+		</action>
+		
+		<action name="cancelSpecial" class="specialWordCommentAction" method="delete">
+		    <result name="success" type="chain">specialWordCommentAction</result>
+		</action>
+		
+		
+		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
@@ -165,6 +175,10 @@
 		<action name="CheckCrawlerWebsiteAction" class="CrawlerWebsiteAction" method="check">
 		    <result name="Success">/Crawler/checkCrawlerWebsite.jsp</result>
 		    <result name="input">/Crawler/error.jsp</result>
+		</action>
+		<action name="SynonymImportAction" class="edu.nju.comparePrice.actions.SynonymImportAction">
+			<result name="Success">/Crawler/synonymImport.jsp</result>
+			<result name="error">/Crawler/error.jsp</result>
 		</action>
 	</package>
 	
