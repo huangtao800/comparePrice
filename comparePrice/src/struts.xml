@@ -4,6 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!-- 用户 -->
 	<package name="struts2" extends="struts-default" namespace="/user">
 		<action name="userBar" class="userBarAction">
 			<result name="logon">/user/userBar.jsp</result>
@@ -48,6 +49,7 @@
 		
 	</package>
 	 
+	<!-- 系统管理员 -->
 	<package name="strutsAdmin" extends="struts-default" namespace="/admin">
 	    <action name="adminLogin" class="adminLoginAction" method="login">
 			<result name="success" type="chain">SensitiveWordAction</result>
@@ -87,10 +89,6 @@
 		    <result name="SensitiveWord" type="chain">SensitiveWordAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
-		
-
-		
-		
 		
 		<action name="BrandWeightAction" class="BrandWeightAction">
 		    <result name="success">/admin/brandWeight.jsp</result>
@@ -160,14 +158,17 @@
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
-		
-		
-		
-		
-		
-		
-		
 	</package>
+	
+	<!-- 数据库管理员 -->
+	<package name="strutsDBAdmin" extends="struts-default" namespace="/Crawler">
+		<action name="CheckCrawlerWebsiteAction" class="CrawlerWebsiteAction" method="check">
+		    <result name="Success">/Crawler/checkCrawlerWebsite.jsp</result>
+		    <result name="input">/Crawler/error.jsp</result>
+		</action>
+	</package>
+	
+	
 				
 	
 </struts>
