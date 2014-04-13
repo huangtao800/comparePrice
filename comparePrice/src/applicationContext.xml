@@ -169,7 +169,7 @@
 	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
 	</bean>
 	
-	<bean id="searchController" class="edu.nju.comparePrice.services.search.SearchController">
+	<bean id="synonymService" class="edu.nju.comparePrice.services.SynonymService">
 	</bean>
 	
 	
