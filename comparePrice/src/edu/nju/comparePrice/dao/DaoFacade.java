@@ -13,6 +13,7 @@ import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
+import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SpecialWord;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
@@ -246,6 +247,26 @@ public class DaoFacade {
 		public int getCurrentMaxFlag(){
 			return synonDao.getCurrentMaxFlag();
 		
+		}
+		
+		public ArrayList<Navy> getNavyList(){
+			return uDao.getNavyList();
+		}
+		
+		public ArrayList<Comment> getSensitiveCommentList(){
+			return cDao.getSensitiveCommentList();
+		}
+		
+		public boolean deleteSensitiveComment(int cid){
+			return cDao.deleteSensitiveComment(cid);
+		}
+		
+		public boolean editSensitiveComment(int cid,String details){
+			return cDao.editSensitiveComment(cid, details);
+		}
+		
+		public Comment getCommentById(int commentId){
+			return cDao.queryCommentById(commentId);
 		}
 		
 		
