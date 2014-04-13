@@ -25,6 +25,7 @@ public class SimpleExpander implements Expander<Synonym> {
 	}
 	
 	private Synonym getSynonym(String keyword) {
+		System.out.println(daoFacade == null);
 		Synonym syn = daoFacade.getSynonymByName(keyword);
 		if (!syn.getName().equals(keyword))
 			syn.setName(keyword);
