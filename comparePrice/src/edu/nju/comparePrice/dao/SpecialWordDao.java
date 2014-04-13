@@ -67,8 +67,8 @@ public class SpecialWordDao extends HibernateDao<SpecialWord, Long> {
 		
 		}
 	
-	public boolean removeSpecialWord(SpecialWord cw) {
-		jdbcTemplate.update("DELETE FROM special_word WHERE id= ?", new Object[] {cw.getId()});
+	public boolean removeSpecialWord(int id) {
+		jdbcTemplate.update("DELETE FROM special_word WHERE id= ?", new Object[] {id});
 		
 		return true;
 	}

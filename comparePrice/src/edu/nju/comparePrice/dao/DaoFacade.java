@@ -45,9 +45,9 @@ public class DaoFacade {
 	
 	
 	
-	/*public static DaoFacade getInstance(){
+	public static DaoFacade getInstance(){
 		return ApplicationContextContainer.getBean(DaoFacade.class);
-	}*/
+	}
 	
 	public boolean login(String username,String password) {
 		return uDao.login(username, password);
@@ -225,8 +225,8 @@ public class DaoFacade {
 		  return swDao.querySpecialWordByBrandId(brandId);
 			}
 		
-		public boolean removeSpecialWord(SpecialWord cw) {
-			return swDao.removeSpecialWord(cw);
+		public boolean removeSpecialWord(int id) {
+			return swDao.removeSpecialWord(id);
 		}
 		
 		public boolean addSpecialWord(SpecialWord cw){
@@ -248,5 +248,13 @@ public class DaoFacade {
 		
 		}
 		
+		
+		
+		public static void main(String[] args){
+			Brand brand=DaoFacade.getInstance().queryBrandById(100000000);
+			
+			
+			System.out.println("brand.name"+brand.getName());
+		}
 	
 }

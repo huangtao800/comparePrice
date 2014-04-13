@@ -26,7 +26,8 @@ public class ApplicationContextContainer implements ApplicationContextAware {
 	protected static Logger logger = LoggerFactory.getLogger(ApplicationContextContainer.class);
 	
 
-    private static ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext= new ClassPathXmlApplicationContext("applicationContext.xml"); ;
+
 		
 
 
