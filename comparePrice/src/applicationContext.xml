@@ -123,6 +123,8 @@
 	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
 	</bean>
 	
+	
+	
 	<bean id="CheckNavyAction" class="edu.nju.comparePrice.actions.CheckNavyAction">
 	    <property name="systemAdminService">
 			<ref bean="systemAdminService" />
