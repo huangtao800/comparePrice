@@ -166,6 +166,10 @@
 		    <result name="Success">/Crawler/checkCrawlerWebsite.jsp</result>
 		    <result name="input">/Crawler/error.jsp</result>
 		</action>
+		<action name="SynonymImportAction" class="edu.nju.comparePrice.actions.SynonymImportAction">
+			<result name="Success">/Crawler/synonymImport.jsp</result>
+			<result name="error">/Crawler/error.jsp</result>
+		</action>
 	</package>
 	
 	
