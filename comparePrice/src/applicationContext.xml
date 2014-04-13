@@ -166,6 +166,11 @@
 	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
 	</bean>
 	
+	<bean id="searchController" class="edu.nju.comparePrice.services.search.SearchController">
+	</bean>
+	
+	
+	
 	<!-- Comment部分起始 -->	
 	<bean id="CommentDao" class="edu.nju.comparePrice.dao.CommentDaoStub"></bean>
 	

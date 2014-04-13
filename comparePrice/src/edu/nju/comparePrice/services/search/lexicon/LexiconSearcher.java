@@ -10,8 +10,7 @@ import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.Synonym;
 
 public class LexiconSearcher {
-	
-	@Autowired
+	@Autowired 
 	private DaoFacade daoFacade;
 	
 	/**

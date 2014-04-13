@@ -177,12 +177,10 @@ public class DaoFacade {
 	return uDao.findBaseUser(id);
 	}
 	
-	public boolean addCrawlerWebsite(String crawlerWebSite) {
-		
-		
-		
-		return crDao.addCrawlerWebsite(crawlerWebSite);
-	}
+//	public boolean addCrawlerWebsite(String crawlerWebSite) {
+//		
+//		return crDao.addCrawlerWebsite(crawlerWebSite);
+//	}
 	public boolean removeCrawlerWebsite(int crawlerWebsiteId) {
 		
 		
@@ -267,6 +265,20 @@ public class DaoFacade {
 		
 		public Comment getCommentById(int commentId){
 			return cDao.queryCommentById(commentId);
+		}
+		
+		public ArrayList<CrawlerWebsite> getCrawlerWebsiteList(){
+			return crDao.getCrawlerWebSiteList();
+		}
+		
+		//新增CrawlerWebsite
+		public boolean addCrawlerWebsite(String name,String link){
+			return crDao.addCrawlerWebsite(name,link);
+		}
+		
+		//删除CrawlerWebsite
+		public boolean deleteCrawlerWebsite(int id){
+			return crDao.removeCrawlerWebsite(id);
 		}
 		
 		

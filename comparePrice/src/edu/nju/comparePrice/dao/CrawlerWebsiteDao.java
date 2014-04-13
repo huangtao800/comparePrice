@@ -38,9 +38,9 @@ public class CrawlerWebsiteDao {
 
 	
 	
-	public boolean addCrawlerWebsite(String crawlerWebSite) {
+	public boolean addCrawlerWebsite(String crawlerWebSite,String link) {
 		
-		jdbcTemplate.update("INSERT INTO crawler_website VALUES(?,?, ?)", new Object[] {null,crawlerWebSite,null});
+		jdbcTemplate.update("INSERT INTO crawler_website VALUES(?,?, ?)", new Object[] {null,crawlerWebSite,link});
 		
 		return true;
 	}
