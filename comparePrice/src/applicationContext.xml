@@ -146,7 +146,13 @@
 		<property name="CrawlerService">
 			<ref bean="CrawlerService"/>
 		</property>
-	</bean>		
+	</bean>
+	
+	<bean id="dbAdminLoginAction" class="edu.nju.comparePrice.actions.DBadminLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
 	<!-- crawler end -->
 	
 	

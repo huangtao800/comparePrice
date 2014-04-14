@@ -130,8 +130,6 @@
 		    <result name="success" type="chain">specialWordCommentAction</result>
 		</action>
 		
-		
-		
 		<action name="UpdateCrawler" class="CrawlerAction">
 		    <result name="success">/Crawler/crawler.jsp</result>
 		</action>
@@ -180,7 +178,7 @@
 	
 	<!-- 数据库管理员 -->
 	<package name="strutsDBAdmin" extends="struts-default" namespace="/Crawler">
-		<action name="CheckCrawlerWebsiteAction" class="CrawlerWebsiteAction" method="check">
+		<action name="CheckCrawlerWebsiteAction" class="CrawlerWebsiteAction">
 		    <result name="Success">/Crawler/checkCrawlerWebsite.jsp</result>
 		    <result name="input">/Crawler/error.jsp</result>
 		</action>
@@ -188,6 +186,12 @@
 			<result name="success">/Crawler/synonymImport.jsp</result>
 			<result name="error">/Crawler/error.jsp</result>
 		</action>
+		
+		<action name="dbAdminLogin" class="dbAdminLoginAction" method="login">
+			<result name="success" type="chain">CheckCrawlerWebsiteAction</result>
+			<result name="input">/Crawler/login.jsp</result>
+		</action>
+		
 	</package>
 	
 	
