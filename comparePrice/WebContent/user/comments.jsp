@@ -72,7 +72,7 @@
 
 	<s:form id="addCommentPart" action="addComment" method="POST">
 		<div><label style="font-size:26px;">фюбшё╨</label></div>
-		<s:hidden name="comment.commodity.id" value="%{cid}"> </s:hidden>
+		<s:hidden name="cid" value="%{cid}"> </s:hidden>
 		<s:textarea name="comment.details" cols="97" rows="7"></s:textarea>
 		<s:submit  cssClass="btn btn-success" cssStyle="margin-top:3px;margin-bottom:10px;" value="Submit"></s:submit>
 	</s:form>

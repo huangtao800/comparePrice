@@ -13,6 +13,7 @@ public class AddCommentAction extends BaseAction {
 	private static final long serialVersionUID = 1869198100114733155L;
 	private Comment comment;
 	private CommentService service;
+	private Integer cid;
 
 	public String execute() throws Exception {
 		
@@ -25,8 +26,8 @@ public class AddCommentAction extends BaseAction {
 			
 			comment.setUser(user);
 			// set all states false
-			int cid = comment.getCommodity().getId();
-			System.out.println(cid);
+			comment.getCommodity().setId(cid);
+			comment.getCommodity().getId();
 			comment.setCid(cid);
 			comment.setUid(id);
 			
@@ -68,6 +69,16 @@ public class AddCommentAction extends BaseAction {
 
 	public void setService(CommentService service) {
 		this.service = service;
+	}
+
+
+	public Integer getCid() {
+		return cid;
+	}
+
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
 	}
 
 }
