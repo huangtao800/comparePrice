@@ -166,9 +166,8 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	
 	
 public ArrayList<Comment> getSensitiveCommentList(){
-		
 		final ArrayList<Comment> commentList =new ArrayList<Comment>();
-		String sql = "select * from comment where state ="+false;	
+		String sql = "select * from comment where state ="+true;	
 		
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
             public void processRow(ResultSet rs) throws SQLException {    
@@ -187,7 +186,7 @@ public ArrayList<Comment> getSensitiveCommentList(){
             	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
             	comment.setCommodity(commodity);
             	
-            	
+            	commentList.add(comment);
             }
                });
 		return  commentList;
@@ -196,7 +195,8 @@ public ArrayList<Comment> getSensitiveCommentList(){
 
 
 public boolean editSensitiveComment(int id,String details){
-	jdbcTemplate.update("UPDATE comment SET details=?  where id=?", new Object[] {details,id});  
+	jdbcTemplate.update("UPDATE comment SET details=?,state=?  where id=?", new Object[] {details,false,id});  
+	
 
 	return true;
 }

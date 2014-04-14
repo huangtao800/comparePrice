@@ -23,7 +23,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" >iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

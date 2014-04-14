@@ -148,7 +148,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	}
 	public boolean removeForbidCommodity(int commodityId) {
 		jdbcTemplate.update("DELETE FROM forbid_commodity WHERE cid= ?", new Object[] {commodityId});
-		
+		System.out.println("DAO: "+commodityId);
 		return true;
 	}
 	

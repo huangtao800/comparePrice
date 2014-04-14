@@ -140,12 +140,12 @@
 		</action>
 		
 		<action name="DeleteSensitiveCommentAction" class="ManageSensitiveCommentAction" method="delete">
-		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction"</result>
+		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		
 		<action name="SaveSensitiveCommentAction" class="ManageSensitiveCommentAction" method="save">
-		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction"</result>
+		    <result name="SensitiveComment" type="chain">ManageSensitiveCommentAction</result>
 		    <result name="input">/admin/error.jsp</result>
 		</action>
 		

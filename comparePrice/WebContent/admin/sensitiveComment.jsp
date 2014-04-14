@@ -25,7 +25,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" >iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -58,19 +58,19 @@
                 <th>删除评论</th>
             </tr>
             
-            <s:iterator value="sensitiveCommentList" id="sensitiveComment" status="st">
+            <s:iterator value="sensitiveCommentList"  status="st">
                 <tr>
-                    <td><s:property value="#sensitiveComment.id" /></td>
-                    <td><s:property value="#sensitiveComment.cid" /></td>
-                    <td><s:property value="#sensitiveComment.uid" /></td>
-                    <td><s:property value="#sensitiveComment.details" /></td>
+                    <td><s:property value="id" /></td>
+                    <td><s:property value="cid" /></td>
+                    <td><s:property value="uid" /></td>
+                    <td><s:property value="details" /></td>
                     <td>
-                        <s:a cssClass="btn btn-primary"
-                        href='ModifySensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>修改</s:a>
+                        <a class="btn btn-primary"
+                        href="ModifySensitiveCommentAction?commentID=<s:property value='id'/>">修改</a>
                     </td>
                     <td>
-                        <s:a cssClass="btn btn-danger"
-                        href='DeleteSensitiveCommentAction?commentID=<s:property value="#sensitiveComment.id"/>'>删除</s:a>
+                        <a class="btn btn-danger"
+                        href="DeleteSensitiveCommentAction?commentID=<s:property value='id'/>">删除</a>
                     </td>
                     
                 </tr>
