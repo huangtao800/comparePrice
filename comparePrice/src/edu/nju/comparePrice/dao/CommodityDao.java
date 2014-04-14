@@ -79,19 +79,26 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 
 	public List<Commodity> getToForbidCommodities(String commodityName){
 		ArrayList<Commodity> toForbidCommodityList=(ArrayList<Commodity>) queryCommoditiesByName(commodityName);
-		int size=toForbidCommodityList.size();
-		ArrayList<Integer> indexToRemove=new ArrayList<Integer>();
-		for(int i=0;i<size;i++){
-			Commodity forbid=getForbiddenCommodityByID(toForbidCommodityList.get(i).getId());
-			if(forbid.getId()!=null){
-				indexToRemove.add(i);
-			}
-		}
+//		ArrayList<Commodity> toForbidCommodityList=new ArrayList<Commodity>();
 		
-		
-		for(Integer i:indexToRemove){
-			toForbidCommodityList.remove(i);
-		}
+//		int size=toForbidCommodityList.size();
+//		System.out.println("size:"+size);
+//		ArrayList<Integer> indexToRemove=new ArrayList<Integer>();
+//		for(int i=0;i<size;i++){
+//			Commodity forbid=getForbiddenCommodityByID(toForbidCommodityList.get(i).getId());
+//			System.out.println(forbid);
+//			System.out.println(forbid.getId());
+//			if(forbid.getId()!=null){
+//				indexToRemove.add(i);
+//			}
+//		}
+//		
+//		System.out.println(indexToRemove);
+//		for(int j=0;j<indexToRemove.size();j++){
+//			System.out.println("qqq "+j);
+//			toForbidCommodityList.remove(indexToRemove.get(j));
+//		}
+//		System.out.println("sizesize:"+toForbidCommodityList.size());
 		return toForbidCommodityList;
 		
 	}
@@ -106,7 +113,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 
 	
 	public List<Commodity> queryCommoditiesByName(String commodityName){
-    final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
+        final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
 		
 		String sql = "select * from commodity where name='"+commodityName+"'";
 		
@@ -130,6 +137,10 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	}
 	public boolean addForbidCommodity(int commodityId) {
+		Commodity c=getForbiddenCommodityByID(commodityId);
+		if(c.getId()!=null)
+			return true;
+		
 		Commodity commodity=queryCommodityByID(commodityId);
 		jdbcTemplate.update("INSERT INTO forbid_commodity VALUES(?,?, ?)", new Object[] {null,commodity.getId(),commodity.getName()});
 		
