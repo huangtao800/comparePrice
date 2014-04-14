@@ -66,13 +66,16 @@
 	<s:iterator value="comments"  status="st">
 		<div class="comment">
 			<s:property value="details"/>
-			<!-- <div class="uid">用户ID:<s:property value="uid"/></div> -->
+			<div class="uid">用户名:<s:property value="user.name"/></div> 
 		</div>
 	</s:iterator>
+	
+	
 
 	<s:form id="addCommentPart" action="addComment" method="POST">
 		<div><label style="font-size:26px;">评论：</label></div>
 		<s:hidden name="cid" value="%{cid}"> </s:hidden>
+		
 		<s:textarea name="comment.details" cols="97" rows="7"></s:textarea>
 		<s:submit  cssClass="btn btn-success" cssStyle="margin-top:3px;margin-bottom:10px;" value="Submit"></s:submit>
 	</s:form>

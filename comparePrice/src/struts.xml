@@ -38,7 +38,7 @@
 		        <param name="actionName">getComments </param>
     			<param name="cid">%{comment.cid} </param>
 			</result>
-			<result name="badComment">/comment/badComment.jsp</result>
+			<result name="badComment">/user/badComment.jsp</result>
 			<result name="toLogin">/user/login.jsp</result>
 		</action>
         

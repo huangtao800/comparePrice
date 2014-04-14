@@ -88,7 +88,9 @@ public class CommentDao extends HibernateDao<Comment, Long> {
                 	commentList.add(comment);
             	}
             }
-               });
+              
+		});
+		
 		return  commentList;
 	
 	}

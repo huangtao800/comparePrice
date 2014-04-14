@@ -26,8 +26,8 @@ public class AddCommentAction extends BaseAction {
 			
 			comment.setUser(user);
 			// set all states false
-			comment.getCommodity().setId(cid);
-			comment.getCommodity().getId();
+//			comment.getCommodity().getId();
+			System.out.println(cid);
 			comment.setCid(cid);
 			comment.setUid(id);
 			

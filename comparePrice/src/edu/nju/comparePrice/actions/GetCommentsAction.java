@@ -11,14 +11,19 @@ import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.services.CommentService;
 
 public class GetCommentsAction extends BaseAction{
-//	private int cid;
+	private int cid;
 	private CommentService service;
 	private ArrayList<Comment> comments;
 	
 
 	public String execute() throws Exception {
-		int cid=Integer.parseInt(request.getParameter("cid"));
+		cid=Integer.parseInt(request.getParameter("cid"));
+//		System.out.println("cid = "+cid);
 		comments = service.getComments(cid);
+		System.out.println("cid: "+cid);
+		if(comments.isEmpty()){
+			System.out.println("empty");
+		}
 		return "success";
 //		if(comments.isEmpty()){
 //			return "error";
@@ -31,12 +36,12 @@ public class GetCommentsAction extends BaseAction{
 	}
 
 
-//	public void setCid(int cid) {
-//		this.cid = cid;
-//	}
-//	public int getCid() {
-//		return cid;
-//	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+	public int getCid() {
+		return cid;
+	}
 
 	
 	public CommentService getService() {
