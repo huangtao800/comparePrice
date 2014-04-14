@@ -20,9 +20,7 @@ public class CandidateWordAction extends BaseAction{
 	
 	@Override
 	public String execute () {
-		if (candidateWordList == null) {
-			candidateWordList = specialWordService.getSpecialWordsList();
-		}
+		candidateWordList = specialWordService.getSpecialWordsList();
 		return SUCCESS;
 	}
 	

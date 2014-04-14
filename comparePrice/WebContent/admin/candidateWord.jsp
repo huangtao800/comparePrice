@@ -65,7 +65,7 @@
             </tr>
             <s:iterator value="candidateWordList" status="st">
                 <tr>
-                    <td><s:property value="brand.name" /></td>
+                    <td><s:property value="id" /></td>
                     <td><s:property value="name" /></td>
                     <td>
                         <a class="btn btn-primary removeSensitiveWord" 
