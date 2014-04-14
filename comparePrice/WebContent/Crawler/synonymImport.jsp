@@ -22,7 +22,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<s:url action='CheckCrawlerWebsiteAction'/>">爬虫网站</a></li>
+            <li><a href='<s:url action="CheckCrawlerWebsiteAction"/>'>爬虫网站</a></li>
           	<li><a href="crawler.jsp">开始爬取</a></li>
           	<li class="active"><a href="synonymImport.jsp">导入同义词</a></li>
           </ul>
