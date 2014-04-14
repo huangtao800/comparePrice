@@ -57,9 +57,35 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		return  commodityList;
 	
 	}
+	
+	public Commodity getForbiddenCommodityByID(int cid){
+		final Commodity commodity =new Commodity();
+		
+		String sql = "select * from forbid_commodity where cid="+cid;
+		
+		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+            public void processRow(ResultSet rs) throws SQLException {    
+            
+            	commodity.setId(rs.getInt("cid"));
+            	commodity.setName(rs.getString("name"));
+                
+                
+            	
+            }
+               });
+		return  commodity;
+	
+	}
 
 	public List<Commodity> getToForbidCommodities(String commodityName){
-		return queryCommoditiesByName(commodityName);
+		ArrayList<Commodity> toForbidCommodityList=(ArrayList<Commodity>) queryCommoditiesByName(commodityName);
+		for(Commodity commodity:toForbidCommodityList){
+			Commodity forbid=queryCommodityByID(commodity.getId());
+			if(forbid.getId()!=null){
+				toForbidCommodityList.remove(commodity);
+			}
+		}
+		return toForbidCommodityList;
 		
 	}
 	public boolean cancelForbid(int commodityId) {
