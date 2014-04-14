@@ -10,8 +10,8 @@ import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.Synonym;
 
 public class LexiconSearcher {
-	@Autowired 
-	private DaoFacade daoFacade;
+	//@Autowired 
+	private DaoFacade daoFacade=DaoFacade.getInstance();
 	
 	/**
 	 * 从数据库中查找指定关键词列表所对应商品
