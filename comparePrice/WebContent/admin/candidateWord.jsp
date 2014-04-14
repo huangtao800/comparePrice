@@ -59,9 +59,9 @@
           <table class="table">
             <caption>候选词列表</caption>
             <tr>
-                <th>商家</th>
-                <th>候选词</th>
-                <th>操作</th>
+                <td>商家</td>
+                <td>候选词</td>
+                <td>操作</td>
             </tr>
             <s:iterator value="candidateWordList" status="st">
                 <tr>
