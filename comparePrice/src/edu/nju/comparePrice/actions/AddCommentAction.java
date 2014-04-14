@@ -15,15 +15,21 @@ public class AddCommentAction extends BaseAction {
 	private CommentService service;
 
 	public String execute() throws Exception {
+		
 		Integer id = (Integer) session.get("userId");
 		if(id==null){
 			return "toLogin";
 		}else{
 			User user = new User();
 			user.setId(id);
+			
 			comment.setUser(user);
 			// set all states false
-		
+			int cid = comment.getCommodity().getId();
+			System.out.println(cid);
+			comment.setCid(cid);
+			comment.setUid(id);
+			
 			comment.setSpecialstate(false);
 			comment.setState(false);
 		

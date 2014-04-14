@@ -94,7 +94,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	}
 
 	public boolean addComment(Comment c) {
-		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),c.getSpecialstate()});
+		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),false,c.getSpecialstate()});
 		return true;		
 	}
 	
