@@ -184,10 +184,13 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
 		ArrayList<String> queryList=new ArrayList<String>();
-		for(int i=0;i<2;i++) {
+		for(int i=0;i<Math.min(keywords.size(),2);i++) {
 			ArrayList<Synonym> synonymList=new ArrayList<Synonym>();
 			synonymList.add(keywords.get(i));
+			System.out.println("index"+i+keywords.get(i));
+			if(keywords.get(i).getFlag()!=null){
 		synonymList.addAll(synonymDao.getSynonymByFlag(keywords.get(i).getFlag()));
+			}
 		StringBuilder sBuilder=new StringBuilder();
 	
 		for(Synonym temp:synonymList) {
@@ -199,9 +202,14 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		}
 	    
 		final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
-
-		String sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
-
+		String sql=new String();
+        if(keywords.size()==1){
+        	sql = "select * from commodity where ("+queryList.get(0)+ ")" ;
+        }
+		
+		else{
+			sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
+		}
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	Commodity commodity=new Commodity();
@@ -220,8 +228,14 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		               });
 		
 		if(commodityList.size()==0){
-			String sql2 = 	"select * from commodity where ("+queryList.get(0)+ ") OR ("+queryList.get(1)+")";
-
+			String sql2=new String();
+	        if(keywords.size()==1){
+	        	sql2 = "select * from commodity where ("+queryList.get(0)+ ")" ;
+	        }
+			
+			else{
+				sql2 = "select * from commodity where ("+queryList.get(0)+ ") OR ("+queryList.get(1)+")";
+			}
 			jdbcTemplate.query(sql2, new RowCallbackHandler() { //editing    
 			            public void processRow(ResultSet rs) throws SQLException {    
 			            	Commodity commodity=new Commodity();
