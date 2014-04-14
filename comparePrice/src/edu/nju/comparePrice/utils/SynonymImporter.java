@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,14 +51,16 @@ public class SynonymImporter {
 	private boolean addToSynonymDB(List<String> keywords) {
 		int cmf = daoFacade.getCurrentMaxFlag();
 		cmf++;
+		List<String> newlist = new ArrayList<String>();
 		for(String keyword : keywords) {
 			Synonym s = daoFacade.getSynonymByName(keyword);
 			if(keyword.equals(s.getName())) {
 				cmf = s.getFlag();
-				keywords.remove(keyword);
+			} else {
+				newlist.add(keyword);
 			}
 		}
-		for(String keyword : keywords) {
+		for(String keyword : newlist) {
 			Synonym syn = new Synonym(cmf, keyword);
 			daoFacade.addSynonym(syn);
 		}

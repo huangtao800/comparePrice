@@ -182,8 +182,14 @@
 		    <result name="Success">/Crawler/checkCrawlerWebsite.jsp</result>
 		    <result name="input">/Crawler/error.jsp</result>
 		</action>
+		<action name="SynonymImport">
+			<result>/Crawler/synonymImport.jsp</result>
+		</action>
 		<action name="SynonymImportAction" class="edu.nju.comparePrice.actions.SynonymImportAction">
-			<result name="success">/Crawler/synonymImport.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/Crawler</param>
+				<param name="actionName">SynonymImport</param>
+			</result>
 			<result name="error">/Crawler/error.jsp</result>
 		</action>
 		
