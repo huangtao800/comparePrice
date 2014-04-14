@@ -16,7 +16,7 @@ public class DBadminLoginAction extends BaseAction{
 		
 		if (verifyResult == VerifyResult.PASS) {
 			int id = Integer.parseInt(idString);
-			session.put("adminId", id);
+			session.put("dbAdminId", id);
 			return SUCCESS;
 		} else if (verifyResult == VerifyResult.ID_INVALID) {
 			session.put("fail", "ID不存在！");
