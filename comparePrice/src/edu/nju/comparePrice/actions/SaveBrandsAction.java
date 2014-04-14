@@ -12,22 +12,32 @@ public class SaveBrandsAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private SystemAdminService systemAdminService;
-//	private ArrayList<Brand> brandList=new ArrayList<Brand>();
-	private ArrayList<Integer> brandId;
-	private ArrayList<Integer> brandWeight;
+	private int brandId;
+	private int brandWeight;
 	public String execute(){
-		if(brandId!=null && brandWeight!=null){
-			for(int i=0;i<brandId.size();i++){
-				int id=brandId.get(i);
-				int weight=brandWeight.get(i);
-				System.out.println(id+" -- "+weight);
-				boolean result=systemAdminService.saveBrand(id, weight);
+//		int id=0;
+//		int weight=0;
+//		try {
+//			id=Integer.parseInt(request.getParameter("id"));
+//			weight=Integer.parseInt(request.getParameter("weight"));
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			System.out.println("id:"+id+"  weight:"+weight);
+//			return "input";
+//		}
+		
+//		if(brandId!=null && brandWeight!=null){
+//			for(int i=0;i<brandId.size();i++){
+//				int id=brandId.get(i);
+//				int weight=brandWeight.get(i);
+//				System.out.println(id+" -- "+weight);
+				boolean result=systemAdminService.saveBrand(brandId, brandWeight);
 				if(!result){
-					return INPUT;
+					return "input";
 				}
-			}
-		}
-		return SUCCESS; 
+//			}
+//		}
+		return "success"; 
 	}
 	
 	public SystemAdminService getSystemAdminService() {
@@ -37,21 +47,37 @@ public class SaveBrandsAction extends BaseAction{
 		this.systemAdminService = systemAdminService;
 	}
 
-	public ArrayList<Integer> getBrandId() {
+	public int getBrandId() {
 		return brandId;
 	}
 
-	public void setBrandId(ArrayList<Integer> brandId) {
+	public void setBrandId(int brandId) {
 		this.brandId = brandId;
 	}
 
-	public ArrayList<Integer> getBrandWeight() {
+	public int getBrandWeight() {
 		return brandWeight;
 	}
 
-	public void setBrandWeight(ArrayList<Integer> brandWeight) {
+	public void setBrandWeight(int brandWeight) {
 		this.brandWeight = brandWeight;
 	}
+
+//	public ArrayList<Integer> getBrandId() {
+//		return brandId;
+//	}
+//
+//	public void setBrandId(ArrayList<Integer> brandId) {
+//		this.brandId = brandId;
+//	}
+//
+//	public ArrayList<Integer> getBrandWeight() {
+//		return brandWeight;
+//	}
+//
+//	public void setBrandWeight(ArrayList<Integer> brandWeight) {
+//		this.brandWeight = brandWeight;
+//	}
 
 	
 

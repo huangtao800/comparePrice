@@ -23,6 +23,7 @@ public class CrawlerWebsiteAction extends BaseAction{
 	}
 	
 	public String add(){
+		System.out.println(websiteName+"  --  "+websiteLink);
 		boolean result=systemAdminService.addCrawlerWebsite(websiteName, websiteLink);
 		if(result)
 			return "Success";

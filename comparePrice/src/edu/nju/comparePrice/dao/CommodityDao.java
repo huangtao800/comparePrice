@@ -82,7 +82,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		int size=toForbidCommodityList.size();
 		ArrayList<Integer> indexToRemove=new ArrayList<Integer>();
 		for(int i=0;i<size;i++){
-			Commodity forbid=queryCommodityByID(toForbidCommodityList.get(i).getId());
+			Commodity forbid=getForbiddenCommodityByID(toForbidCommodityList.get(i).getId());
 			if(forbid.getId()!=null){
 				indexToRemove.add(i);
 			}

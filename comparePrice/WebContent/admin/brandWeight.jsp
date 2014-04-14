@@ -46,7 +46,7 @@
     </div>
     
     <div class="container">
-        <s:form theme="simple"  role="form" method="post" action="SaveBrandsAction" >
+        <!--<s:form theme="simple"  role="form" method="post" action="SaveBrandsAction" >  -->
             <br><br><br>
             <table class="table">
                 <caption>商家权重列表</caption>
@@ -55,8 +55,10 @@
                     <td>商家ID</td>
                     <td>商家名称</td>
                     <td>权重</td>
+                    <td>操作</td>
                 </tr>
                 <s:iterator value="brandList" id="brand" status="st">
+                  <s:form theme="simple"  role="form" method="post" action="SaveBrandsAction" >
                     <tr>
                         <td>
                            <s:property value="%{#brand.id}" />
@@ -64,17 +66,23 @@
                         <td>
                             <s:property value="%{#brand.name}" />
                         <td>
-                           <s:textfield  name="brandWeight" value="%{#brand.weight}" >
+                           <s:textfield  id="brandWeight" name="brandWeight" value="%{#brand.weight}" >
                               <!--   <s:property value="%{#brand.weight}" />-->
                            </s:textfield>
                             
                         </td>
+                        <td>
+                           <!--   <a  href="SaveBrandsAction?id=<s:property value='id' />&weight=<s:property value='weight' />"   
+                              class="btn btn-danger removeSensitiveWord">保存</a>-->
+                           <s:submit   cssClass="btn btn-info btn-lg center-block" value="保存"/>   
+                        </td>
                     </tr>
+                  </s:form>
                 </s:iterator>
             
             </table>
-            <s:submit   cssClass="btn btn-info btn-lg center-block" value="保存"/>
-        </s:form>
+            <!--<s:submit   cssClass="btn btn-info btn-lg center-block" value="保存"/> -->
+   <!--      </s:form>--> 
     
     </div>
 

@@ -81,17 +81,17 @@ public class SystemAdminService {
 	
 	//获得爬取的网站列表，即CrawlerWebsite表中的所有数据
 	public ArrayList<CrawlerWebsite> getCrawlerWebsiteList(){
-		return null;
+		return daoFacade.getCrawlerWebsiteList();
 	}
 	
 	//新增CrawlerWebsite
 	public boolean addCrawlerWebsite(String name,String link){
-		return false;
+		return daoFacade.addCrawlerWebsite(name, link);
 	}
 	
 	//删除CrawlerWebsite
 	public boolean deleteCrawlerWebsite(int id){
-		return false;
+		return daoFacade.deleteCrawlerWebsite(id);
 	}
 
 }
