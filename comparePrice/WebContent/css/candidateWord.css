@@ -1,9 +1,4 @@
 @CHARSET "UTF-8";
-.container{
-	width:800px;
-	margin-right: auto;
-	margin-left: auto;
-}
 
 .textfield_input{
     height: 34px;
