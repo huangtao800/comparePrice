@@ -2,36 +2,41 @@ package edu.nju.comparePrice.actions;
 
 import java.util.ArrayList;
 
+import org.apache.catalina.connector.Request;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.org.apache.xml.internal.security.Init;
 
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.services.CommentService;
 
-public class GetCommentsAction extends ActionSupport{
-	private int cid;
+public class GetCommentsAction extends BaseAction{
+//	private int cid;
 	private CommentService service;
 	private ArrayList<Comment> comments;
 	
 
 	public String execute() throws Exception {
+		int cid=Integer.parseInt(request.getParameter("cid"));
 		comments = service.getComments(cid);
-		if(comments.isEmpty()){
-			return ERROR;
-
-		}else {
-			return SUCCESS;
-		}
+		return "success";
+//		if(comments.isEmpty()){
+//			return "error";
+//
+//		}else {
+//			return "success";
+//		}
+		
 		
 	}
 
 
-	public void setCid(int cid) {
-		this.cid = cid;
-	}
-	public int getCid() {
-		return cid;
-	}
+//	public void setCid(int cid) {
+//		this.cid = cid;
+//	}
+//	public int getCid() {
+//		return cid;
+//	}
 
 	
 	public CommentService getService() {
