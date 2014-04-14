@@ -198,6 +198,9 @@
 			<result name="input">/Crawler/login.jsp</result>
 		</action>
 		
+		<action name="dbAdminLogout" class="dbAdminLoginAction" method="logout">
+			<result name="success">/Crawler/login.jsp</result>
+		</action>
 	</package>
 	
 	
