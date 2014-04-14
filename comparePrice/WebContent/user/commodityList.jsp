@@ -61,7 +61,7 @@
 			<s:iterator value="commodities" status="st">
 				<div class="col-md-7 top-space">
 					<a class="font20" href=<s:property value="link" />><s:property value="name" /></a>
-					<a class="btn btn-primary pull-right">查看评论</a>
+					<a class="btn btn-primary pull-right" href="getComments?cid=<s:property value='id' />" >查看评论</a>
 				</div>
 			</s:iterator>
 		</div>

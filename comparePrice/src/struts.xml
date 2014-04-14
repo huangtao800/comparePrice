@@ -31,7 +31,7 @@
 		<action name="commoditySearch" class="commoditySearchAction">
 			<result name="success" >/user/commodityList.jsp</result>
 		</action>
-		
+		<!-- 
 		<action name="addComment" class="AddCommentAction">
 		    <result name="goodComment" type="redirectAction">
 		        <param name="actionName">getComments </param>
@@ -40,7 +40,15 @@
 			<result name="badComment">/comment/badComment.jsp</result>
 			<result name="toLogin">/user/login.jsp</result>
 		</action>
-
+ -->
+        
+        <action name="addComment" class="AddCommentAction">
+            <result name="success" type="chain"></result>
+             <result name="input">/user/error.jsp</result>
+        </action>
+        
+         
+        
 		<action name="getComments" class="GetCommentsAction">
 			<result name="success">/comment/comments.jsp</result>
 			<result name="error">/comment/noComment.jsp</result>
