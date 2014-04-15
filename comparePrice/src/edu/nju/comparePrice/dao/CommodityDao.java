@@ -250,9 +250,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
         jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	Commodity commodity=new Commodity();
-		            	if(fobbidens.contains(rs.getInt("id"))) {
-		            		return;
-		            	}
+		            	if(!fobbidens.contains(rs.getInt("id"))) {
+		            		
 		            	commodity.setId(rs.getInt("id"));
 		            	commodity.setLink(rs.getString("link"));
 		            	commodity.setName(rs.getString("name")); 
@@ -264,6 +263,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		                Brand brand=brandDao.queryBrandById(bid);
 		                commodity.setBrand(brand);
 		            	commodityList.add(commodity);
+		            }
 		            }
 		               });
 		
@@ -279,9 +279,8 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 			jdbcTemplate.query(sql2, new RowCallbackHandler() { //editing    
 			            public void processRow(ResultSet rs) throws SQLException {    
 			            	Commodity commodity=new Commodity();
-			            	if(fobbidens.contains(rs.getInt("id"))) {
-			            		return;
-			            	}
+			            	if(!fobbidens.contains(rs.getInt("id"))) {
+			            		
 			            	commodity.setId(rs.getInt("id"));
 			            	commodity.setLink(rs.getString("link"));
 			            	commodity.setName(rs.getString("name")); 
@@ -293,6 +292,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 			                Brand brand=brandDao.queryBrandById(bid);
 			                commodity.setBrand(brand);
 			            	commodityList.add(commodity);
+			            	}
 			            }
 			               });
 			
