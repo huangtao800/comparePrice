@@ -185,7 +185,7 @@ public ArrayList<Comment> getSensitiveCommentList(){
             	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
             	comment.setCommodity(commodity);
             	
-            	
+            	commentList.add(comment);
             }
                });
 		return  commentList;
