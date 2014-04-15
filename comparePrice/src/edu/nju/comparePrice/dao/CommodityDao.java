@@ -246,11 +246,13 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 			sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
 		}
         final Set<Integer> fobbidens = getFobbidens();
-		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+        System.out.println(fobbidens);
+        jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	Commodity commodity=new Commodity();
-		            	if(fobbidens.contains(rs.getInt("id")))
+		            	if(fobbidens.contains(rs.getInt("id"))) {
 		            		return;
+		            	}
 		            	commodity.setId(rs.getInt("id"));
 		            	commodity.setLink(rs.getString("link"));
 		            	commodity.setName(rs.getString("name")); 
@@ -277,6 +279,9 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 			jdbcTemplate.query(sql2, new RowCallbackHandler() { //editing    
 			            public void processRow(ResultSet rs) throws SQLException {    
 			            	Commodity commodity=new Commodity();
+			            	if(fobbidens.contains(rs.getInt("id"))) {
+			            		return;
+			            	}
 			            	commodity.setId(rs.getInt("id"));
 			            	commodity.setLink(rs.getString("link"));
 			            	commodity.setName(rs.getString("name")); 
