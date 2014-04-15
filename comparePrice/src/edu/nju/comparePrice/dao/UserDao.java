@@ -161,7 +161,9 @@ public class UserDao extends HibernateDao<User, Long> {
 			            	Navy navy=new Navy();
 			            	navy.setId(rs.getInt("id"));
 			            	int userid=rs.getInt("uid");
+			            	navy.setUid(rs.getInt("uid"));
 			            	User user=find(userid);
+			            	
 			            	navy.setUser(user);
 			         
 			                navy.setFlag(rs.getBoolean("flag"));

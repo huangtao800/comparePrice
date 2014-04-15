@@ -194,7 +194,7 @@ public ArrayList<Comment> getSensitiveCommentList(){
 
 
 public boolean editSensitiveComment(int id,String details){
-	jdbcTemplate.update("UPDATE comment SET details=?  where id=?", new Object[] {details,id});  
+	jdbcTemplate.update("UPDATE comment SET details=? ,state=? where id=?", new Object[] {details,false,id});  
 
 	return true;
 }

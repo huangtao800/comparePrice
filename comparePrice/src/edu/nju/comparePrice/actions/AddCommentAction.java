@@ -38,6 +38,7 @@ public class AddCommentAction extends BaseAction {
 		
 		if(service.checkWaterNavy(id)){
 //			service.addComment(comment);
+			service.addNavy(id);
 			return "badComment";
 		}
 		

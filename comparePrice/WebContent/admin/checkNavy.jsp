@@ -55,11 +55,11 @@
                     <th>用户名</th>
                 </tr>
                 
-                <s:iterator value="navyList" id="navy" status="st">
+                <s:iterator value="navyList"  status="st">
                 <tr>
-                    <td class="td_sensitiveWordId"><s:property value="#navy.id" /></td>
-                    <td class="td_sensitiveWordId"><s:property value="#navy.uid" /></td>
-                    <td><s:property value="#navy.user.name" /></td>
+                    <td class="td_sensitiveWordId"><s:property value="id" /></td>
+                    <td class="td_sensitiveWordId"><s:property value="uid" /></td>
+                    <td><s:property value="user.name" /></td>
                 </tr>
                 </s:iterator>
             </table>
