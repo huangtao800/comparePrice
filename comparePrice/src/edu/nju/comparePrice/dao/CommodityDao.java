@@ -1,20 +1,12 @@
 package edu.nju.comparePrice.dao;
 
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
-
-
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import org.springside.modules.orm.hibernate.HibernateDao;
 
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.CommodityCrawl;
 import edu.nju.comparePrice.models.Synonym;
@@ -254,9 +245,12 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		else{
 			sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
 		}
+        final Set<Integer> fobbidens = getFobbidens();
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	Commodity commodity=new Commodity();
+		            	if(fobbidens.contains(rs.getInt("id")))
+		            		return;
 		            	commodity.setId(rs.getInt("id"));
 		            	commodity.setLink(rs.getString("link"));
 		            	commodity.setName(rs.getString("name")); 
@@ -305,6 +299,14 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 
 
 		}
+	
+	private Set<Integer> getFobbidens() {
+		Set<Integer> fobbidens = new HashSet<Integer>();
+		for(Commodity c : getForbiddenCommodities()) {
+			fobbidens.add(c.getId());
+		}
+		return fobbidens;
+	}
 	/*public void testcase() {
 		ArrayList<Commodity> forbiddenCommodities=DaoFacade.getInstance().getForbiddenCommodities();
 		System.out.println("forbiddenCommodities");
