@@ -88,15 +88,13 @@ public class CommentDao extends HibernateDao<Comment, Long> {
                 	commentList.add(comment);
             	}
             }
-              
-		});
-		
+               });
 		return  commentList;
 	
 	}
 
 	public boolean addComment(Comment c) {
-		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),false,c.getSpecialstate()});
+		jdbcTemplate.update("INSERT INTO comment VALUES(?,?,?,?,?,?)", new Object[] {null,c.getUid(),c.getDetails(),c.getCid(),c.getState(),c.getSpecialstate()});
 		return true;		
 	}
 	
@@ -166,8 +164,9 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 	
 	
 public ArrayList<Comment> getSensitiveCommentList(){
+		
 		final ArrayList<Comment> commentList =new ArrayList<Comment>();
-		String sql = "select * from comment where state ="+true;	
+		String sql = "select * from comment where state ="+false;	
 		
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
             public void processRow(ResultSet rs) throws SQLException {    
@@ -186,7 +185,7 @@ public ArrayList<Comment> getSensitiveCommentList(){
             	Commodity commodity=commodityDao.queryCommodityByID(commodityId);
             	comment.setCommodity(commodity);
             	
-            	commentList.add(comment);
+            	
             }
                });
 		return  commentList;
@@ -195,8 +194,7 @@ public ArrayList<Comment> getSensitiveCommentList(){
 
 
 public boolean editSensitiveComment(int id,String details){
-	jdbcTemplate.update("UPDATE comment SET details=?,state=?  where id=?", new Object[] {details,false,id});  
-	
+	jdbcTemplate.update("UPDATE comment SET details=?  where id=?", new Object[] {details,id});  
 
 	return true;
 }

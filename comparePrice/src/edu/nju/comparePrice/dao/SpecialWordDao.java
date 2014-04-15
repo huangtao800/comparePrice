@@ -36,11 +36,7 @@ public class SpecialWordDao extends HibernateDao<SpecialWord, Long> {
 	            public void processRow(ResultSet rs) throws SQLException {    
 	            	SpecialWord specialWord=new SpecialWord();
 	            	specialWord.setBid(rs.getInt("bid"));
-	            	specialWord.setId(rs.getInt("id"));
 	            	specialWord.setName(rs.getString("name"));
-	            	
-	            	Brand brand = brandDao.queryBrandById(rs.getInt("bid"));
-	            	specialWord.setBrand(brand);
 	            	wordList.add(specialWord);
 	            }
 	               });

@@ -64,9 +64,6 @@ public class UserDao extends HibernateDao<User, Long> {
 	public BaseUser findBaseUser(int id) {
 		BaseUser baseUser=new BaseUser();
 		User user=this.find(id);
-		if (user.getId() == -1) {
-			return null;
-		}
 		baseUser.setId(user.getId());
 		baseUser.setPassword(user.getPassword());
 		return baseUser;
@@ -75,7 +72,6 @@ public class UserDao extends HibernateDao<User, Long> {
 
 		public User find(int userId) {
 			final User user=new User();
-			user.setId(-1);
 			String sql = "select * from user where id="+userId;
 			
 			jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
@@ -90,7 +86,8 @@ public class UserDao extends HibernateDao<User, Long> {
 	                user.setSensitivecount(rs.getInt("sensitivecount"));
 	            
 	            }
-	        });
+	               });
+			System.out.println(user.getId()+user.getName());
 			return  user;
 			
 		}
@@ -165,7 +162,6 @@ public class UserDao extends HibernateDao<User, Long> {
 			            	navy.setId(rs.getInt("id"));
 			            	int userid=rs.getInt("uid");
 			            	User user=find(userid);
-			            	navy.setUid(userid);
 			            	navy.setUser(user);
 			         
 			                navy.setFlag(rs.getBoolean("flag"));

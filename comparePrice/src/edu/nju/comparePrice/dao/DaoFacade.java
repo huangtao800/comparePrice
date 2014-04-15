@@ -13,7 +13,6 @@ import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import edu.nju.comparePrice.models.BaseUser;
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SpecialWord;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
@@ -46,9 +45,9 @@ public class DaoFacade {
 	
 	
 	
-	public static DaoFacade getInstance(){
+	/*public static DaoFacade getInstance(){
 		return ApplicationContextContainer.getBean(DaoFacade.class);
-	}
+	}*/
 	
 	public boolean login(String username,String password) {
 		return uDao.login(username, password);
@@ -98,7 +97,7 @@ public class DaoFacade {
 	}
 
 	public void setSpecialFlag(int commentID,boolean flag) {
-		cDao.setSpecialFlag(commentID, flag);
+	
 	}
 
 	public void addWaterNavy(int userID) {
@@ -177,10 +176,12 @@ public class DaoFacade {
 	return uDao.findBaseUser(id);
 	}
 	
-//	public boolean addCrawlerWebsite(String crawlerWebSite) {
-//		
-//		return crDao.addCrawlerWebsite(crawlerWebSite);
-//	}
+	public boolean addCrawlerWebsite(String crawlerWebSite,String link) {
+		
+		
+		
+		return crDao.addCrawlerWebsite(crawlerWebSite,link);
+	}
 	public boolean removeCrawlerWebsite(int crawlerWebsiteId) {
 		
 		
@@ -247,47 +248,5 @@ public class DaoFacade {
 		
 		}
 		
-		public ArrayList<Navy> getNavyList(){
-			return uDao.getNavyList();
-		}
-		
-		public ArrayList<Comment> getSensitiveCommentList(){
-			return cDao.getSensitiveCommentList();
-		}
-		
-		public boolean deleteSensitiveComment(int cid){
-			return cDao.deleteSensitiveComment(cid);
-		}
-		
-		public boolean editSensitiveComment(int cid,String details){
-			return cDao.editSensitiveComment(cid, details);
-		}
-		
-		public Comment getCommentById(int commentId){
-			return cDao.queryCommentById(commentId);
-		}
-		
-		public ArrayList<CrawlerWebsite> getCrawlerWebsiteList(){
-			return crDao.getCrawlerWebSiteList();
-		}
-		
-		//新增CrawlerWebsite
-		public boolean addCrawlerWebsite(String name,String link){
-			return crDao.addCrawlerWebsite(name,link);
-		}
-		
-		//删除CrawlerWebsite
-		public boolean deleteCrawlerWebsite(int id){
-			return crDao.removeCrawlerWebsite(id);
-		}
-		
-		
-		
-		public static void main(String[] args){
-			Brand brand=DaoFacade.getInstance().queryBrandById(100000000);
-			
-			
-			System.out.println("brand.name"+brand.getName());
-		}
 	
 }
