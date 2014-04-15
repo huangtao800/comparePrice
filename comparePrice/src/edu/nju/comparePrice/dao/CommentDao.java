@@ -166,7 +166,7 @@ public class CommentDao extends HibernateDao<Comment, Long> {
 public ArrayList<Comment> getSensitiveCommentList(){
 		
 		final ArrayList<Comment> commentList =new ArrayList<Comment>();
-		String sql = "select * from comment where state ="+false;	
+		String sql = "select * from comment where state ="+true;	
 		
 		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
             public void processRow(ResultSet rs) throws SQLException {    
