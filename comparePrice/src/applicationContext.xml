@@ -141,6 +141,9 @@
 		</property>
 	</bean>
 	
+	<bean id="PingAction" class="edu.nju.comparePrice.actions.PingAction">
+	</bean>	
+	
 	<!-- crawler -->
 	<bean id="CrawlerAction" class="edu.nju.comparePrice.actions.CrawlerAction">
 		<property name="CrawlerService">

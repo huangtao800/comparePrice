@@ -48,6 +48,11 @@
 			<result name="success">/user/comments.jsp</result>
 			<result name="error">/user/noComment.jsp</result>
 		</action>
+		
+		<action name="PingAction" class="PingAction">
+		</action>
+		
+		
 
 		
 	</package>
