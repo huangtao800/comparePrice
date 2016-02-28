@@ -8,7 +8,7 @@
 <title>Crawler Website</title>
     <link rel="stylesheet" href="<s:url value="/css/bootstrap-theme.min.css" />" />
     <link rel="stylesheet" href="<s:url value="/css/bootstrap.min.css" />" />
-    <link rel="stylesheet" href="<s:url value="/css/forbidCommodity.css" />" />
+    <link rel="stylesheet" href="<s:url value="/css/candidateWord.css" />" />
     <link rel="stylesheet" href="<s:url value="/css/admin.css" />" />
 
     <script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
@@ -24,7 +24,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" >iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -48,8 +48,8 @@
     <div class="container">
         <div class="input-group" id="search">
              <s:form theme="simple"  role="form"  name="form_commodity_search" method="post" action="AddCrawlerWebsiteAction" >
-                <s:textfield   id="websiteName" name="websiteName"  cssClass="textfield_mem_uid" placeholder="请输入要添加的网站名：" />
-                <s:textfield   id="websiteLink" name="websiteLink"  cssClass="textfield_mem_uid" placeholder="网站的链接：" />
+                <s:textfield  name="websiteName"  cssClass="textfield_input" placeholder="请输入要添加的网站名" />
+                <s:textfield  name="websiteLink"  cssClass="textfield_input" placeholder="网站的链接" />
                 <s:submit cssClass="btn btn-primary" id="btn_forbid_search" name="btn_forbid_search" value="添加"/>
             </s:form>
         </div>

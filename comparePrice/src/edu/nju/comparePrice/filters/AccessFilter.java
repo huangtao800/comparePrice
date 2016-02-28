@@ -30,7 +30,6 @@ public class AccessFilter extends HttpServlet implements Filter{
 		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
 		String ip = getIp(httpServletRequest);
 		String url = httpServletRequest.getServletPath();
-		System.out.println(url);
 		
 		String contextPath = httpServletRequest.getContextPath();
 		
@@ -38,6 +37,7 @@ public class AccessFilter extends HttpServlet implements Filter{
     	if (canAccess) {
     		chain.doFilter(request, response); 
     	} else {
+    		System.out.println("被屏蔽:" + ip);
     		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
     		httpServletResponse.sendRedirect(contextPath+"/user/attackWarn.jsp");
     	}

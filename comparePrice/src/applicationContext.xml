@@ -141,12 +141,21 @@
 		</property>
 	</bean>
 	
+	<bean id="PingAction" class="edu.nju.comparePrice.actions.PingAction">
+	</bean>	
+	
 	<!-- crawler -->
 	<bean id="CrawlerAction" class="edu.nju.comparePrice.actions.CrawlerAction">
 		<property name="CrawlerService">
 			<ref bean="CrawlerService"/>
 		</property>
-	</bean>		
+	</bean>
+	
+	<bean id="dbAdminLoginAction" class="edu.nju.comparePrice.actions.DBadminLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
 	<!-- crawler end -->
 	
 	
@@ -169,7 +178,7 @@
 	<bean id="brandService" class="edu.nju.comparePrice.services.BrandService">
 	</bean>
 	
-	<bean id="searchController" class="edu.nju.comparePrice.services.search.SearchController">
+	<bean id="synonymService" class="edu.nju.comparePrice.services.SynonymService">
 	</bean>
 	
 	

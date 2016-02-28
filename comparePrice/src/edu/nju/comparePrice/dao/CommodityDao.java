@@ -1,20 +1,12 @@
 package edu.nju.comparePrice.dao;
 
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
-
-
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import org.springside.modules.orm.hibernate.HibernateDao;
 
 import edu.nju.comparePrice.models.Brand;
-import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
 import edu.nju.comparePrice.models.CommodityCrawl;
 import edu.nju.comparePrice.models.Synonym;
@@ -57,9 +48,49 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		return  commodityList;
 	
 	}
+	
+	public Commodity getForbiddenCommodityByID(int cid){
+		final Commodity commodity =new Commodity();
+		
+		String sql = "select * from forbid_commodity where cid="+cid;
+		
+		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+            public void processRow(ResultSet rs) throws SQLException {    
+            
+            	commodity.setId(rs.getInt("cid"));
+            	commodity.setName(rs.getString("name"));
+                
+                
+            	
+            }
+               });
+		return  commodity;
+	
+	}
 
 	public List<Commodity> getToForbidCommodities(String commodityName){
-		return queryCommoditiesByName(commodityName);
+		ArrayList<Commodity> toForbidCommodityList=(ArrayList<Commodity>) queryCommoditiesByName(commodityName);
+//		ArrayList<Commodity> toForbidCommodityList=new ArrayList<Commodity>();
+		
+//		int size=toForbidCommodityList.size();
+//		System.out.println("size:"+size);
+//		ArrayList<Integer> indexToRemove=new ArrayList<Integer>();
+//		for(int i=0;i<size;i++){
+//			Commodity forbid=getForbiddenCommodityByID(toForbidCommodityList.get(i).getId());
+//			System.out.println(forbid);
+//			System.out.println(forbid.getId());
+//			if(forbid.getId()!=null){
+//				indexToRemove.add(i);
+//			}
+//		}
+//		
+//		System.out.println(indexToRemove);
+//		for(int j=0;j<indexToRemove.size();j++){
+//			System.out.println("qqq "+j);
+//			toForbidCommodityList.remove(indexToRemove.get(j));
+//		}
+//		System.out.println("sizesize:"+toForbidCommodityList.size());
+		return toForbidCommodityList;
 		
 	}
 	public boolean cancelForbid(int commodityId) {
@@ -73,7 +104,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 
 	
 	public List<Commodity> queryCommoditiesByName(String commodityName){
-    final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
+        final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
 		
 		String sql = "select * from commodity where name='"+commodityName+"'";
 		
@@ -97,6 +128,10 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	}
 	public boolean addForbidCommodity(int commodityId) {
+		Commodity c=getForbiddenCommodityByID(commodityId);
+		if(c.getId()!=null)
+			return true;
+		
 		Commodity commodity=queryCommodityByID(commodityId);
 		jdbcTemplate.update("INSERT INTO forbid_commodity VALUES(?,?, ?)", new Object[] {null,commodity.getId(),commodity.getName()});
 		
@@ -184,10 +219,13 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 	
 	public ArrayList<Commodity> findCommodity(List<Synonym> keywords){
 		ArrayList<String> queryList=new ArrayList<String>();
-		for(int i=0;i<2;i++) {
+		for(int i=0;i<Math.min(keywords.size(),2);i++) {
 			ArrayList<Synonym> synonymList=new ArrayList<Synonym>();
 			synonymList.add(keywords.get(i));
+			System.out.println("index"+i+keywords.get(i));
+			if(keywords.get(i).getFlag()!=null){
 		synonymList.addAll(synonymDao.getSynonymByFlag(keywords.get(i).getFlag()));
+			}
 		StringBuilder sBuilder=new StringBuilder();
 	
 		for(Synonym temp:synonymList) {
@@ -199,12 +237,21 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		}
 	    
 		final ArrayList<Commodity> commodityList =new ArrayList<Commodity>();
-
-		String sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
-
-		jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
+		String sql=new String();
+        if(keywords.size()==1){
+        	sql = "select * from commodity where ("+queryList.get(0)+ ")" ;
+        }
+		
+		else{
+			sql = "select * from commodity where ("+queryList.get(0)+ ") AND ("+queryList.get(1)+")";
+		}
+        final Set<Integer> fobbidens = getFobbidens();
+        System.out.println(fobbidens);
+        jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    
 		            	Commodity commodity=new Commodity();
+		            	if(!fobbidens.contains(rs.getInt("id"))) {
+		            		
 		            	commodity.setId(rs.getInt("id"));
 		            	commodity.setLink(rs.getString("link"));
 		            	commodity.setName(rs.getString("name")); 
@@ -217,14 +264,23 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 		                commodity.setBrand(brand);
 		            	commodityList.add(commodity);
 		            }
+		            }
 		               });
 		
 		if(commodityList.size()==0){
-			String sql2 = 	"select * from commodity where ("+queryList.get(0)+ ") OR ("+queryList.get(1)+")";
-
+			String sql2=new String();
+	        if(keywords.size()==1){
+	        	sql2 = "select * from commodity where ("+queryList.get(0)+ ")" ;
+	        }
+			
+			else{
+				sql2 = "select * from commodity where ("+queryList.get(0)+ ") OR ("+queryList.get(1)+")";
+			}
 			jdbcTemplate.query(sql2, new RowCallbackHandler() { //editing    
 			            public void processRow(ResultSet rs) throws SQLException {    
 			            	Commodity commodity=new Commodity();
+			            	if(!fobbidens.contains(rs.getInt("id"))) {
+			            		
 			            	commodity.setId(rs.getInt("id"));
 			            	commodity.setLink(rs.getString("link"));
 			            	commodity.setName(rs.getString("name")); 
@@ -236,6 +292,7 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 			                Brand brand=brandDao.queryBrandById(bid);
 			                commodity.setBrand(brand);
 			            	commodityList.add(commodity);
+			            	}
 			            }
 			               });
 			
@@ -247,6 +304,14 @@ public class CommodityDao extends HibernateDao<Commodity, Long> {
 
 
 		}
+	
+	private Set<Integer> getFobbidens() {
+		Set<Integer> fobbidens = new HashSet<Integer>();
+		for(Commodity c : getForbiddenCommodities()) {
+			fobbidens.add(c.getId());
+		}
+		return fobbidens;
+	}
 	/*public void testcase() {
 		ArrayList<Commodity> forbiddenCommodities=DaoFacade.getInstance().getForbiddenCommodities();
 		System.out.println("forbiddenCommodities");

@@ -24,7 +24,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" >iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -50,9 +50,9 @@
           <table class="table">
             <caption>候选词评论列表</caption>
             <tr>
-                <th>商家</th>
-                <th>评论</th>
-                <th>操作</th>
+                <td>商家</td>
+                <td>评论</td>
+                <td>操作</td>
             </tr>
             <s:iterator value="specialWordCommentList" status="st">
                 <tr>

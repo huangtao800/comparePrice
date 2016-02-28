@@ -76,7 +76,7 @@ public class SynonymDao extends HibernateDao<Synonym, Long> {
 		public int getCurrentMaxFlag(){
 			 final Synonym synonym =new Synonym();
 				
-				String sql = "select * from synonym where id in (select max(flag) from synonym)";
+				String sql = "select * from synonym where flag in (select max(flag) from synonym)";
 				
 				jdbcTemplate.query(sql, new RowCallbackHandler() { //editing    
 		            public void processRow(ResultSet rs) throws SQLException {    

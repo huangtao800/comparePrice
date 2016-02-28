@@ -25,7 +25,7 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
           	</button>
-			<a class="navbar-brand" class="active" href="homepage.jsp">iBiJia</a>
+			<a class="navbar-brand" class="active" >iBiJia</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -59,13 +59,13 @@
           <table class="table">
             <caption>候选词列表</caption>
             <tr>
-                <th>商家</th>
-                <th>候选词</th>
-                <th>操作</th>
+                <td>商家</td>
+                <td>候选词</td>
+                <td>操作</td>
             </tr>
             <s:iterator value="candidateWordList" status="st">
                 <tr>
-                    <td><s:property value="brand.name" /></td>
+                    <td><s:property value="id" /></td>
                     <td><s:property value="name" /></td>
                     <td>
                         <a class="btn btn-primary removeSensitiveWord" 

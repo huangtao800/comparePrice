@@ -31,7 +31,8 @@ public class ManageSensitiveCommentAction extends BaseAction{
 	}
 	
 	public String delete(){
-		boolean result=systemAdminService.deleteSensitiveComment(commentID);
+		int cid=Integer.parseInt(request.getParameter("commentID"));
+		boolean result=systemAdminService.deleteSensitiveComment(cid);
 		if(result)
 			return "SensitiveComment";
 		else
@@ -39,7 +40,9 @@ public class ManageSensitiveCommentAction extends BaseAction{
 	}
 	
 	public String modify(){
-		Comment comment=systemAdminService.getCommentById(commentID);
+		int cid=Integer.parseInt(request.getParameter("commentID"));
+		Comment comment=systemAdminService.getCommentById(cid);
+		commentID=cid;
 		commentDetails=comment.getDetails();
 		return "ModifySensitiveComment";
 	}

@@ -36,8 +36,9 @@
 
 	<div style="font-size:80px; margin-top:80px; margin-left:50px;">评论失败</div>
 	
+	<!--  
 	<a class="navbar-brand" class="active" style="margin-left:50px" href="getComments?cid=%{comment.id}">点击返回商品列表...</a>
-	
+	-->
 </body>
 
 	<script src="../js/jquery-2.1.0.min.js"></script>

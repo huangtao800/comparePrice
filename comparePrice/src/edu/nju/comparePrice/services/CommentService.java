@@ -10,6 +10,7 @@ import edu.nju.comparePrice.dao.DaoFacade;
 import edu.nju.comparePrice.models.Brand;
 import edu.nju.comparePrice.models.Comment;
 import edu.nju.comparePrice.models.Commodity;
+import edu.nju.comparePrice.models.Navy;
 import edu.nju.comparePrice.models.SensitiveWord;
 import edu.nju.comparePrice.models.SpecialWord;
 import edu.nju.comparePrice.models.User;
@@ -19,7 +20,7 @@ public class CommentService {
 	@Autowired 
 	private DaoFacade daoFacade;
 	
-	private static final int SENSITIVECOUNT=10;
+	private static final int SENSITIVECOUNT=3;
 	
 			//should be initialized by DAOFacase
 
@@ -100,5 +101,14 @@ public class CommentService {
 		return sensitiveCount>=SENSITIVECOUNT;
 	}
 	
+	public void addNavy(int userID){
+		ArrayList<Navy> navyList=daoFacade.getNavyList();
+		for(int i=0;i<navyList.size();i++){
+			if(userID==navyList.get(i).getUid()){
+				return ;
+			}
+		}
+		daoFacade.addWaterNavy(userID);
+	}
 }
 

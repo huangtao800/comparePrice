@@ -271,12 +271,12 @@ public class DaoFacade {
 			return crDao.getCrawlerWebSiteList();
 		}
 		
-		//新增CrawlerWebsite
+		//鏂板CrawlerWebsite
 		public boolean addCrawlerWebsite(String name,String link){
 			return crDao.addCrawlerWebsite(name,link);
 		}
 		
-		//删除CrawlerWebsite
+		//鍒犻櫎CrawlerWebsite
 		public boolean deleteCrawlerWebsite(int id){
 			return crDao.removeCrawlerWebsite(id);
 		}
