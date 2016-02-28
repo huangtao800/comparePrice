@@ -27,7 +27,6 @@ public class AccessFilter extends HttpServlet implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		
 		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
 		String ip = getIp(httpServletRequest);
 		String url = httpServletRequest.getServletPath();
